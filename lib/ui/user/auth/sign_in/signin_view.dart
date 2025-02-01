@@ -12,6 +12,7 @@ import '../../../../widgets/custom_textfield.dart';
 import '../../../../widgets/forgot_passtext.dart';
 import '../../../../widgets/mytext_widget.dart';
 import '../../home/home_view.dart';
+import '../../navigation/navigation_view.dart';
 
 class SigninView extends StatelessWidget {
   const SigninView({super.key});
@@ -76,8 +77,8 @@ class SigninView extends StatelessWidget {
                                   },
                                   child: SvgPicture.asset(
                                     controller.isPassHidden.value
-                                        ? Assets.eyeclose
-                                        : Assets.eyeopen,
+                                        ? Assets.eyeclosed
+                                        : Assets.eyeopened,
                                     width: 15.w,
                                     height: 15.h,
                                     fit: BoxFit.contain,
@@ -104,7 +105,7 @@ class SigninView extends StatelessWidget {
                           textColor: AppColors.whiteColor,
                           text: 'Sign In',
                           onPressed: () {
-                            Get.offAll(() => const HomeView());
+                            Get.offAll(() => NavigationView());
                             print('Sign In button pressed!');
                           },
                           width: double.infinity,

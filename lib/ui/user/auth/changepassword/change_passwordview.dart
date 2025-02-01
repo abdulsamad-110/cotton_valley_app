@@ -74,8 +74,8 @@ class ChangePasswordview extends StatelessWidget {
                                     },
                                     child: SvgPicture.asset(
                                       controller.isNewPassHidden.value
-                                          ? Assets.eyeclose
-                                          : Assets.eyeopen,
+                                          ? Assets.eyeclosed
+                                          : Assets.eyeopened,
                                       width: 12.w,
                                       height: 12.h,
                                     ),
@@ -104,8 +104,8 @@ class ChangePasswordview extends StatelessWidget {
                                   },
                                   child: SvgPicture.asset(
                                     controller.isConfrimNewPassHidden.value
-                                        ? Assets.eyeclose
-                                        : Assets.eyeopen,
+                                        ? Assets.eyeclosed
+                                        : Assets.eyeopened,
                                     width: 12.w,
                                     height: 12.h,
                                   ),
