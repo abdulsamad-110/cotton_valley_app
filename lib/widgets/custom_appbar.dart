@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -6,8 +7,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double backImageSize;
   final TextStyle? titleStyle;
   final Widget? searchIcon;
-  final Widget? menuIcon;
+  final Widget? filterIcon;
   final Function()? onBackPressed;
+  final Function()? onSearchPressed;
+  final Function()? onFilterPressed;
 
   const CustomAppBar({
     Key? key,
@@ -16,23 +19,27 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backImageSize = 24.0,
     this.titleStyle,
     this.searchIcon,
-    this.menuIcon,
+    this.filterIcon,
     this.onBackPressed,
+    this.onSearchPressed,
+    this.onFilterPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20), // Left & Right Padding
+      padding:
+          const EdgeInsets.symmetric(horizontal: 20), // Left & Right Padding
       child: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        titleSpacing: 0, // Title ko left align rakhta hai
+        titleSpacing: 0,
         leading: backImage != null
             ? GestureDetector(
-                onTap: onBackPressed ?? () {
-                  Navigator.pop(context);
-                },
+                onTap: onBackPressed ??
+                    () {
+                      Navigator.pop(context);
+                    },
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: SizedBox(
@@ -42,34 +49,39 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
               )
-            : null, // Agar backImage null hai to leading bhi null hoga
+            : null,
         title: title != null
             ? Row(
-                mainAxisSize: MainAxisSize.min, // Jitni zaroorat ho utni space lega
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (backImage != null) const SizedBox(width: 8), // Gap if backImage exists
+                  if (backImage != null) const SizedBox(width: 8),
                   Text(
                     title!,
-                    style: titleStyle ??
-                        const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                    style: titleStyle ?? AppTextStyles.popBold17,
                   ),
                 ],
               )
             : null, // Agar title null hai to title nahi dikhega
         actions: [
           if (searchIcon != null)
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: searchIcon!,
+            GestureDetector(
+              onTap: onSearchPressed ?? () {
+                print("Search icon tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: searchIcon!,
+              ),
             ),
-          if (menuIcon != null)
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: menuIcon!,
+          if (filterIcon != null)
+            GestureDetector(
+              onTap: onFilterPressed ?? () {
+                print("Filter icon tapped");
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 5.0),
+                child: filterIcon!,
+              ),
             ),
         ],
       ),

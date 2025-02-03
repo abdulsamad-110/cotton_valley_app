@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
+import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:cotton_valley_app/widgets/product_custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,20 +9,23 @@ import '../utils/app_colors.dart';
 import 'custom_button.dart';
 
 class ProductsWidget extends StatelessWidget {
-  const ProductsWidget({super.key});
+  final String? title; // Optional title
+
+  const ProductsWidget({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
-          child: Text(
-            'Products',
-            style: AppTextStyles.popblack16,
+        if (title != null && title!.isNotEmpty) // Show title only if provided
+          Padding(
+            padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
+            child: Text(
+              title!,
+              style: AppTextStyles.popblack16,
+            ),
           ),
-        ),
         SizedBox(
           width: double.infinity,
           child: CarouselSlider.builder(
@@ -78,15 +82,29 @@ class ProductsWidget extends StatelessWidget {
                           'Category - Sub Category',
                           style: AppTextStyles.popRegular12,
                         ),
-                        const SizedBox(
-                          height: 4,
-                        ),
+                        SizedBox(height: 4.h),
                         Row(
+                          //mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                            // MycustomButton(
+                            //     backgroundColor: AppColors.redColor,
+                            //     borderRadius: 6.r,
+                            //     title: 'keyword',
+                            //     titleTextStyle: AppTextStyles.popWhite8,
+                            //     height: 20.h,
+                            //     width: 47.w,
+                            //     onPressed: () {}),
+                            // SizedBox(width: 2.w),
+                            // MycustomButton(
+                            //     backgroundColor: AppColors.redColor,
+                            //     borderRadius: 6.r,
+                            //     title: 'keyword',
+                            //     titleTextStyle: AppTextStyles.popWhite8,
+                            //     height: 20.h,
+                            //     width: 47.w,
+                            //     onPressed: () {}),
                             ProductCustomButton(onTap: () {}),
-                            SizedBox(
-                              width: 2.w,
-                            ),
+                            SizedBox(width: 2.w),
                             ProductCustomButton(onTap: () {}),
                           ],
                         ),

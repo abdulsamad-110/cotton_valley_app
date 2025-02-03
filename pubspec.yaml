@@ -41,6 +41,7 @@ dependencies:
   flutter_svg:
   motion_tab_bar:
   carousel_slider:
+  buttons_tabbar:
 dev_dependencies:
   flutter_test:
     sdk: flutter

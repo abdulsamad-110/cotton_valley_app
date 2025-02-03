@@ -12,7 +12,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../../widgets/forgot_passtext.dart';
 import '../../../../../widgets/mytext_widget.dart';
+import '../../../../utils/text_style.dart';
 import '../../../../widgets/custom_textfield.dart';
+import '../../../../widgets/mycustom_button.dart';
 
 class CreatePasswordView extends StatelessWidget {
   const CreatePasswordView({super.key});
@@ -63,31 +65,40 @@ class CreatePasswordView extends StatelessWidget {
                               'You’re signing in for the first time. Create your password now.',
                         ),
                         SizedBox(height: 16.h),
-                        ///// Custom Password TextField
+
                         Obx(
-                          () => Center(
-                            child: CustomTextField(
-                              hintText: '********',
-                              titleText: 'Password',
-                              obscureText: controller.isPassHidden.value,
-                              suffixIcon: Padding(
-                                padding: EdgeInsets.only(right: 12.w),
+                          () => CustomTextField(
+                            height: 31.h,
+                            width: 315.w,
+                            titleText: "Password",
+                            hintText: '********',
+                            isBorder: false,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13.0.w,
+                                vertical: context.height * 0.0),
+                            controller: controller.passwordController,
+                            hintTextStyle: AppTextStyles.popRegular10,
+                            obscureText: controller.isPassHidden.value,
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                controller.togglePassword();
+                              },
+                              child: Padding(
+                                padding: controller.isPassHidden.value
+                                    ? EdgeInsets.symmetric(
+                                        horizontal: 12.0.w, vertical: 13.h)
+                                    : EdgeInsets.all(11.r),
                                 child: SizedBox(
-                                  child: InkWell(
-                                    onTap: () {
-                                      controller.togglePassword();
-                                    },
-                                    child: SvgPicture.asset(
-                                      controller.isPassHidden.value
-                                          ? Assets.eyeclosed
-                                          : Assets.eyeopened,
-                                      width: 12.w,
-                                      height: 12.h,
-                                    ),
+                                  width: 15.0.w,
+                                  height: 15.0.h,
+                                  child: SvgPicture.asset(
+                                    controller.isPassHidden.value
+                                        ? Assets.eyeclosed
+                                        : Assets.eyeopened,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
-                              controller: controller.passwordController,
                             ),
                           ),
                         ),
@@ -96,27 +107,38 @@ class CreatePasswordView extends StatelessWidget {
                         ///// Custom Password TextField
                         Obx(
                           () => CustomTextField(
-                            titleText: 'Confrim Password',
+                            height: 31.h,
+                            width: 315.w,
+                            titleText: "Confrim Password",
                             hintText: '********',
+                            isBorder: false,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13.0.w,
+                                vertical: context.height * 0.0),
+                            controller: controller.confrimPassController,
+                            hintTextStyle: AppTextStyles.popRegular10,
                             obscureText: controller.isConfrimPassHidden.value,
-                            suffixIcon: Padding(
-                              padding: EdgeInsets.only(right: 12.w),
-                              child: SizedBox(
-                                child: InkWell(
-                                  onTap: () {
-                                    controller.toggleConfrimPassword();
-                                  },
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                controller.togglePassword();
+                              },
+                              child: Padding(
+                                padding: controller.isConfrimPassHidden.value
+                                    ? EdgeInsets.symmetric(
+                                        horizontal: 12.0.w, vertical: 13.h)
+                                    : EdgeInsets.all(11.r),
+                                child: SizedBox(
+                                  width: 15.0.w,
+                                  height: 15.0.h,
                                   child: SvgPicture.asset(
                                     controller.isConfrimPassHidden.value
                                         ? Assets.eyeclosed
                                         : Assets.eyeopened,
-                                    width: 12.w,
-                                    height: 12.h,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
-                            controller: controller.confrimPassController,
                           ),
                         ),
 
@@ -130,15 +152,15 @@ class CreatePasswordView extends StatelessWidget {
                         ),
                         SizedBox(height: 16.h),
                         ///// Custom Button
-                        CustomButton(
-                          backgroundColor: AppColors.redColor,
-                          textColor: AppColors.whiteColor,
-                          text: 'Sign In',
-                          onPressed: () {
-                            print('Sign In button pressed!');
-                          },
-                          width: double.infinity,
-                        ),
+                        MycustomButton(
+                            height: 37.h,
+                            width: 316.w,
+                            title: 'Create Password',
+                            onPressed: () {
+                              //await controller.logIn();
+                              //Get.offAll(() => NavigationView());
+                              print('Sign In button pressed!');
+                            }),
                       ],
                     ),
                   ],

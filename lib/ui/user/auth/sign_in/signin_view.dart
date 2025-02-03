@@ -4,6 +4,7 @@ import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/assets.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
+import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -53,43 +54,58 @@ class SigninView extends StatelessWidget {
                           subtitle: 'Enter your credentials to continue.',
                         ),
                         SizedBox(height: 16.h),
+                        ///// Custom Email TextField
                         CustomTextField(
+                          height: 31.h,
+                          width: 315.w,
                           titleText: 'Email',
                           hintText: 'example@gmail.com',
+                          isBorder: false,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13.0.w,
+                              vertical: context.height * 0.0),
                           controller: controller.emailController,
+                          hintTextStyle: AppTextStyles.popRegular10,
                         ),
 
                         SizedBox(height: 20.h),
                         ///// Custom Password TextField
                         Obx(
                           () => CustomTextField(
-                            titleText: 'Password',
-                            hintText: '*******',
-                            // hintTextStyle: AppTextStyles.popRegular10,
+                            height: 32.h,
+                            width: 316.w,
+                            titleText: "Password",
+                            hintText: '********',
+                            isBorder: false,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 13.0.w,
+                                vertical: context.height * 0.02),
+                            controller: controller.passwordController,
+                            hintTextStyle: AppTextStyles.popRegular10,
                             obscureText: controller.isPassHidden.value,
-                            suffixIcon: Padding(
-                              padding: EdgeInsets.only(right: 12.w),
-                              child: SizedBox(
-                                child: InkWell(
-                                  onTap: () {
-                                    controller.togglePassword();
-                                    print("toggle work====>");
-                                  },
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                controller.togglePassword();
+                              },
+                              child: Padding(
+                                padding: controller.isPassHidden.value
+                                    ? EdgeInsets.symmetric(
+                                        horizontal: 12.0.w, vertical: 13.h)
+                                    : EdgeInsets.all(11.r),
+                                child: SizedBox(
+                                  width: 24.0.w,
+                                  height: 24.0.h,
                                   child: SvgPicture.asset(
                                     controller.isPassHidden.value
                                         ? Assets.eyeclosed
                                         : Assets.eyeopened,
-                                    width: 15.w,
-                                    height: 15.h,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
-                            controller: controller.passwordController,
                           ),
                         ),
-
                         SizedBox(height: 4.h),
                         ///// Forgot password text
                         ForgotpassText(
@@ -100,16 +116,25 @@ class SigninView extends StatelessWidget {
                         ),
                         SizedBox(height: 16.h),
                         ///// Custom Button
-                        CustomButton(
-                          backgroundColor: AppColors.redColor,
-                          textColor: AppColors.whiteColor,
-                          text: 'Sign In',
-                          onPressed: () {
-                            Get.offAll(() => NavigationView());
-                            print('Sign In button pressed!');
-                          },
-                          width: double.infinity,
-                        ),
+                        MycustomButton(
+                            height: 37.h,
+                            width: 316.w,
+                            title: 'Sign In',
+                            onPressed: () {
+                              //await controller.logIn();
+                              Get.offAll(() => NavigationView());
+                              print('Sign In button pressed!');
+                            }),
+                        // CustomButton(
+                        //   backgroundColor: AppColors.redColor,
+                        //   textColor: AppColors.whiteColor,
+                        //   text: 'Sign In',
+                        //   onPressed: () {
+                        //     Get.offAll(() => NavigationView());
+                        //     print('Sign In button pressed!');
+                        //   },
+                        //   // width: double.infinity,
+                        // ),
                       ],
                     ),
                   ],

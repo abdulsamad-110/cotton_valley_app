@@ -1,13 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import '../utils/assets.dart';
+
 import '../utils/app_colors.dart';
+import '../utils/assets.dart';
 import '../utils/text_style.dart';
 
 class VendorsWidget extends StatelessWidget {
-  const VendorsWidget({super.key});
+  final String? title; // Title is optional
+  const VendorsWidget({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,14 @@ class VendorsWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
-            child: Text(
-              'Vendors',
-              style: AppTextStyles.popblack16,
+          if (title != null) // Show title only if it's provided
+            Padding(
+              padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
+              child: Text(
+                title!, // Display title
+                style: AppTextStyles.popblack16,
+              ),
             ),
-          ),
           SizedBox(
             width: double.infinity,
             child: CarouselSlider.builder(

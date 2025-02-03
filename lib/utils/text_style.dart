@@ -27,6 +27,9 @@ class AppTextStyles {
     fontWeight: FontWeight.normal,
     color: AppColors.blackColor,
   );
+  static TextStyle popgrey10 = GoogleFonts.poppins(
+      fontSize: 10.sp, color: AppColors.hinttext,// fontWeight: FontWeight.w500
+      );
 
   static TextStyle popRegular14 = GoogleFonts.poppins(
     fontSize: 14.sp,
@@ -43,12 +46,17 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.blackColor,
   );
+    static TextStyle popBold17 = GoogleFonts.poppins(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.blackColor,
+  );
   static TextStyle popBoldbt14 = GoogleFonts.poppins(
     fontSize: 14.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.whiteColor,
   );
-  static TextStyle popMediumbtn8 = GoogleFonts.poppins(
+  static TextStyle popMediumbtn14 = GoogleFonts.poppins(
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.whiteColor,
@@ -64,5 +72,10 @@ class AppTextStyles {
     fontSize: 10.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.blackColor,
+  );
+  static TextStyle popWhite8 = GoogleFonts.poppins(
+    fontSize: 8.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.whiteColor,
   );
 }

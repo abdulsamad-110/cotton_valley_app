@@ -71,7 +71,7 @@ class CustomTextField extends StatelessWidget {
         ),
         SizedBox(height: 5.h),
         Container(
-          height: height ?? 47.h,
+          height: height ?? 36.h,
           width: width ?? 315.w,
           decoration: BoxDecoration(
             border: isBorder == true

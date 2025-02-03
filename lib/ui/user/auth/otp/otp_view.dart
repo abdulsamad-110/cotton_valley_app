@@ -10,6 +10,7 @@ import '../../../../utils/assets.dart';
 import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/forgot_passtext.dart';
+import '../../../../widgets/mycustom_button.dart';
 import '../../../../widgets/mytext_widget.dart';
 import 'widgets/otpcustom_field.dart';
 
@@ -65,16 +66,15 @@ class OtpView extends StatelessWidget {
                         //
                         SizedBox(height: 16.h),
                         ///// Custom Button
-                        CustomButton(
-                          backgroundColor: AppColors.redColor,
-                          textColor: AppColors.whiteColor,
-                          text: 'Verify',
-                          onPressed: () {
-                            print('Sign In button pressed!');
-                            Get.to(() => const ChangePasswordview());
-                          },
-                          width: double.infinity,
-                        ),
+                        MycustomButton(
+                            height: 37.h,
+                            width: 316.w,
+                            title: 'Verify',
+                            onPressed: () {
+                              //await controller.logIn();
+                              Get.to(() => ChangePasswordview());
+                              print('Sign In button pressed!');
+                            }),
                       ],
                     ),
                   ],

@@ -36,6 +36,7 @@ class NavigationView extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
+              // color: AppColors.lightgreyColor,
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 selectedItemColor:
@@ -53,9 +54,12 @@ class NavigationView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Assets.homeicon,
-                      color: controller.selectedIndex.value == 0
-                          ? AppColors.redColor
-                          : AppColors.blackColor,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 0
+                            ? AppColors.redColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn,
+                      ),
                       height: 30.h,
                       width: 30.w,
                     ),
@@ -64,9 +68,12 @@ class NavigationView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Assets.producticon,
-                      color: controller.selectedIndex.value == 1
-                          ? AppColors.redColor
-                          : AppColors.blackColor,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 1
+                            ? AppColors.redColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn,
+                      ),
                       height: 30.h,
                       width: 30.w,
                     ),
@@ -75,9 +82,12 @@ class NavigationView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Assets.vendoricon,
-                      color: controller.selectedIndex.value == 2
-                          ? AppColors.redColor
-                          : AppColors.blackColor,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 2
+                            ? AppColors.redColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn,
+                      ),
                       height: 30.h,
                       width: 30.w,
                     ),
@@ -86,9 +96,12 @@ class NavigationView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Assets.storeicon,
-                      color: controller.selectedIndex.value == 3
-                          ? AppColors.redColor
-                          : AppColors.blackColor,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 3
+                            ? AppColors.redColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn,
+                      ),
                       height: 30.h,
                       width: 30.w,
                     ),
@@ -97,9 +110,12 @@ class NavigationView extends StatelessWidget {
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       Assets.settingicon,
-                      color: controller.selectedIndex.value == 4
-                          ? AppColors.redColor
-                          : AppColors.blackColor,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 4
+                            ? AppColors.redColor
+                            : AppColors.blackColor,
+                        BlendMode.srcIn,
+                      ),
                       height: 30.h,
                       width: 30.w,
                     ),

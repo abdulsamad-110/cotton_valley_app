@@ -2,6 +2,12 @@ import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/products_widget.dart';
 import 'package:cotton_valley_app/widgets/vendors_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../utils/assets.dart';
+import '../../../widgets/circular_button.dart';
+import '../../../widgets/sort_bottomsheet.dart';
 
 class VendorView extends StatelessWidget {
   const VendorView({super.key});
@@ -9,22 +15,39 @@ class VendorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const CustomAppBar(
-            title: 'Vendors',
-          ),
-          const Divider(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return const VendorsWidget();
+      body: Stack(children: [
+        Column(
+          children: [
+            ///// customwidget
+            CustomAppBar(
+              title: 'Vendors',
+              searchIcon: SvgPicture.asset(
+                  height: 22.h, width: 22.w, Assets.searchicon),
+              onSearchPressed: () {},
+              filterIcon: SvgPicture.asset(
+                  height: 22.h, width: 22.w, Assets.filtericon),
+              onFilterPressed: () {
+                SortBottomSheet(context);
               },
             ),
-          ),
-        ],
-      ),
+            const Divider(),
+            Expanded(
+              child: ListView.separated(
+                itemCount: 4,
+                itemBuilder: (context, index) => const VendorsWidget(),
+                separatorBuilder: (context, index) => SizedBox(
+                  height: 8.h,
+                ),
+              ),
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: 20.h,
+          right: 20.w,
+          child: const CircularButton(),
+        ),
+      ]),
     );
   }
 }

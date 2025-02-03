@@ -1,7 +1,13 @@
+import 'package:cotton_valley_app/widgets/circular_button.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
-import 'package:cotton_valley_app/widgets/products_widget.dart';
+import 'package:cotton_valley_app/widgets/sort_bottomsheet.dart';
+import 'package:cotton_valley_app/widgets/stores_widget.dart';
 import 'package:cotton_valley_app/widgets/vendors_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../utils/assets.dart';
 
 class StoreView extends StatelessWidget {
   const StoreView({super.key});
@@ -9,19 +15,38 @@ class StoreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          const CustomAppBar(
-            title: 'Stores',
+          Column(
+            children: [
+              ///// Custom AppBar
+              CustomAppBar(
+                title: 'Stores',
+                searchIcon: SvgPicture.asset(
+                    height: 22.h, width: 22.w, Assets.searchicon),
+                onSearchPressed: () {},
+                filterIcon: SvgPicture.asset(
+                    height: 22.h, width: 22.w, Assets.filtericon),
+                onFilterPressed: () {
+                  SortBottomSheet(context);
+                },
+              ),
+              const Divider(),
+              Expanded(
+                child: ListView.separated(
+                  itemCount: 4,
+                  itemBuilder: (context, index) => const StoresWidget(),
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 8.h,
+                  ),
+                ),
+              ),
+            ],
           ),
-          const Divider(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return const VendorsWidget();
-              },
-            ),
+          Positioned(
+            bottom: 20.h,
+            right: 20.w,
+            child: const CircularButton(),
           ),
         ],
       ),

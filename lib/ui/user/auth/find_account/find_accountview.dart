@@ -7,10 +7,12 @@ import 'package:get/get.dart';
 
 import '../../../../utils/app_colors.dart';
 import '../../../../utils/assets.dart';
+import '../../../../utils/text_style.dart';
 import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_textfield.dart';
 import '../../../../widgets/forgot_passtext.dart';
+import '../../../../widgets/mycustom_button.dart';
 import '../../../../widgets/mytext_widget.dart';
 
 class FindAccountview extends StatelessWidget {
@@ -60,10 +62,18 @@ class FindAccountview extends StatelessWidget {
                               'Enter your email address to receive a verifiction code.',
                         ),
                         SizedBox(height: 16.h),
+                        ///// Custom Email TextField
                         CustomTextField(
+                          height: 31.h,
+                          width: 315.w,
                           titleText: 'Email',
                           hintText: 'example@gmail.com',
+                          isBorder: false,
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 13.0.w,
+                              vertical: context.height * 0.0),
                           controller: controller.emailController,
+                          hintTextStyle: AppTextStyles.popRegular10,
                         ),
 
                         SizedBox(height: 20.h),
@@ -77,15 +87,15 @@ class FindAccountview extends StatelessWidget {
                         ),
                         SizedBox(height: 16.h),
                         ///// Custom Button
-                        CustomButton(
-                          backgroundColor: AppColors.redColor,
-                          textColor: AppColors.whiteColor,
-                          text: 'Find Account',
-                          onPressed: () {
-                            print('Sign In button pressed!');
-                          },
-                          width: double.infinity,
-                        ),
+                        MycustomButton(
+                            height: 37.h,
+                            width: 316.w,
+                            title: 'Find Account',
+                            onPressed: () {
+                              //await controller.logIn();
+                              //Get.offAll(() => NavigationView());
+                              print('Sign In button pressed!');
+                            }),
                       ],
                     ),
                   ],
