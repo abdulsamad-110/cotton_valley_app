@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/ui/user/addproduct/add_productview.dart';
 import 'package:cotton_valley_app/ui/user/product/product_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/assets.dart';
@@ -13,6 +14,7 @@ import 'package:get/get.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 
 import '../../../widgets/circular_button.dart';
+import '../../../widgets/categorytabs.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView({super.key});
@@ -50,7 +52,9 @@ class ProductView extends StatelessWidget {
                       width: 100.w,
                       borderRadius: 6.r,
                       title: 'Vendor',
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => AddProductView());
+                      },
                     ),
                     SizedBox(width: 4.w),
                     MycustomButton(
@@ -58,57 +62,24 @@ class ProductView extends StatelessWidget {
                       borderRadius: 6.r,
                       title: 'Store',
                       hasBorder: true,
-                      titleTextStyle: TextStyle(
+                      titleTextStyle: const TextStyle(
                         color: AppColors.blackColor,
                       ),
                       width: 100.w,
                       height: 33.h,
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => AddProductView());
+                      },
                     )
                   ],
                 ),
               ),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                child: SingleChildScrollView(
-                  scrollDirection:
-                      Axis.horizontal, // Enable horizontal scrolling
-                  child: Row(
-                    children: [
-                      DefaultTabController(
-                        initialIndex: 1,
-                        length: 4,
-                        child: Column(
-                          children: [
-                            ButtonsTabBar(
-                              backgroundColor: AppColors.redColor,
-                              unselectedBackgroundColor:
-                                  AppColors.lightgreyColor,
-                              unselectedLabelStyle:
-                                  TextStyle(color: Colors.black),
-                              splashColor:
-                                  const Color.fromARGB(255, 245, 4, 84),
-                              contentPadding: EdgeInsets.symmetric(
-                                horizontal: ScreenUtil().setWidth(28.w),
-                              ),
-                              labelSpacing: 10,
-                              labelStyle: AppTextStyles.popMediumbtn14,
-                              tabs: const [
-                                Tab(text: "All"),
-                                Tab(text: "Clothing"),
-                                Tab(text: "Footwear"),
-                                Tab(text: "Electronic"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              /////
+              const CategoryTabs(),
+              /////
+              const CategoryTabs(
+                tabs: ["All", "Shirts", "Tops", "Skirts"],
               ),
-
               /////
               Expanded(
                 child: ListView.separated(

@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  final Widget? backImage;
-  final double backImageSize;
+  final Widget? backIcon;
+  final double backIconSize;
   final TextStyle? titleStyle;
+  final Widget? cancelIcon;
   final Widget? searchIcon;
   final Widget? filterIcon;
   final Function()? onBackPressed;
@@ -15,14 +16,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     Key? key,
     this.title,
-    this.backImage,
-    this.backImageSize = 24.0,
+    this.backIcon,
+    this.backIconSize = 24.0,
     this.titleStyle,
     this.searchIcon,
     this.filterIcon,
     this.onBackPressed,
     this.onSearchPressed,
-    this.onFilterPressed,
+    this.onFilterPressed, this.cancelIcon,
   }) : super(key: key);
 
   @override
@@ -34,7 +35,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         titleSpacing: 0,
-        leading: backImage != null
+        leading: backIcon != null
             ? GestureDetector(
                 onTap: onBackPressed ??
                     () {
@@ -43,9 +44,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: SizedBox(
-                    width: backImageSize,
-                    height: backImageSize,
-                    child: backImage,
+                    width: backIconSize,
+                    height: backIconSize,
+                    child: backIcon,
                   ),
                 ),
               )
@@ -54,7 +55,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ? Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (backImage != null) const SizedBox(width: 8),
+                  if (backIcon != null) const SizedBox(width: 8),
                   Text(
                     title!,
                     style: titleStyle ?? AppTextStyles.popBold17,

@@ -26,12 +26,12 @@ class CreatePasswordView extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        backImage: SvgPicture.asset(
-          Assets.backarrow,
-          width: 20.w,
-          height: 20.h,
-        ),
-      ),
+          // backImage: SvgPicture.asset(
+          //   Assets.backarrow,
+          //   width: 20.w,
+          //   height: 20.h,
+          // ),
+          ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -120,7 +120,7 @@ class CreatePasswordView extends StatelessWidget {
                             obscureText: controller.isConfrimPassHidden.value,
                             suffixIcon: InkWell(
                               onTap: () {
-                                controller.togglePassword();
+                                controller.toggleConfrimPassword();
                               },
                               child: Padding(
                                 padding: controller.isConfrimPassHidden.value
@@ -153,8 +153,8 @@ class CreatePasswordView extends StatelessWidget {
                         SizedBox(height: 16.h),
                         ///// Custom Button
                         MycustomButton(
-                            height: 37.h,
-                            width: 316.w,
+                            height: 44.h,
+                            width: 330.w,
                             title: 'Create Password',
                             onPressed: () {
                               //await controller.logIn();

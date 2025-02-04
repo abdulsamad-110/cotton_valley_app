@@ -26,6 +26,7 @@ class Assets {
   static const String vendoricon = 'assets/vendor.svg';
   static const String storeicon = 'assets/store.svg';
   static const String settingicon = 'assets/setting.svg';
+  static const String nextimg = 'assets/next.svg';
 
   ///// png
   static const String filtericonpng = 'assets/filter-icon.png';
@@ -39,4 +40,5 @@ class Assets {
    static const String vendornav = 'assets/vendor.png';
    static const String storenav = 'assets/store.png';
    static const String settingnav = 'assets/setting.png';
+   static const String nexticon = 'assets/next.png';
 }

@@ -117,8 +117,8 @@ class SigninView extends StatelessWidget {
                         SizedBox(height: 16.h),
                         ///// Custom Button
                         MycustomButton(
-                            height: 37.h,
-                            width: 316.w,
+                            height: 44.h,
+                            width: 330.w,
                             title: 'Sign In',
                             onPressed: () {
                               //await controller.logIn();

@@ -6,8 +6,13 @@ import 'package:cotton_valley_app/widgets/vendors_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/assets.dart';
+import '../../../widgets/custom_dropdown.dart';
+import '../addstore/add_storeview.dart';
+import '../addvendor/addvendor_view.dart';
 
 class StoreView extends StatelessWidget {
   const StoreView({super.key});
@@ -32,6 +37,31 @@ class StoreView extends StatelessWidget {
                 },
               ),
               const Divider(),
+              /////
+              Padding(
+                padding: const EdgeInsets.only(top: 0, left: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomDropdown(
+                      title: "Country",
+                      onTap: () {
+                        Get.to(() => AddStoreView());
+                      },
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    CustomDropdown(
+                      title: "City",
+                      onTap: () {
+                        Get.to(() => AddStoreView());
+                      },
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 child: ListView.separated(
                   itemCount: 4,

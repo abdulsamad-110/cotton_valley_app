@@ -6,18 +6,15 @@ import '../utils/text_style.dart';
 import 'mycustom_button.dart';
 
 void LogoutBottomSheet(BuildContext context) {
-  // Instantiate the controller
-  //final logoutController = Get.put(LogoutController());
-
   showModalBottomSheet(
     context: context,
     builder: (context) {
       return Container(
         height: 170.h,
         width: 375.w,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.whiteColor,
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
@@ -43,31 +40,46 @@ void LogoutBottomSheet(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   MycustomButton(
-                      height: 31.h,
-                      width: 163.w,
-                      backgroundColor: AppColors.whiteColor,
-                      borderColor: AppColors.blackColor,
-                      hasBorder: true,
-                      borderRadius: 6.r,
-                      title: 'Cancel',
-                      titleTextStyle: TextStyle(
-                        color: AppColors.blackColor,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
+                    height: 31.h,
+                    width: 163.w,
+                    backgroundColor: AppColors.whiteColor,
+                    borderColor: AppColors.blackColor,
+                    hasBorder: true,
+                    borderRadius: 6.r,
+                    title: 'Cancel',
+                    titleTextStyle: const TextStyle(
+                      color: AppColors.blackColor,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                   SizedBox(width: 4.w),
+                  ////
                   MycustomButton(
                     backgroundColor: AppColors.redColor,
                     borderRadius: 6.r,
                     title: 'Logout',
-                    titleTextStyle: TextStyle(
+                    titleTextStyle: const TextStyle(
                       color: AppColors.whiteColor,
                     ),
                     width: 163.w,
                     height: 31.h,
                     onPressed: () {
                       Navigator.pop(context);
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Get.defaultDialog(
+                          title: "Logout Successful",
+                          middleText:
+                              "You have been successfully logged out. See you again soon!",
+                          textConfirm: "OK",
+                          confirmTextColor: Colors.white,
+                          onConfirm: () {
+                            Get.back(); // Close the dialog
+                            // Yahan aap logout ka logic add kar sakte hain
+                          },
+                        );
+                      });
                     },
                   )
                 ],

@@ -1,9 +1,12 @@
+import 'package:cotton_valley_app/ui/user/addvendor/addvendor_view.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
+import 'package:cotton_valley_app/widgets/custom_dropdown.dart';
 import 'package:cotton_valley_app/widgets/products_widget.dart';
 import 'package:cotton_valley_app/widgets/vendors_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../../../utils/assets.dart';
 import '../../../widgets/circular_button.dart';
@@ -31,6 +34,31 @@ class VendorView extends StatelessWidget {
               },
             ),
             const Divider(),
+            /////
+            Padding(
+              padding: const EdgeInsets.only(top: 0, left: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomDropdown(
+                    title: "Country",
+                    onTap: () {
+                      Get.to(() => AddvendorView());
+                    },
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  CustomDropdown(
+                    title: "City",
+                    onTap: () {
+                      Get.to(() => AddvendorView());
+                    },
+                  ),
+                ],
+              ),
+            ),
             Expanded(
               child: ListView.separated(
                 itemCount: 4,

@@ -13,6 +13,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          /////
           const CustomAppBar(title: "Home"),
           const Divider(),
           Expanded(

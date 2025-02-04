@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
-  static TextStyle popSemiBold24 = GoogleFonts.poppins(
+  static  TextStyle popSemiBold24 = GoogleFonts.poppins(
     fontSize: 24.sp,
     fontWeight: FontWeight.normal,
     color: AppColors.blackColor,

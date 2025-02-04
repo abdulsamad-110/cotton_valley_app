@@ -23,18 +23,18 @@ class FindAccountview extends StatelessWidget {
     FindaccountController controller = Get.put(FindaccountController());
     return Scaffold(
       appBar: CustomAppBar(
-        backImage: SvgPicture.asset(
-          Assets.backarrow,
-          width: 24.w,
-          height: 24.h,
-        ),
-      ),
+          //   backImage: SvgPicture.asset(
+          //     Assets.backarrow,
+          //     width: 24.w,
+          //     height: 24.h,
+          //   ),
+          ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  top: 0, left: 30, right: 30, bottom: 30),
+                  top: 10, left: 30, right: 30, bottom: 30),
               child: Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -88,8 +88,8 @@ class FindAccountview extends StatelessWidget {
                         SizedBox(height: 16.h),
                         ///// Custom Button
                         MycustomButton(
-                            height: 37.h,
-                            width: 316.w,
+                            height: 44.h,
+                            width: 330.w,
                             title: 'Find Account',
                             onPressed: () {
                               //await controller.logIn();
