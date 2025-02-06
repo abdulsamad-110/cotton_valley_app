@@ -47,6 +47,9 @@ class AddStoreView extends StatelessWidget {
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Name",
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
                   //
                   CustomTextField(
                     height: 33.h,
@@ -55,6 +58,9 @@ class AddStoreView extends StatelessWidget {
                     hintText: "121651",
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Code",
+                  ),
+                  SizedBox(
+                    height: 8.h,
                   ),
                   //
                   CustomTextField(
@@ -67,6 +73,9 @@ class AddStoreView extends StatelessWidget {
                     suffixIcon: SvgPicture.asset(
                         height: 15.h, width: 15.w, Assets.addicon),
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
                   //
                   CustomTextField(
                     height: 33.h,
@@ -75,6 +84,9 @@ class AddStoreView extends StatelessWidget {
                     hintText: "London",
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "City",
+                  ),
+                  SizedBox(
+                    height: 8.h,
                   ),
                   //
                   CustomTextField(
@@ -85,6 +97,9 @@ class AddStoreView extends StatelessWidget {
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Phone",
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
                   //
                   CustomTextField(
                     height: 33.h,
@@ -93,6 +108,9 @@ class AddStoreView extends StatelessWidget {
                     hintText: "example@gmail.com",
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Email",
+                  ),
+                  SizedBox(
+                    height: 8.h,
                   ),
                   //
                   CustomTextField(
@@ -103,14 +121,17 @@ class AddStoreView extends StatelessWidget {
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "WeChat",
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
                   //
                   CustomTextField(
                     height: 33.h,
                     width: 330.w,
                     controller: controller.webController,
                     hintText: "www.example.com",
-                    contentPadding: EdgeInsets.symmetric(
-                        horizontal: 13.0.w, vertical: context.height * 0.05),
+                    // contentPadding: EdgeInsets.symmetric(
+                    //     horizontal: 13.0.w, vertical: context.height * 0.05),
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Web",
                   ),

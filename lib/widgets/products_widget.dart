@@ -86,25 +86,11 @@ class ProductsWidget extends StatelessWidget {
                         Row(
                           //mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            // MycustomButton(
-                            //     backgroundColor: AppColors.redColor,
-                            //     borderRadius: 6.r,
-                            //     title: 'keyword',
-                            //     titleTextStyle: AppTextStyles.popWhite8,
-                            //     height: 20.h,
-                            //     width: 47.w,
-                            //     onPressed: () {}),
-                            // SizedBox(width: 2.w),
-                            // MycustomButton(
-                            //     backgroundColor: AppColors.redColor,
-                            //     borderRadius: 6.r,
-                            //     title: 'keyword',
-                            //     titleTextStyle: AppTextStyles.popWhite8,
-                            //     height: 20.h,
-                            //     width: 47.w,
-                            //     onPressed: () {}),
+                            /////
                             ProductCustomButton(onTap: () {}),
+                            //
                             SizedBox(width: 2.w),
+                            /////
                             ProductCustomButton(onTap: () {}),
                           ],
                         ),

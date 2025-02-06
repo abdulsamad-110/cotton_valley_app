@@ -4,19 +4,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/text_style.dart';
 
-
 class MycustomButton extends StatelessWidget {
   final String title;
   final double? width;
   final double? height;
   final Color? backgroundColor;
- final double? borderRadius;
- final bool? isLoader;
+  final double? borderRadius;
+  final bool? isLoader;
   final void Function()? onPressed;
   final TextStyle? titleTextStyle;
-  final bool hasBorder; // To control whether to show border or not
-  final Color? borderColor; // Customizable border color
-  final List<BoxShadow>? boxShadow; // New box shadow property
+  final bool hasBorder;
+  final Color? borderColor;
+  final List<BoxShadow>? boxShadow;
+  final IconData? leadingIcon; // IconData instead of Widget
+  final Color? leadingIconColor; // Icon color
 
   const MycustomButton({
     Key? key,
@@ -24,34 +25,52 @@ class MycustomButton extends StatelessWidget {
     this.width,
     this.height,
     this.backgroundColor,
-    this.borderRadius ,
+    this.borderRadius,
     this.titleTextStyle,
     this.hasBorder = false,
     this.borderColor,
     this.boxShadow,
-    required this.onPressed, this.isLoader,
+    required this.onPressed,
+    this.isLoader,
+    this.leadingIcon,
+    this.leadingIconColor, // New icon color parameter
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final textColor = titleTextStyle?.color ?? Colors.white; // Default white if no text color is provided
+
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor ?? AppColors.redColor,
-    // const Color(0xff346175), // Default color if not provided
         minimumSize: Size(width ?? 375.w, height ?? 52.h),
         shape: RoundedRectangleBorder(
-         borderRadius: BorderRadius.circular(borderRadius ??10.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
           side: hasBorder
               ? BorderSide(color: borderColor ?? AppColors.whiteColor)
-              : BorderSide.none, // Optional border based on `hasBorder`
+              : BorderSide.none,
         ),
       ),
-      child:isLoader==true ? CircularProgressIndicator() : Text(
-        title,
-        style: titleTextStyle ??
-            AppTextStyles.popBoldbt14, // Default or custom text style
-      ),
+      child: isLoader == true
+          ? CircularProgressIndicator()
+          : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (leadingIcon != null) ...[
+                  Icon(
+                    leadingIcon,
+                    color: leadingIconColor ?? textColor, // Icon color same as title color
+                  ),
+                  SizedBox(width: 8.w),
+                ],
+                Text(
+                  title,
+                  style: titleTextStyle ?? AppTextStyles.popBoldbt14,
+                ),
+              ],
+            ),
     );
   }
 }

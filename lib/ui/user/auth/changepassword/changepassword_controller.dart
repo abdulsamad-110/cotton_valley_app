@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class ChangepasswordController extends GetxController {
   final newpasswordController = TextEditingController();
-  final confirmnewpassController = TextEditingController();
+  final confrimnewpassController = TextEditingController();
 
   RxBool isNewPassHidden = true.obs;
   RxBool isConfrimNewPassHidden = true.obs;
@@ -12,7 +12,7 @@ class ChangepasswordController extends GetxController {
     isNewPassHidden.value = !isNewPassHidden.value;
   }
 
-  toggleConfirmNewPassword() {
+  toggleConfrimNewPassword() {
     isConfrimNewPassHidden.value = !isConfrimNewPassHidden.value;
   }
 

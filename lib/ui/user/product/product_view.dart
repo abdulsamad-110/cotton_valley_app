@@ -61,14 +61,13 @@ class ProductView extends StatelessWidget {
                       backgroundColor: AppColors.lightgreyColor,
                       borderRadius: 6.r,
                       title: 'Store',
-                      hasBorder: true,
+                     // hasBorder: true,
                       titleTextStyle: const TextStyle(
                         color: AppColors.blackColor,
                       ),
                       width: 100.w,
                       height: 33.h,
-                      onPressed: () {
-                        Get.to(() => AddProductView());
+                      onPressed: () {Get.to(() => AddProductView());
                       },
                     )
                   ],

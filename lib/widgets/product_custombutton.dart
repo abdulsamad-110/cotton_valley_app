@@ -5,12 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCustomButton extends StatelessWidget {
   final VoidCallback onTap;
-  final String title; // Allow dynamic title
+  final String title;
+  final Widget? leadingIcon;
+  final double? width; // Optional width
+  final double? height; // Optional height
 
   const ProductCustomButton({
     Key? key,
     required this.onTap,
-    this.title = 'keyword', // Default value
+    this.title = 'keyword',
+    this.leadingIcon,
+    this.width, // Optional parameter
+    this.height, // Optional parameter
   }) : super(key: key);
 
   @override
@@ -18,17 +24,27 @@ class ProductCustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: 47.w,
-        height: 20.h,
+        width: width ?? 60.w, // Default width if not provided
+        height: height ?? 20.h, // Default height if not provided
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: AppColors.redColor,
-            borderRadius: BorderRadius.circular(6.r), // Making it responsive
+            borderRadius: BorderRadius.circular(6.r),
           ),
-          child: Center(
-            child: Text(
-              title,
-              style: AppTextStyles.popWhite8,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (leadingIcon != null) ...[
+                  leadingIcon!,
+                  SizedBox(width: 3.w),
+                ],
+                Text(
+                  title,
+                  style: AppTextStyles.popWhite8,
+                ),
+              ],
             ),
           ),
         ),

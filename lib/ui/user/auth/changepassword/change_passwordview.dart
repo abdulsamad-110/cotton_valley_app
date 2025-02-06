@@ -1,12 +1,10 @@
 import 'package:cotton_valley_app/ui/user/auth/changepassword/changepassword_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/app_colors.dart';
 import '../../../../utils/assets.dart';
-import '../../../../utils/text_style.dart';
 import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_textfield.dart';
@@ -21,193 +19,99 @@ class ChangePasswordview extends StatelessWidget {
     ChangepasswordController controller = Get.put(ChangepasswordController());
 
     return Scaffold(
-      appBar: CustomAppBar(
-          // backImage: SvgPicture.asset(
-          //   Assets.backarrow,
-          //   width: 20.w,
-          //   height: 20.h,
-          // ),
-          ),
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 10, left: 30, right: 30, bottom: 30),
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ///// Logo
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16),
+            ///// Logo
+            SvgPicture.asset(
+              Assets.authimg,
+              width: 253.w,
+              height: 203.h,
+              fit: BoxFit.contain,
+            ),
+            SizedBox(height: 50.h),
+
+            /////
+            const MyTextWidget(
+              title: 'Change Password',
+              subtitle: 'Create a new password for your account.',
+            ),
+            SizedBox(height: 16.h),
+
+            ///// New Password Field
+            Obx(
+              () => CustomTextField(
+                hintText: '********',
+                titleText: 'New Password',
+                obscureText: controller.isNewPassHidden.value,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: Transform.scale(
+                    scale: 0.7, // Reduce the size further
+                    child: InkWell(
+                      onTap: () {
+                        controller.toggleNewPassword();
+                      },
                       child: SvgPicture.asset(
-                        Assets.authimg,
-                        width: 253.w,
-                        height: 203.h,
+                        controller.isNewPassHidden.value
+                            ? Assets.eyeclosed
+                            : Assets.eyeopened,
+                        width:
+                            15.w, // Even if this is fixed, scale will reduce it
+                        height: 15.h,
                         fit: BoxFit.contain,
                       ),
                     ),
-                    SizedBox(height: 50.h),
-                    //
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ///// MyTextWidget
-                        const MyTextWidget(
-                          title: 'Change Password',
-                          subtitle: 'Create a new password for your account.',
-                        ),
-                        SizedBox(height: 16.h),
-                        ///// Custom Password TextField
-                        // Obx(
-                        //   () => Center(
-                        //     child: CustomTextField(
-                        //       hintText: '********',
-                        //       titleText: 'New Password',
-                        //       obscureText: controller.isNewPassHidden.value,
-                        //       suffixIcon: Padding(
-                        //         padding: EdgeInsets.only(right: 12.w),
-                        //         child: SizedBox(
-                        //           child: InkWell(
-                        //             onTap: () {
-                        //               controller.toggleNewPassword();
-                        //             },
-                        //             child: SvgPicture.asset(
-                        //               controller.isNewPassHidden.value
-                        //                   ? Assets.eyeclosed
-                        //                   : Assets.eyeopened,
-                        //               width: 12.w,
-                        //               height: 12.h,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //       controller: controller.newpasswordController,
-                        //     ),
-                        //   ),
-                        // ),
-                        ///// Custom TextField
-                        Obx(
-                          () => CustomTextField(
-                            height: 32.h,
-                            width: 316.w,
-                            titleText: "New Password",
-                            hintText: '********',
-                            isBorder: false,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 13.0.w,
-                                vertical: context.height * 0.02),
-                            controller: controller.newpasswordController,
-                            hintTextStyle: AppTextStyles.popRegular10,
-                            obscureText: controller.isNewPassHidden.value,
-                            suffixIcon: InkWell(
-                              onTap: () {
-                                controller.toggleNewPassword();
-                              },
-                              child: Padding(
-                                padding: controller.isNewPassHidden.value
-                                    ? EdgeInsets.symmetric(
-                                        horizontal: 12.0.w, vertical: 13.h)
-                                    : EdgeInsets.all(11.r),
-                                child: SizedBox(
-                                  width: 24.0.w,
-                                  height: 24.0.h,
-                                  child: SvgPicture.asset(
-                                    controller.isNewPassHidden.value
-                                        ? Assets.eyeclosed
-                                        : Assets.eyeopened,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: 20.h),
-                        ///// Custom TextField
-                        // Obx(
-                        //   () => CustomTextField(
-                        //     titleText: 'Confrim New Password',
-                        //     hintText: '********',
-                        //     obscureText:
-                        //         controller.isConfrimNewPassHidden.value,
-                        //     suffixIcon: Padding(
-                        //       padding: EdgeInsets.only(right: 12.w),
-                        //       child: SizedBox(
-                        //         child: InkWell(
-                        //           onTap: () {
-                        //             controller.toggleConfirmNewPassword();
-                        //           },
-                        //           child: SvgPicture.asset(
-                        //             controller.isConfrimNewPassHidden.value
-                        //                 ? Assets.eyeclosed
-                        //                 : Assets.eyeopened,
-                        //             width: 12.w,
-                        //             height: 12.h,
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     controller: controller.confirmnewpassController,
-                        //   ),
-                        // ),
-                        ///// Custom TextField
-                        Obx(
-                          () => CustomTextField(
-                            height: 32.h,
-                            width: 316.w,
-                            titleText: "Confrim New Password",
-                            hintText: '********',
-                            isBorder: false,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 13.0.w,
-                                vertical: context.height * 0.02),
-                            controller: controller.confirmnewpassController,
-                            hintTextStyle: AppTextStyles.popRegular10,
-                            obscureText:
-                                controller.isConfrimNewPassHidden.value,
-                            suffixIcon: InkWell(
-                              onTap: () {
-                                controller.toggleConfirmNewPassword();
-                              },
-                              child: Padding(
-                                padding: controller.isConfrimNewPassHidden.value
-                                    ? EdgeInsets.symmetric(
-                                        horizontal: 12.0.w, vertical: 13.h)
-                                    : EdgeInsets.all(11.r),
-                                child: SizedBox(
-                                  width: 24.0.w,
-                                  height: 24.0.h,
-                                  child: SvgPicture.asset(
-                                    controller.isConfrimNewPassHidden.value
-                                        ? Assets.eyeclosed
-                                        : Assets.eyeopened,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 16.h),
-                        ///// Custom Button
-                        MycustomButton(
-                            height: 44.h,
-                            width: 330.w,
-                            title: 'Change Password',
-                            onPressed: () {
-                              //await controller.logIn();
-                              //Get.to(() => ChangePasswordview());
-                              print('button pressed!');
-                            }),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
+                controller: controller.newpasswordController,
               ),
+            ),
+
+            SizedBox(height: 20.h),
+
+            ///// Confirm New Password Field
+            Obx(
+              () => CustomTextField(
+                titleText: 'Confirm New Password',
+                hintText: '********',
+                obscureText: controller.isConfrimNewPassHidden.value,
+                suffixIcon: Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: Transform.scale(
+                    scale: 0.7, // Reduce the size further
+                    child: InkWell(
+                      onTap: () {
+                        controller.toggleConfrimNewPassword();
+                      },
+                      child: SvgPicture.asset(
+                        controller.isConfrimNewPassHidden.value
+                            ? Assets.eyeclosed
+                            : Assets.eyeopened,
+                        width:
+                            15.w, // Even if this is fixed, scale will reduce it
+                        height: 15.h,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+                controller: controller.confrimnewpassController,
+              ),
+            ),
+
+            SizedBox(height: 16.h),
+
+            ///// Change Password Button
+            MycustomButton(
+              height: 39.h,
+              width: 315.w,
+              title: 'Change Password',
+              onPressed: () {
+                print('Change Password button pressed!');
+              },
             ),
           ],
         ),

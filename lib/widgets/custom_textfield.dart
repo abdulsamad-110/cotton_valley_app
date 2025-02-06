@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onSubmitted;
   final FocusNode? focusNode;
   final void Function(String)? onChanged;
-  bool readOnly;
+  final bool readOnly;
 
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
 
   final TextInputAction textInputAction;
 
-  CustomTextField({
+  const CustomTextField({
     Key? key,
     required this.controller,
     required this.hintText,
@@ -71,11 +71,11 @@ class CustomTextField extends StatelessWidget {
         ),
         SizedBox(height: 5.h),
         Container(
-          height: height ?? 36.h,
+          height: height ?? 39.h,
           width: width ?? 315.w,
           decoration: BoxDecoration(
             border: isBorder == true
-                ? Border.all(color: const Color(0xFFB1B1B1), width: 0)
+                ? Border.all(color: const Color(0xFFB1B1B1), width: 1)
                 : null,
             borderRadius: effectiveBorderRadius,
             color: AppColors.lightgreyColor,
@@ -104,11 +104,15 @@ class CustomTextField extends StatelessWidget {
                   borderRadius: effectiveBorderRadius,
                   borderSide: BorderSide.none,
                 ),
+                prefixIcon: prefixIcon, // Added prefixIcon usage here
                 suffixIcon: suffixIcon,
                 hintText: hintText,
-                hintStyle: hintTextStyle ?? AppTextStyles.popRegular10,
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                hintStyle: hintTextStyle ??
+                    AppTextStyles.popRegular10.copyWith(height: 0.6.h),
+                contentPadding: contentPadding ??
+                    EdgeInsets.symmetric(
+                        vertical: 0.10.h,
+                        horizontal: 10.w), // Default content padding
                 filled: true,
                 fillColor: AppColors.lightgreyColor,
               ),

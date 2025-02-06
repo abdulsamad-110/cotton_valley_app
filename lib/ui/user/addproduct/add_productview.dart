@@ -5,6 +5,7 @@ import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
+import 'package:cotton_valley_app/widgets/product_custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -52,6 +53,9 @@ class AddProductView extends StatelessWidget {
                       Assets.addicon,
                     ),
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
 
                   /// Name Field
                   CustomTextField(
@@ -63,29 +67,6 @@ class AddProductView extends StatelessWidget {
                     titleText: "Name",
                   ),
 
-                  /// Media Box
-                  SizedBox(height: 8.h),
-
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: Container(
-                  //     width: 120.w,
-                  //     height: 100.h,
-                  //     decoration: BoxDecoration(
-                  //       color: AppColors.lightgreyColor,
-                  //       borderRadius: BorderRadius.circular(8.r),
-                  //     ),
-                  //     child: const Center(
-                  //       child: Text(
-                  //         "Upload File\n or\nTake a Photo",
-                  //         style: TextStyle(
-                  //             // AppTextStyles.popRegular10
-                  //             ),
-                  //         textAlign: TextAlign.center,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   /// Media Box
                   SizedBox(height: 8.h),
 
@@ -107,6 +88,9 @@ class AddProductView extends StatelessWidget {
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Price",
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
 
                   /// Category Field
                   CustomTextField(
@@ -121,6 +105,9 @@ class AddProductView extends StatelessWidget {
                       width: 15.w,
                       Assets.addicon,
                     ),
+                  ),
+                  SizedBox(
+                    height: 8.h,
                   ),
 
                   /// Sub-Category Field
@@ -137,6 +124,9 @@ class AddProductView extends StatelessWidget {
                       Assets.addicon,
                     ),
                   ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
 
                   /// Keyword Field
                   CustomTextField(
@@ -146,6 +136,43 @@ class AddProductView extends StatelessWidget {
                     hintText: "Keyword",
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Keyword",
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Row(
+                    children: [
+                      /////
+                      ProductCustomButton(
+                          height: 28.h,
+                          width: 50.w,
+                          title: 'tag',
+                          leadingIcon: SvgPicture.asset(
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.whiteColor, BlendMode.srcIn),
+                            Assets.addicon,
+                            height: 15.h,
+                            width: 15.w,
+                          ),
+                          onTap: () {}),
+                      SizedBox(
+                        width: 4.w,
+                      ),
+                      /////
+                      ProductCustomButton(
+                          height: 28.h,
+                          width: 50.w,
+                          title: 'tag',
+                          leadingIcon: SvgPicture.asset(
+                            colorFilter: const ColorFilter.mode(
+                                AppColors.whiteColor, BlendMode.srcIn),
+                            Assets.addicon,
+                            height: 15.h,
+                            width: 15.w,
+                          ),
+                          // iconColor: AppColors.whiteColor,
+                          onTap: () {}),
+                    ],
                   ),
                 ],
               ),
