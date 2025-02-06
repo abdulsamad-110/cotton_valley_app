@@ -126,8 +126,8 @@ class AddStoreView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.webController,
                     hintText: "www.example.com",
                     // contentPadding: EdgeInsets.symmetric(
@@ -143,8 +143,8 @@ class AddStoreView extends StatelessWidget {
           SizedBox(height: 20.h),
           /////
           MycustomButton(
-            height: 44.h,
-            width: 330.w,
+            height: 39.h,
+            width: 315.w,
             title: "Add Store",
             onPressed: () {},
           ),

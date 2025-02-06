@@ -108,7 +108,7 @@ class CustomTextField extends StatelessWidget {
                 suffixIcon: suffixIcon,
                 hintText: hintText,
                 hintStyle: hintTextStyle ??
-                    AppTextStyles.popRegular10.copyWith(height: 0.6.h),
+                    AppTextStyles.popRegular10.copyWith(height: 3.0.h),
                 contentPadding: contentPadding ??
                     EdgeInsets.symmetric(
                         vertical: 0.10.h,

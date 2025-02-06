@@ -41,8 +41,8 @@ class AddProductView extends StatelessWidget {
                 children: [
                   /// Vendor/Store Field
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.vdrstoreController,
                     hintText: "Adidas",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -59,8 +59,8 @@ class AddProductView extends StatelessWidget {
 
                   /// Name Field
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.nameController,
                     hintText: "Air-2",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -70,19 +70,22 @@ class AddProductView extends StatelessWidget {
                   /// Media Box
                   SizedBox(height: 8.h),
 
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
-                    child: UploadContainer(
-                      label: "Media",
-                      content: "Upload File\n or\nTake a Photo",
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: UploadContainer(
+                        label: "Media",
+                        content: "Upload File\n or\nTake a Photo",
+                      ),
                     ),
                   ),
 
                   /// Price Field
                   SizedBox(height: 8.h),
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.priceController,
                     hintText: "24.33",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -94,8 +97,6 @@ class AddProductView extends StatelessWidget {
 
                   /// Category Field
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.categoryController,
                     hintText: "Select",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -112,8 +113,8 @@ class AddProductView extends StatelessWidget {
 
                   /// Sub-Category Field
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.subcategoryController,
                     hintText: "Select",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -130,8 +131,8 @@ class AddProductView extends StatelessWidget {
 
                   /// Keyword Field
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                    // height: 33.h,
+                    // width: 330.w,
                     controller: controller.keywordController,
                     hintText: "Keyword",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -140,56 +141,57 @@ class AddProductView extends StatelessWidget {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Row(
-                    children: [
-                      /////
-                      ProductCustomButton(
-                          height: 28.h,
-                          width: 50.w,
-                          title: 'tag',
-                          leadingIcon: SvgPicture.asset(
-                            colorFilter: const ColorFilter.mode(
-                                AppColors.whiteColor, BlendMode.srcIn),
-                            Assets.addicon,
-                            height: 15.h,
-                            width: 15.w,
-                          ),
-                          onTap: () {}),
-                      SizedBox(
-                        width: 4.w,
-                      ),
-                      /////
-                      ProductCustomButton(
-                          height: 28.h,
-                          width: 50.w,
-                          title: 'tag',
-                          leadingIcon: SvgPicture.asset(
-                            colorFilter: const ColorFilter.mode(
-                                AppColors.whiteColor, BlendMode.srcIn),
-                            Assets.addicon,
-                            height: 15.h,
-                            width: 15.w,
-                          ),
-                          // iconColor: AppColors.whiteColor,
-                          onTap: () {}),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: Row(
+                      children: [
+                        ProductCustomButton(
+                            height: 28.h,
+                            width: 50.w,
+                            title: 'tag',
+                            leadingIcon: SvgPicture.asset(
+                              colorFilter: const ColorFilter.mode(
+                                  AppColors.whiteColor, BlendMode.srcIn),
+                              Assets.addicon,
+                              height: 15.h,
+                              width: 15.w,
+                            ),
+                            onTap: () {}),
+                        SizedBox(
+                          width: 4.w,
+                        ),
+                        /////
+                        ProductCustomButton(
+                            height: 28.h,
+                            width: 50.w,
+                            title: 'tag',
+                            leadingIcon: SvgPicture.asset(
+                              colorFilter: const ColorFilter.mode(
+                                  AppColors.whiteColor, BlendMode.srcIn),
+                              Assets.addicon,
+                              height: 15.h,
+                              width: 15.w,
+                            ),
+                            onTap: () {}),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 15.h),
+
+                  /// Add Product Button
+                  MycustomButton(
+                    height: 39.h,
+                    width: 315.w,
+                    title: "Add Product",
+                    onPressed: () {},
                   ),
                 ],
               ),
             ),
           ),
 
-          SizedBox(height: 20.h),
-
-          /// Add Product Button
-          MycustomButton(
-            height: 44.h,
-            width: 330.w,
-            title: "Add Product",
-            onPressed: () {},
-          ),
-
-          SizedBox(height: 20.h),
+          // SizedBox(height: 15.h),
         ],
       ),
     );

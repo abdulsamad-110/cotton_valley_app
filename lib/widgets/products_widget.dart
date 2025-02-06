@@ -1,12 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/utils/text_style.dart';
-import 'package:cotton_valley_app/widgets/mycustom_button.dart';
-import 'package:cotton_valley_app/widgets/product_custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import '../utils/assets.dart';
 import '../utils/app_colors.dart';
-import 'custom_button.dart';
+import '../utils/text_style.dart';
+import '../widgets/product_custombutton.dart';
+import '../ui/user/product_detail/productdetail_view.dart'; // Import ProductdetailView
 
 class ProductsWidget extends StatelessWidget {
   final String? title; // Optional title
@@ -31,70 +30,77 @@ class ProductsWidget extends StatelessWidget {
           child: CarouselSlider.builder(
             itemCount: 5,
             itemBuilder: (context, index, realIndex) {
-              return Container(
-                height: 180.h,
-                decoration: BoxDecoration(
-                  color: AppColors.lightgreyColor,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: List.generate(6, (index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 2.0),
-                                child: Image.asset(
-                                  Assets.menimg,
-                                  height: 93.h,
-                                  width: 80.w,
-                                  fit: BoxFit.cover,
-                                ),
-                              );
-                            }),
+              return GestureDetector(
+                onTap: () {
+                  // Navigate to ProductdetailView when tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductdetailView(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 180.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.lightgreyColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: List.generate(6, (index) {
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 2.0),
+                                  child: Image.asset(
+                                    Assets.menimg,
+                                    height: 93.h,
+                                    width: 80.w,
+                                    fit: BoxFit.cover,
+                                  ),
+                                );
+                              }),
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 8.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Product Name',
-                              style: AppTextStyles.popBold16,
-                            ),
-                            Text(
-                              '\$Price',
-                              style: AppTextStyles.popBold14,
-                            ),
-                          ],
-                        ),
-                        Text(
-                          'Vendor/Store',
-                          style: AppTextStyles.popRegular12,
-                        ),
-                        Text(
-                          'Category - Sub Category',
-                          style: AppTextStyles.popRegular12,
-                        ),
-                        SizedBox(height: 4.h),
-                        Row(
-                          //mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            /////
-                            ProductCustomButton(onTap: () {}),
-                            //
-                            SizedBox(width: 2.w),
-                            /////
-                            ProductCustomButton(onTap: () {}),
-                          ],
-                        ),
-                      ],
+                          SizedBox(height: 8.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Product Name',
+                                style: AppTextStyles.popBold16,
+                              ),
+                              Text(
+                                '\$Price',
+                                style: AppTextStyles.popBold14,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Vendor/Store',
+                            style: AppTextStyles.popRegular12,
+                          ),
+                          Text(
+                            'Category - Sub Category',
+                            style: AppTextStyles.popRegular12,
+                          ),
+                          SizedBox(height: 4.h),
+                          Row(
+                            children: [
+                              ProductCustomButton(onTap: () {}),
+                              SizedBox(width: 2.w),
+                              ProductCustomButton(onTap: () {}),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:cotton_valley_app/ui/user/addvendor/addvendor_view.dart';
+import 'package:cotton_valley_app/ui/user/product_detail/productdetail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(scaffoldBackgroundColor: Colors.white),
           home: const SplashView(),
-          //home: AddvendorView(),
+          //home: ProductdetailView(),
         );
       },
     );
