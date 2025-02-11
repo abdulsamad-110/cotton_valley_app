@@ -38,7 +38,8 @@ class MycustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColor = titleTextStyle?.color ?? Colors.white; // Default white if no text color is provided
+    final textColor = titleTextStyle?.color ??
+        Colors.white; // Default white if no text color is provided
 
     return ElevatedButton(
       onPressed: onPressed,
@@ -46,7 +47,7 @@ class MycustomButton extends StatelessWidget {
         backgroundColor: backgroundColor ?? AppColors.redColor,
         minimumSize: Size(width ?? 375.w, height ?? 52.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           side: hasBorder
               ? BorderSide(color: borderColor ?? AppColors.whiteColor)
               : BorderSide.none,
@@ -61,7 +62,8 @@ class MycustomButton extends StatelessWidget {
                 if (leadingIcon != null) ...[
                   Icon(
                     leadingIcon,
-                    color: leadingIconColor ?? textColor, // Icon color same as title color
+                    color: leadingIconColor ??
+                        textColor, // Icon color same as title color
                   ),
                   SizedBox(width: 8.w),
                 ],

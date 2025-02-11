@@ -13,29 +13,27 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          /////
+          ///// Custom AppBar
           const CustomAppBar(title: "Home"),
+          //
           const Divider(),
           Expanded(
-            child: ListView(
-              children: [
-                ///// widget
-                const ProductsWidget(
-                  title: 'Products',
-                ),
-                //
-                SizedBox(height: 16.h),
-                ///// widget
-                const VendorsWidget(
-                  title: 'Venders',
-                ),
-                //
-                SizedBox(height: 16.h),
-                ///// widget
-                const StoresWidget(
-                  title: 'Stores',
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ///// Products Widget
+                  const ProductsWidget(title: 'Products'),
+                  SizedBox(height: 16.h),
+
+                  ///// Vendors Widget
+                  const VendorsWidget(title: "Vendors"
+                  ),
+                  SizedBox(height: 16.h),
+
+                  ///// Stores Widget
+                  const StoresWidget(title: 'Stores'),
+                ],
+              ),
             ),
           ),
         ],

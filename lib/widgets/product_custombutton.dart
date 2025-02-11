@@ -9,6 +9,8 @@ class ProductCustomButton extends StatelessWidget {
   final Widget? leadingIcon;
   final double? width; // Optional width
   final double? height; // Optional height
+  final Color? backgroundColor; // Optional background color
+  final TextStyle? titleTextStyle; // Optional title text style
 
   const ProductCustomButton({
     Key? key,
@@ -17,6 +19,8 @@ class ProductCustomButton extends StatelessWidget {
     this.leadingIcon,
     this.width, // Optional parameter
     this.height, // Optional parameter
+    this.backgroundColor, // Optional background color
+    this.titleTextStyle, // Optional title text style
   }) : super(key: key);
 
   @override
@@ -28,8 +32,9 @@ class ProductCustomButton extends StatelessWidget {
         height: height ?? 20.h, // Default height if not provided
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: AppColors.redColor,
-            borderRadius: BorderRadius.circular(6.r),
+            color: backgroundColor ??
+                AppColors.redColor, // Default color if not provided
+            borderRadius: BorderRadius.circular(4.r),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -42,7 +47,9 @@ class ProductCustomButton extends StatelessWidget {
                 ],
                 Text(
                   title,
-                  style: AppTextStyles.popWhite8,
+                  style: titleTextStyle ??
+                      AppTextStyles
+                          .popWhite8, // Default text style if not provided
                 ),
               ],
             ),

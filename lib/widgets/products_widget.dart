@@ -5,7 +5,7 @@ import '../utils/assets.dart';
 import '../utils/app_colors.dart';
 import '../utils/text_style.dart';
 import '../widgets/product_custombutton.dart';
-import '../ui/user/product_detail/productdetail_view.dart'; // Import ProductdetailView
+import '../ui/user/product_detail/productdetail_view.dart'; 
 
 class ProductsWidget extends StatelessWidget {
   final String? title; // Optional title
@@ -17,7 +17,7 @@ class ProductsWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title != null && title!.isNotEmpty) // Show title only if provided
+        if (title != null && title!.isNotEmpty) 
           Padding(
             padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
             child: Text(
@@ -28,7 +28,7 @@ class ProductsWidget extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: CarouselSlider.builder(
-            itemCount: 5,
+            itemCount: 3,
             itemBuilder: (context, index, realIndex) {
               return GestureDetector(
                 onTap: () {
@@ -109,7 +109,8 @@ class ProductsWidget extends StatelessWidget {
             options: CarouselOptions(
               height: 200.h,
               enlargeCenterPage: true,
-              enableInfiniteScroll: true,
+              enableInfiniteScroll: false,
+              //scrollPhysics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
               autoPlay: false,
               viewportFraction: 0.9,

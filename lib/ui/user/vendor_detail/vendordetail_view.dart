@@ -1,5 +1,6 @@
 import 'package:cotton_valley_app/ui/user/addproduct/add_productview.dart';
 import 'package:cotton_valley_app/ui/user/product/product_controller.dart';
+import 'package:cotton_valley_app/ui/user/vendor_detail/vendordetail_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/assets.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
@@ -17,12 +18,12 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import '../../../widgets/circular_button.dart';
 import '../../../widgets/categorytabs.dart';
 
-class ProductView extends StatelessWidget {
-  const ProductView({super.key});
+class VendorDetailView extends StatelessWidget {
+  const VendorDetailView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ProductController controller = Get.put(ProductController());
+    Vendordetailcontroller controller = Get.put(Vendordetailcontroller());
 
     return Scaffold(
       body: Stack(
@@ -31,7 +32,7 @@ class ProductView extends StatelessWidget {
             children: [
               ///// Custom AppBar
               CustomAppBar(
-                title: 'Products',
+                title: 'Vendor Name',
                 searchIcon: SvgPicture.asset(
                     height: 22.h, width: 22.w, Assets.searchicon),
                 onSearchPressed: () {},
@@ -43,47 +44,6 @@ class ProductView extends StatelessWidget {
               ),
               const Divider(),
 
-              ///// Filter Buttons
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 8),
-                child: Row(
-                  children: [
-                    //
-                    Obx(() => Row(
-                          children: [
-                            ProductCustomButton(
-                              height: 33.h,
-                              width: 100.w,
-                              title: 'Vendor',
-                              titleTextStyle: AppTextStyles.popregular14,
-                              backgroundColor: controller.isVendorSelected.value
-                                  ? AppColors.redColor
-                                  : AppColors.redColor,
-                              onTap: () {
-                                controller.toggleVendor();
-                                controller.isStoreSelected.value = true;
-                                Get.to(() => AddProductView());
-                              },
-                            ),
-                            SizedBox(width: 4.w),
-                            ProductCustomButton(
-                              height: 33.h,
-                              width: 100.w,
-                              title: 'Store',
-                              titleTextStyle: AppTextStyles.popregular14,
-                              backgroundColor: controller.isStoreSelected.value
-                                  ? AppColors.redColor
-                                  : AppColors.redColor,
-                              onTap: () {
-                                controller.toggleStore();
-                                controller.isVendorSelected.value = false;
-                              },
-                            ),
-                          ],
-                        )),
-                  ],
-                ),
-              ),
               SizedBox(
                 height: 8.h,
               ),
@@ -96,7 +56,7 @@ class ProductView extends StatelessWidget {
               /////
               Expanded(
                 child: ListView.separated(
-                  itemCount: 4,
+                  itemCount: 3,
                   itemBuilder: (context, index) => const ProductsWidget(),
                   separatorBuilder: (context, index) => SizedBox(height: 8.h),
                 ),

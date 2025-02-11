@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -23,16 +24,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.filterIcon,
     this.onBackPressed,
     this.onSearchPressed,
-    this.onFilterPressed, this.cancelIcon,
+    this.onFilterPressed,
+    this.cancelIcon,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: 20), // Left & Right Padding
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.whiteColor,
+        surfaceTintColor: Colors.transparent,
         elevation: 0,
         titleSpacing: 0,
         leading: backIcon != null
@@ -66,9 +68,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: [
           if (searchIcon != null)
             GestureDetector(
-              onTap: onSearchPressed ?? () {
-                print("Search icon tapped");
-              },
+              onTap: onSearchPressed ??
+                  () {
+                    print("Search icon tapped");
+                  },
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: searchIcon!,
@@ -76,9 +79,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           if (filterIcon != null)
             GestureDetector(
-              onTap: onFilterPressed ?? () {
-                print("Filter icon tapped");
-              },
+              onTap: onFilterPressed ??
+                  () {
+                    print("Filter icon tapped");
+                  },
               child: Padding(
                 padding: const EdgeInsets.only(right: 5.0),
                 child: filterIcon!,

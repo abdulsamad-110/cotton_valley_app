@@ -41,8 +41,6 @@ class AddProductView extends StatelessWidget {
                 children: [
                   /// Vendor/Store Field
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.vdrstoreController,
                     hintText: "Adidas",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -59,8 +57,6 @@ class AddProductView extends StatelessWidget {
 
                   /// Name Field
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.nameController,
                     hintText: "Air-2",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -70,10 +66,10 @@ class AddProductView extends StatelessWidget {
                   /// Media Box
                   SizedBox(height: 8.h),
 
-                  Align(
+                  const Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: 10),
                       child: UploadContainer(
                         label: "Media",
                         content: "Upload File\n or\nTake a Photo",
@@ -84,8 +80,6 @@ class AddProductView extends StatelessWidget {
                   /// Price Field
                   SizedBox(height: 8.h),
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.priceController,
                     hintText: "24.33",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -113,8 +107,6 @@ class AddProductView extends StatelessWidget {
 
                   /// Sub-Category Field
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.subcategoryController,
                     hintText: "Select",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -131,8 +123,6 @@ class AddProductView extends StatelessWidget {
 
                   /// Keyword Field
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.keywordController,
                     hintText: "Keyword",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -146,8 +136,8 @@ class AddProductView extends StatelessWidget {
                     child: Row(
                       children: [
                         ProductCustomButton(
-                            height: 28.h,
-                            width: 50.w,
+                            height: 24.h,
+                            width: 44.w,
                             title: 'tag',
                             leadingIcon: SvgPicture.asset(
                               colorFilter: const ColorFilter.mode(
@@ -162,8 +152,8 @@ class AddProductView extends StatelessWidget {
                         ),
                         /////
                         ProductCustomButton(
-                            height: 28.h,
-                            width: 50.w,
+                            height: 24.h,
+                            width: 44.w,
                             title: 'tag',
                             leadingIcon: SvgPicture.asset(
                               colorFilter: const ColorFilter.mode(

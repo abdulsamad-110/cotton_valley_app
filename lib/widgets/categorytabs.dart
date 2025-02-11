@@ -5,12 +5,16 @@ import '../utils/app_colors.dart';
 import '../utils/text_style.dart';
 
 class CategoryTabs extends StatelessWidget {
-  final List<String> tabs; // List of tab names, passed from the parent widget.
+  final List<String> tabs;
 
-  // Constructor with optional tabs list. If no tabs are passed, it defaults to a list.
   const CategoryTabs({
     super.key,
-    this.tabs = const ["All", "Clothing", "Footwear", "Electronic"], // Default tabs list
+    this.tabs = const [
+      "All",
+      "Clothing",
+      "Footwear",
+      "Electronic"
+    ], // Default tabs list
   });
 
   @override
@@ -23,7 +27,8 @@ class CategoryTabs extends StatelessWidget {
           children: [
             DefaultTabController(
               initialIndex: 0,
-              length: tabs.length, // Dynamically set length based on the passed tabs
+              length: tabs
+                  .length, // Dynamically set length based on the passed tabs
               child: Column(
                 children: [
                   ButtonsTabBar(
@@ -32,11 +37,13 @@ class CategoryTabs extends StatelessWidget {
                     unselectedLabelStyle: AppTextStyles.popRegular14,
                     splashColor: const Color.fromARGB(255, 245, 4, 84),
                     contentPadding: EdgeInsets.symmetric(
-                      horizontal: ScreenUtil().setWidth(26.w),
+                      horizontal: ScreenUtil().setWidth(24.w),
                     ),
                     labelSpacing: 10,
                     labelStyle: AppTextStyles.popMediumbtn14,
-                    tabs: tabs.map((tab) => Tab(text: tab)).toList(), // Dynamically generate tabs from the list
+                    tabs: tabs
+                        .map((tab) => Tab(text: tab))
+                        .toList(), // Dynamically generate tabs from the list
                   ),
                 ],
               ),

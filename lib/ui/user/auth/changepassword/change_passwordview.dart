@@ -1,4 +1,5 @@
 import 'package:cotton_valley_app/ui/user/auth/changepassword/changepassword_controller.dart';
+import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -49,7 +50,7 @@ class ChangePasswordview extends StatelessWidget {
                 suffixIcon: Padding(
                   padding: const EdgeInsets.only(right: 12),
                   child: Transform.scale(
-                    scale: 0.7, // Reduce the size further
+                    scale: 0.7,
                     child: InkWell(
                       onTap: () {
                         controller.toggleNewPassword();
@@ -58,8 +59,7 @@ class ChangePasswordview extends StatelessWidget {
                         controller.isNewPassHidden.value
                             ? Assets.eyeclosed
                             : Assets.eyeopened,
-                        width:
-                            15.w, // Even if this is fixed, scale will reduce it
+                        width: 15.w,
                         height: 15.h,
                         fit: BoxFit.contain,
                       ),
@@ -110,6 +110,7 @@ class ChangePasswordview extends StatelessWidget {
               width: 315.w,
               title: 'Change Password',
               onPressed: () {
+                Get.to(() => const SigninView());
                 print('Change Password button pressed!');
               },
             ),

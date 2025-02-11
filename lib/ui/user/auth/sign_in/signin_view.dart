@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/ui/user/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/user/auth/create/create_passwordview.dart';
 import 'package:cotton_valley_app/utils/assets.dart';
@@ -84,7 +85,7 @@ class SigninView extends StatelessWidget {
 
               ///// Forgot Password Section
               ForgotpassText(
-                onTap: () => Get.to(() => const CreatePasswordView()),
+                onTap: () => Get.to(() => const FindAccountview()),
               ),
               SizedBox(height: 16.h),
 

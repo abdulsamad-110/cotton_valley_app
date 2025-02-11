@@ -36,15 +36,13 @@ class NavigationView extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              // color: AppColors.lightgreyColor,
               child: BottomNavigationBar(
+                backgroundColor: AppColors.lightgreyColor,
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor:
-                    AppColors.redColor, // Color for selected item
-                unselectedItemColor:
-                    AppColors.blackColor, // Color for unselected items
-                showSelectedLabels: false, // Disable selected labels
-                showUnselectedLabels: false, // Disable unselected labels
+                selectedItemColor: AppColors.redColor,
+                unselectedItemColor: AppColors.blackColor,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
                 onTap: (index) {
                   controller.changeIndex(index);
                 },

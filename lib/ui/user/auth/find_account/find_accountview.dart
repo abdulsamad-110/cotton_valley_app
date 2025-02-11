@@ -23,32 +23,31 @@ class FindAccountview extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Align(
-        alignment: Alignment.topCenter, // Content ko upar shift karega
+        alignment: Alignment.topCenter,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(
-              horizontal: 30.w, vertical: 60.h), // Vertical padding reduce
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 60.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Logo
+              /// Logo
               SvgPicture.asset(
                 Assets.authimg,
                 width: 253.w,
                 height: 203.h,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 30.h), // Kam kiya taaki aur upar ho
+              SizedBox(height: 30.h),
 
-              // Title and Subtitle
+              ///// Title and Subtitle
               const MyTextWidget(
                 title: 'Find Your Account',
                 subtitle:
                     'Enter your email address to receive a verification code.',
               ),
-              SizedBox(height: 12.h), // Kam kiya taaki aur upar ho
+              SizedBox(height: 12.h),
 
-              // Email Field
+              ///// Email Field
               CustomTextField(
                 hintText: 'example@gmail.com',
                 titleText: 'Email',
@@ -56,19 +55,21 @@ class FindAccountview extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
 
-              // Forgot password text
-              ForgotpassText(
-                onTap: () => Get.to(() => const OtpView()),
-              ),
+              // // Forgot password text
+              // ForgotpassText(
+              //   onTap: () => Get.to(() => const OtpView()),
+              // ),
               SizedBox(height: 8.h),
 
-              // Find Account Button
+              ///// Find Account Button
               MycustomButton(
                 height: 39.h,
                 width: 315.w,
                 title: 'Find Account',
                 onPressed: () {
+                  Get.to(() => OtpView());
                   print('Find Account button pressed!');
+                  // onPressed: () => Get.offAll(() => NavigationView()),
                 },
               ),
             ],

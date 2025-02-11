@@ -32,7 +32,9 @@ class ProductdetailViewState extends State<ProductdetailView> {
             title: 'Product Name',
             filterIcon:
                 SvgPicture.asset(height: 22.h, width: 22.w, Assets.filtericon),
-            onFilterPressed: () {},
+            onFilterPressed: () {
+              print("Filter pressed ======>");
+            },
           ),
           const Divider(),
           Expanded(
@@ -41,8 +43,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
@@ -96,6 +97,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                       ],
                     ),
                   ),
+
                   ///
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -132,13 +134,17 @@ class ProductdetailViewState extends State<ProductdetailView> {
                   ),
                   SizedBox(height: 20.h),
                   /////
-                  VendorsWidget(),
+                  const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: VendorsWidget(),
+                  ),
                   SizedBox(height: 60.h),
                   /////
                   Center(
                     child: MycustomButton(
                       height: 39.h,
                       width: 315.w,
+                      borderRadius: 6.r,
                       title: "Contact",
                       onPressed: () {},
                     ),
