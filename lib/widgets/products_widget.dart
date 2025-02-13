@@ -5,7 +5,7 @@ import '../utils/image_constants.dart';
 import '../utils/app_colors.dart';
 import '../utils/text_style.dart';
 import '../widgets/product_custombutton.dart';
-import '../ui/user/product_detail/product_detail_view.dart';
+import '../ui/product_detail/product_detail_view.dart';
 
 class ProductsWidget extends StatelessWidget {
   final String? title; // Optional title

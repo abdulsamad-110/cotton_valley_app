@@ -1,4 +1,4 @@
-import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_view.dart';
+import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

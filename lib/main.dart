@@ -1,9 +1,9 @@
-import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_view.dart';
-import 'package:cotton_valley_app/ui/user/product_detail/product_detail_view.dart';
+import 'package:cotton_valley_app/ui/add_vendor/add_vendor_view.dart';
+import 'package:cotton_valley_app/ui/product_detail/product_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'ui/user/auth/splash/splash_view.dart';
+import 'ui/auth/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/ui/user/store_detail/store_detail_view.dart';
+import 'package:cotton_valley_app/ui/store_detail/store_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/image_constants.dart';

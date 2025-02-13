@@ -1,4 +1,4 @@
-import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_view.dart';
+import 'package:cotton_valley_app/ui/add_vendor/add_vendor_view.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:flutter/material.dart';
