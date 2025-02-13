@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../utils/assets.dart';
+import '../utils/image_constants.dart';
 
 class CircularButton extends StatelessWidget {
   const CircularButton({super.key});
@@ -15,19 +15,20 @@ class CircularButton extends StatelessWidget {
         print('Circular Button Pressed');
       },
       child: Container(
-        height: 48.h, 
+        height: 48.h,
         width: 48.w,
-        decoration:  BoxDecoration(
-          color: AppColors.redColor, 
+        decoration: BoxDecoration(
+          color: AppColors.redColor,
           shape: BoxShape.circle,
         ),
         child: Center(
           child: SvgPicture.asset(
-            Assets.addicon, 
-            width: 32.w, 
+            ImageConstants.addicon,
+            width: 32.w,
             height: 32.h,
             fit: BoxFit.contain,
-            colorFilter:  ColorFilter.mode(AppColors.whiteColor, BlendMode.srcIn), // White icon color
+            colorFilter: ColorFilter.mode(
+                AppColors.whiteColor, BlendMode.srcIn), // White icon color
           ),
         ),
       ),

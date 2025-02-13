@@ -9,12 +9,7 @@ class CategoryTabs extends StatelessWidget {
 
   const CategoryTabs({
     super.key,
-    this.tabs = const [
-      "All",
-      "Clothing",
-      "Footwear",
-      "Electronic"
-    ], // Default tabs list
+    this.tabs = const [],
   });
 
   @override
@@ -24,6 +19,7 @@ class CategoryTabs extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             DefaultTabController(
               initialIndex: 0,
@@ -37,9 +33,9 @@ class CategoryTabs extends StatelessWidget {
                     unselectedLabelStyle: AppTextStyles.popRegular14,
                     splashColor: const Color.fromARGB(255, 245, 4, 84),
                     contentPadding: EdgeInsets.symmetric(
-                      horizontal: ScreenUtil().setWidth(24.w),
+                      horizontal: ScreenUtil().setWidth(14.w),
                     ),
-                    labelSpacing: 10,
+                    //labelSpacing: 20,
                     labelStyle: AppTextStyles.popMediumbtn14,
                     tabs: tabs
                         .map((tab) => Tab(text: tab))

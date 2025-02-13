@@ -9,10 +9,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../utils/assets.dart';
+import '../../../utils/image_constants.dart';
 import '../../../widgets/custom_dropdown.dart';
-import '../addstore/add_storeview.dart';
-import '../addvendor/addvendor_view.dart';
+import '../add_store/add_store_view.dart';
+import '../add_vendor/add_vendor_view.dart';
 
 class StoreView extends StatelessWidget {
   const StoreView({super.key});
@@ -28,10 +28,10 @@ class StoreView extends StatelessWidget {
               CustomAppBar(
                 title: 'Stores',
                 searchIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.searchicon),
-                onSearchPressed: () {},
+                    height: 22.h, width: 22.w, ImageConstants.searchicon),
+                //onSearchPressed: () {},
                 filterIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.filtericon),
+                    height: 22.h, width: 22.w, ImageConstants.filtericon),
                 onFilterPressed: () {
                   SortBottomSheet(context);
                 },
@@ -74,7 +74,7 @@ class StoreView extends StatelessWidget {
             ],
           ),
           Positioned(
-            bottom: 20.h,
+            bottom: 14.h,
             right: 20.w,
             child: const CircularButton(),
           ),

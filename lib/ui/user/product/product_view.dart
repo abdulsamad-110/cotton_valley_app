@@ -1,7 +1,8 @@
-import 'package:cotton_valley_app/ui/user/addproduct/add_productview.dart';
+import 'package:cotton_valley_app/ui/user/add_product/add_product_view.dart';
 import 'package:cotton_valley_app/ui/user/product/product_controller.dart';
+import 'package:cotton_valley_app/ui/user/product_detail/product_detail_view.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
@@ -15,7 +16,7 @@ import 'package:get/get.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 
 import '../../../widgets/circular_button.dart';
-import '../../../widgets/categorytabs.dart';
+import '../../../widgets/category_tabs.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView({super.key});
@@ -28,15 +29,17 @@ class ProductView extends StatelessWidget {
       body: Stack(
         children: [
           Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///// Custom AppBar
               CustomAppBar(
                 title: 'Products',
                 searchIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.searchicon),
-                onSearchPressed: () {},
+                    height: 22.h, width: 22.w, ImageConstants.searchicon),
+                //o: () {},
                 filterIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.filtericon),
+                    height: 22.h, width: 22.w, ImageConstants.filtericon),
                 onFilterPressed: () {
                   SortBottomSheet(context);
                 },
@@ -70,10 +73,10 @@ class ProductView extends StatelessWidget {
                               height: 33.h,
                               width: 100.w,
                               title: 'Store',
-                              titleTextStyle: AppTextStyles.popregular14,
+                              titleTextStyle: AppTextStyles.popRegular14,
                               backgroundColor: controller.isStoreSelected.value
-                                  ? AppColors.redColor
-                                  : AppColors.redColor,
+                                  ? AppColors.lightgreyColor
+                                  : AppColors.lightgreyColor,
                               onTap: () {
                                 controller.toggleStore();
                                 controller.isVendorSelected.value = false;
@@ -88,16 +91,23 @@ class ProductView extends StatelessWidget {
                 height: 8.h,
               ),
               /////
-              const CategoryTabs(),
+              const CategoryTabs(
+                tabs: ["All", "Clothing", "Footwear", "Electronic"],
+              ),
               /////
               const CategoryTabs(
                 tabs: ["All", "Shirts", "Tops", "Skirts"],
               ),
+
               /////
               Expanded(
                 child: ListView.separated(
-                  itemCount: 4,
-                  itemBuilder: (context, index) => const ProductsWidget(),
+                  itemCount: 3,
+                  itemBuilder: (context, index) => ProductsWidget(
+                    onTap: () {
+                      Get.to(() => ProductdetailView());
+                    },
+                  ),
                   separatorBuilder: (context, index) => SizedBox(height: 8.h),
                 ),
               ),
@@ -106,7 +116,7 @@ class ProductView extends StatelessWidget {
 
           ///// Circular Button
           Positioned(
-            bottom: 20.h,
+            bottom: 14.h,
             right: 20.w,
             child: const CircularButton(),
           ),

@@ -1,4 +1,4 @@
-class Assets {
+class ImageConstants {
   ///// svg
   static const String mainlogo = 'assets/logo.svg';
   static const String menimageg = 'assets/Rectangle 4.svg';
@@ -30,15 +30,15 @@ class Assets {
 
   ///// png
   static const String filtericonpng = 'assets/filter-icon.png';
-   static const String menimg = 'assets/menimg.png';
-   static const String iconweb = 'assets/web.png';
-   static const String iconwechat = 'assets/wechat.png';
-   static const String iconphone = 'assets/phone.png';
-   static const String iconemail = 'assets/email.png';
-   static const String homenav = 'assets/home.png';
-   static const String productnav= 'assets/product.png';
-   static const String vendornav = 'assets/vendor.png';
-   static const String storenav = 'assets/store.png';
-   static const String settingnav = 'assets/setting.png';
-   static const String nexticon = 'assets/next.png';
+  static const String menimg = 'assets/menimg.png';
+  static const String iconweb = 'assets/web.png';
+  static const String iconwechat = 'assets/wechat.png';
+  static const String iconphone = 'assets/phone.png';
+  static const String iconemail = 'assets/email.png';
+  static const String homenav = 'assets/home.png';
+  static const String productnav = 'assets/product.png';
+  static const String vendornav = 'assets/vendor.png';
+  static const String storenav = 'assets/store.png';
+  static const String settingnav = 'assets/setting.png';
+  static const String nexticon = 'assets/next.png';
 }

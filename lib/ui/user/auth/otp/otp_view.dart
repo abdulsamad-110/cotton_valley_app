@@ -1,10 +1,10 @@
-import 'package:cotton_valley_app/ui/user/auth/changepassword/change_passwordview.dart';
+import 'package:cotton_valley_app/ui/user/auth/change_password/change_passwordview.dart';
 import 'package:cotton_valley_app/ui/user/auth/otp/otpview_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../../utils/assets.dart';
+import '../../../../utils/image_constants.dart';
 import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/mycustom_button.dart';
@@ -19,14 +19,14 @@ class OtpView extends StatelessWidget {
     final OtpviewController controller;
     Get.put(OtpviewController());
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar:  CustomAppBar(),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
         child: Column(
           children: [
             // Logo
             SvgPicture.asset(
-              Assets.authimg,
+              ImageConstants.authimg,
               width: 253.w,
               height: 203.h,
               fit: BoxFit.contain,

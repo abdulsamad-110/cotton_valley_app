@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/assets.dart';
+import '../../../utils/image_constants.dart';
 import '../home/home_view.dart';
 
 class NavigationView extends StatelessWidget {
@@ -51,7 +51,7 @@ class NavigationView extends StatelessWidget {
                 items: [
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      Assets.homeicon,
+                      ImageConstants.homeicon,
                       colorFilter: ColorFilter.mode(
                         controller.selectedIndex.value == 0
                             ? AppColors.redColor
@@ -65,7 +65,7 @@ class NavigationView extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      Assets.producticon,
+                      ImageConstants.producticon,
                       colorFilter: ColorFilter.mode(
                         controller.selectedIndex.value == 1
                             ? AppColors.redColor
@@ -79,7 +79,7 @@ class NavigationView extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      Assets.vendoricon,
+                      ImageConstants.vendoricon,
                       colorFilter: ColorFilter.mode(
                         controller.selectedIndex.value == 2
                             ? AppColors.redColor
@@ -93,7 +93,7 @@ class NavigationView extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      Assets.storeicon,
+                      ImageConstants.storeicon,
                       colorFilter: ColorFilter.mode(
                         controller.selectedIndex.value == 3
                             ? AppColors.redColor
@@ -107,7 +107,7 @@ class NavigationView extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      Assets.settingicon,
+                      ImageConstants.settingicon,
                       colorFilter: ColorFilter.mode(
                         controller.selectedIndex.value == 4
                             ? AppColors.redColor

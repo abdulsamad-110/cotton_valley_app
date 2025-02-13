@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,7 +44,7 @@ class SigninController extends GetxController {
       message,
       snackPosition: SnackPosition.TOP,
       backgroundColor: backgroundColor,
-      colorText: Colors.white,
+      colorText: AppColors.whiteColor,
     );
   }
 

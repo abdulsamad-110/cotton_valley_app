@@ -19,7 +19,7 @@ class UploadContainer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        /// Label text (Title text just like CustomTextField)
+        /// Label text
         Text(
           label,
           style: TextStyle(
@@ -28,8 +28,7 @@ class UploadContainer extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4.h),
-
-        /// Container with content
+        /// 
         Container(
           width: 120.w,
           height: 100.h,

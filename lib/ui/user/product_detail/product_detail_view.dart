@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,7 +10,7 @@ import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/mycustom_button.dart';
 import '../../../widgets/product_custombutton.dart';
 import '../../../widgets/vendors_widget.dart';
-import 'productdetail_controller.dart';
+import 'product_detail_controller.dart';
 
 class ProductdetailView extends StatefulWidget {
   const ProductdetailView({super.key});
@@ -21,7 +21,6 @@ class ProductdetailView extends StatefulWidget {
 
 class ProductdetailViewState extends State<ProductdetailView> {
   final ProductdetailController controller = ProductdetailController();
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +29,12 @@ class ProductdetailViewState extends State<ProductdetailView> {
         children: [
           CustomAppBar(
             title: 'Product Name',
-            filterIcon:
-                SvgPicture.asset(height: 22.h, width: 22.w, Assets.filtericon),
-            onFilterPressed: () {
-              print("Filter pressed ======>");
-            },
+            optionsicon: SvgPicture.asset(
+                height: 22.h, width: 22.w, ImageConstants.optionsicon),
+            // onOptionPressed: () {
+            //   print("Option pressed ======>");
+            // },
+            
           ),
           const Divider(),
           Expanded(
@@ -57,7 +57,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                             enlargeCenterPage: true,
                             onPageChanged: (index, reason) {
                               setState(() {
-                                currentIndex = index;
+                                controller.currentIndex = index;
                               });
                             },
                           ),
@@ -68,7 +68,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Image.asset(
-                                Assets.menimg,
+                                ImageConstants.menimg,
                                 width: 330.w,
                                 fit: BoxFit.fill,
                               ),
@@ -86,7 +86,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                                 margin: EdgeInsets.symmetric(horizontal: 4.w),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: currentIndex == index
+                                  color: controller.currentIndex == index
                                       ? AppColors.blackColor
                                       : AppColors.whiteColor,
                                 ),
@@ -124,7 +124,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
                           children: [
                             //
                             ProductCustomButton(onTap: () {}),
-                            SizedBox(width: 6.w),
+                            SizedBox(width: 2.w),
                             //
                             ProductCustomButton(onTap: () {}),
                           ],

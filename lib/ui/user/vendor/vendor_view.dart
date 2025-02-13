@@ -1,4 +1,4 @@
-import 'package:cotton_valley_app/ui/user/addvendor/addvendor_view.dart';
+import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_view.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_dropdown.dart';
 import 'package:cotton_valley_app/widgets/products_widget.dart';
@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/assets.dart';
+import '../../../utils/image_constants.dart';
 import '../../../widgets/circular_button.dart';
 import '../../../widgets/sort_bottomsheet.dart';
 
@@ -25,10 +25,10 @@ class VendorView extends StatelessWidget {
             CustomAppBar(
               title: 'Vendors',
               searchIcon: SvgPicture.asset(
-                  height: 22.h, width: 22.w, Assets.searchicon),
-              onSearchPressed: () {},
+                  height: 22.h, width: 22.w, ImageConstants.searchicon),
+              // onSearchPressed: () {},
               filterIcon: SvgPicture.asset(
-                  height: 22.h, width: 22.w, Assets.filtericon),
+                  height: 22.h, width: 22.w, ImageConstants.filtericon),
               onFilterPressed: () {
                 SortBottomSheet(context);
               },
@@ -44,7 +44,7 @@ class VendorView extends StatelessWidget {
                   CustomDropdown(
                     title: "Country",
                     onTap: () {
-                      Get.to(() => AddvendorView());
+                      Get.to(() => AddVendorView());
                     },
                   ),
                   SizedBox(
@@ -53,7 +53,7 @@ class VendorView extends StatelessWidget {
                   CustomDropdown(
                     title: "City",
                     onTap: () {
-                      Get.to(() => AddvendorView());
+                      Get.to(() => AddVendorView());
                     },
                   ),
                 ],
@@ -62,7 +62,11 @@ class VendorView extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 itemCount: 4,
-                itemBuilder: (context, index) => const VendorsWidget(),
+                itemBuilder: (context, index) => VendorsWidget(
+                  onTap: () {
+                    Get.to(() => VendorView());
+                  },
+                ),
                 separatorBuilder: (context, index) => SizedBox(
                   height: 8.h,
                 ),
@@ -71,7 +75,7 @@ class VendorView extends StatelessWidget {
           ],
         ),
         Positioned(
-          bottom: 20.h,
+          bottom: 14.h,
           right: 20.w,
           child: const CircularButton(),
         ),

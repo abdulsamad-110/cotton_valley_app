@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddvendorController extends GetxController{
-
+class AddVendorController extends GetxController {
   final homeController = TextEditingController();
   final codeController = TextEditingController();
   final countryController = TextEditingController();
@@ -12,7 +11,4 @@ class AddvendorController extends GetxController{
   final wechatController = TextEditingController();
   final webController = TextEditingController();
   //final countryController = TextEditingController();
-
- 
-
 }

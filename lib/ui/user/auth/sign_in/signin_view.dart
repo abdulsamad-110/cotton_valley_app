@@ -1,7 +1,8 @@
 import 'package:cotton_valley_app/ui/user/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/user/auth/create/create_passwordview.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/app_colors.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,14 +31,14 @@ class SigninView extends StatelessWidget {
             children: [
               ///// Logo
               SvgPicture.asset(
-                Assets.authimg,
+                ImageConstants.authimg,
                 width: 253.w,
                 height: 203.h,
                 fit: BoxFit.contain,
               ),
               SizedBox(height: 50.h),
 
-              /////
+              ///// Title
               const Align(
                 alignment: Alignment.centerLeft,
                 child: MyTextWidget(
@@ -69,8 +70,8 @@ class SigninView extends StatelessWidget {
                         onTap: controller.togglePassword,
                         child: SvgPicture.asset(
                           controller.isPassHidden.value
-                              ? Assets.eyeclosed
-                              : Assets.eyeopened,
+                              ? ImageConstants.eyeclosed
+                              : ImageConstants.eyeopened,
                           width: 15.w,
                           height: 15.h,
                           fit: BoxFit.contain,
@@ -94,7 +95,15 @@ class SigninView extends StatelessWidget {
                 height: 39.h,
                 width: 315.w,
                 title: 'Sign In',
-                onPressed: () => Get.offAll(() => NavigationView()),
+                onPressed: () {
+                  final error = controller.fieldValidation();
+                  if (error != null) {
+                    controller.showMessage('Error', error, AppColors.redColor);
+                  } else {
+                    controller.showMessage('Welcome', '', Color(0xFF002366));
+                    Get.offAll(() => NavigationView());
+                  }
+                },
               ),
             ],
           ),

@@ -1,6 +1,6 @@
-import 'package:cotton_valley_app/ui/user/addvendor/addvendor_controller.dart';
+import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
@@ -11,8 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/text_style.dart';
-import '../../../widgets/uploadcontainer.dart';
-import 'addproduct_controller.dart';
+import '../../../widgets/upload_container.dart';
+import 'add_product_controller.dart';
 
 class AddProductView extends StatelessWidget {
   final AddProductController controller = Get.put(AddProductController());
@@ -27,7 +27,7 @@ class AddProductView extends StatelessWidget {
             cancelIcon: SvgPicture.asset(
               height: 20.h,
               width: 20.w,
-              Assets.cancelicon,
+              ImageConstants.cancelicon,
             ),
             title: 'Add Product',
           ),
@@ -48,7 +48,7 @@ class AddProductView extends StatelessWidget {
                     suffixIcon: SvgPicture.asset(
                       height: 15.h,
                       width: 15.w,
-                      Assets.addicon,
+                      ImageConstants.addicon,
                     ),
                   ),
                   SizedBox(
@@ -98,7 +98,7 @@ class AddProductView extends StatelessWidget {
                     suffixIcon: SvgPicture.asset(
                       height: 15.h,
                       width: 15.w,
-                      Assets.addicon,
+                      ImageConstants.addicon,
                     ),
                   ),
                   SizedBox(
@@ -114,7 +114,7 @@ class AddProductView extends StatelessWidget {
                     suffixIcon: SvgPicture.asset(
                       height: 15.h,
                       width: 15.w,
-                      Assets.addicon,
+                      ImageConstants.addicon,
                     ),
                   ),
                   SizedBox(
@@ -132,7 +132,7 @@ class AddProductView extends StatelessWidget {
                     height: 10.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8),
+                    padding: EdgeInsets.only(left: 10.w),
                     child: Row(
                       children: [
                         ProductCustomButton(
@@ -142,7 +142,7 @@ class AddProductView extends StatelessWidget {
                             leadingIcon: SvgPicture.asset(
                               colorFilter: const ColorFilter.mode(
                                   AppColors.whiteColor, BlendMode.srcIn),
-                              Assets.addicon,
+                              ImageConstants.addicon,
                               height: 15.h,
                               width: 15.w,
                             ),
@@ -158,7 +158,7 @@ class AddProductView extends StatelessWidget {
                             leadingIcon: SvgPicture.asset(
                               colorFilter: const ColorFilter.mode(
                                   AppColors.whiteColor, BlendMode.srcIn),
-                              Assets.addicon,
+                              ImageConstants.addicon,
                               height: 15.h,
                               width: 15.w,
                             ),

@@ -1,6 +1,6 @@
-import 'package:cotton_valley_app/ui/user/addvendor/addvendor_controller.dart';
+import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
@@ -12,8 +12,8 @@ import 'package:get/get.dart';
 
 import '../../../utils/text_style.dart';
 
-class AddvendorView extends StatelessWidget {
-  final AddvendorController controller = Get.put(AddvendorController());
+class AddVendorView extends StatelessWidget {
+  final AddVendorController controller = Get.put(AddVendorController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AddvendorView extends StatelessWidget {
             cancelIcon: SvgPicture.asset(
               height: 20.h,
               width: 20.w,
-              Assets.cancelicon,
+              ImageConstants.cancelicon,
             ),
             title: 'Add Vendor',
           ),
@@ -39,8 +39,6 @@ class AddvendorView extends StatelessWidget {
                 children: [
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.homeController,
                     hintText: "John",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -51,8 +49,6 @@ class AddvendorView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.codeController,
                     hintText: "121651",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -63,22 +59,18 @@ class AddvendorView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.countryController,
                     hintText: "United Kingdom",
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Country",
                     suffixIcon: SvgPicture.asset(
-                        height: 15.h, width: 15.w, Assets.addicon),
+                        height: 15.h, width: 15.w, ImageConstants.addicon),
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.cityController,
                     hintText: "London",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -90,8 +82,6 @@ class AddvendorView extends StatelessWidget {
 
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.phoneController,
                     hintText: "+1 515 513XXXX",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -102,8 +92,6 @@ class AddvendorView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.emailController,
                     hintText: "example@gmail.com",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -114,8 +102,6 @@ class AddvendorView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.wechatController,
                     hintText: "wechat.com/u/example",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -126,8 +112,6 @@ class AddvendorView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.webController,
                     hintText: "www.example.com",
                     // contentPadding: EdgeInsets.symmetric(
@@ -143,8 +127,8 @@ class AddvendorView extends StatelessWidget {
           SizedBox(height: 20.h),
           /////
           MycustomButton(
-            height: 44.h,
-            width: 330.w,
+            height: 39.h,
+            width: 315.w,
             title: "Add Vendor",
             onPressed: () {},
           ),

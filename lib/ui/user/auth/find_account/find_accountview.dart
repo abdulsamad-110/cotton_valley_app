@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/assets.dart';
+import '../../../../utils/image_constants.dart';
 import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/custom_button.dart';
 import '../../../../widgets/custom_textfield.dart';
@@ -21,7 +21,7 @@ class FindAccountview extends StatelessWidget {
     final controller = Get.put(FindaccountController());
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar:  CustomAppBar(),
       body: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
@@ -32,7 +32,7 @@ class FindAccountview extends StatelessWidget {
             children: [
               /// Logo
               SvgPicture.asset(
-                Assets.authimg,
+                ImageConstants.authimg,
                 width: 253.w,
                 height: 203.h,
                 fit: BoxFit.contain,

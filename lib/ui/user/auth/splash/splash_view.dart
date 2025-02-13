@@ -1,5 +1,5 @@
 import 'package:cotton_valley_app/ui/user/auth/splash/splash_controller.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,7 +21,7 @@ class SplashView extends StatelessWidget {
             child: Container(
               child: Center(
                 child: SvgPicture.asset(
-                  Assets.mainlogo,
+                  ImageConstants.mainlogo,
                   width: 232.w,
                   height: 100.h,
                   fit: BoxFit.contain,

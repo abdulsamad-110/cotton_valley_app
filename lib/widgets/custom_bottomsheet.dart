@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ void LogoutBottomSheet(BuildContext context) {
                     },
                   ),
                   SizedBox(width: 4.w),
-                  ////
+                  //// Logout Button
                   MycustomButton(
                     backgroundColor: AppColors.redColor,
                     borderRadius: 6.r,
@@ -68,20 +69,11 @@ void LogoutBottomSheet(BuildContext context) {
                     onPressed: () {
                       Navigator.pop(context);
                       Future.delayed(const Duration(milliseconds: 300), () {
-                        Get.defaultDialog(
-                          title: "Logout Successful",
-                          middleText:
-                              "You have been successfully logged out. See you again soon!",
-                          textConfirm: "OK",
-                          confirmTextColor: Colors.white,
-                          onConfirm: () {
-                            Get.back(); // Close the dialog
-                            // Yahan aap logout ka logic add kar sakte hain
-                          },
-                        );
+                        
+                        Get.offAll(() => SigninView());
                       });
                     },
-                  )
+                  ),
                 ],
               ),
             ],

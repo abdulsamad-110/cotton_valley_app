@@ -1,14 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/ui/user/store_detail/storedetail_view.dart';
+import 'package:cotton_valley_app/ui/user/store_detail/store_detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../utils/assets.dart';
+import '../utils/image_constants.dart';
 import '../utils/app_colors.dart';
 import '../utils/text_style.dart';
 
 class StoresWidget extends StatelessWidget {
   final String? title; // Title is optional
-  const StoresWidget({super.key, this.title});
+  final Function()? onTap; // Optional onTap function
+  const StoresWidget({super.key, this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class StoresWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) // Show title only if it's provided
+          if (title != null)
             Padding(
               padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
               child: Text(
@@ -30,12 +31,7 @@ class StoresWidget extends StatelessWidget {
               itemCount: 3,
               itemBuilder: (context, index, realIndex) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => StoreDetailView()));
-                  },
+                  onTap: onTap,
                   child: Container(
                     height: 180.h,
                     decoration: BoxDecoration(
@@ -56,7 +52,7 @@ class StoresWidget extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 2.0),
                                     child: Image.asset(
-                                      Assets.menimg,
+                                      ImageConstants.menimg,
                                       height: 93.h,
                                       width: 80.w,
                                       fit: BoxFit.cover,
@@ -75,16 +71,16 @@ class StoresWidget extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    Image.asset(Assets.iconphone,
+                                    Image.asset(ImageConstants.iconphone,
                                         height: 16.h, width: 16.w),
                                     SizedBox(width: 8.w),
-                                    Image.asset(Assets.iconemail,
+                                    Image.asset(ImageConstants.iconemail,
                                         height: 16.h, width: 16.w),
                                     SizedBox(width: 8.w),
-                                    Image.asset(Assets.iconwechat,
+                                    Image.asset(ImageConstants.iconwechat,
                                         height: 16.h, width: 16.w),
                                     SizedBox(width: 8.w),
-                                    Image.asset(Assets.iconweb,
+                                    Image.asset(ImageConstants.iconweb,
                                         height: 16.h, width: 16.w),
                                   ],
                                 ),

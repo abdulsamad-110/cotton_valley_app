@@ -1,8 +1,10 @@
-import 'package:cotton_valley_app/ui/user/addproduct/add_productview.dart';
+import 'package:cotton_valley_app/ui/user/add_product/add_product_view.dart';
 import 'package:cotton_valley_app/ui/user/product/product_controller.dart';
-import 'package:cotton_valley_app/ui/user/vendor_detail/vendordetail_controller.dart';
+import 'package:cotton_valley_app/ui/user/product_detail/product_detail_view.dart';
+import 'package:cotton_valley_app/ui/user/store_detail/store_detail_controller.dart';
+import 'package:cotton_valley_app/ui/user/vendor_detail/vendor_detail_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
@@ -16,48 +18,75 @@ import 'package:get/get.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 
 import '../../../widgets/circular_button.dart';
-import '../../../widgets/categorytabs.dart';
+import '../../../widgets/category_tabs.dart';
 
-class VendorDetailView extends StatelessWidget {
-  const VendorDetailView({super.key});
+class StoreDetailView extends StatelessWidget {
+  const StoreDetailView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Vendordetailcontroller controller = Get.put(Vendordetailcontroller());
+    StoredetailController controller = Get.put(StoredetailController());
 
     return Scaffold(
       body: Stack(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ///// Custom AppBar
               CustomAppBar(
-                title: 'Vendor Name',
+                title: 'Store Name',
                 searchIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.searchicon),
-                onSearchPressed: () {},
+                  height: 22.h,
+                  width: 22.w,
+                  ImageConstants.searchicon,
+                ),
+                // onSearchPressed: () {},
                 filterIcon: SvgPicture.asset(
-                    height: 22.h, width: 22.w, Assets.filtericon),
+                  height: 22.h,
+                  width: 22.w,
+                  ImageConstants.filtericon,
+                ),
                 onFilterPressed: () {
                   SortBottomSheet(context);
                 },
+                optionsicon: SvgPicture.asset(
+                  height: 22.h,
+                  width: 22.w,
+                  ImageConstants.optionsicon,
+                ),
+                // onOptionPressed: () {
+                //   print("Option icon tapped");
+                // },
               ),
+
               const Divider(),
 
               SizedBox(
                 height: 8.h,
               ),
               /////
-              const CategoryTabs(),
+              const CategoryTabs(
+                tabs: ["All", "Clothing", "Footwear", "Electronic"],
+              ),
               /////
               const CategoryTabs(
-                tabs: ["All", "Shirts", "Tops", "Skirts"],
+                tabs: [
+                  "All",
+                  "Shirts",
+                  "Tops",
+                  "Skirts",
+                ],
               ),
               /////
               Expanded(
                 child: ListView.separated(
                   itemCount: 3,
-                  itemBuilder: (context, index) => const ProductsWidget(),
+                  itemBuilder: (context, index) => ProductsWidget(
+                    onTap: () {
+                      Get.to(() => const ProductdetailView());
+                    },
+                  ),
                   separatorBuilder: (context, index) => SizedBox(height: 8.h),
                 ),
               ),

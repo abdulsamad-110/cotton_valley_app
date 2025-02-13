@@ -1,7 +1,7 @@
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_bottomsheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart'; // Import flutter_svg package
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../widgets/custom_appbar.dart';
 import '../../../utils/text_style.dart';
 import '../../../utils/app_colors.dart';
@@ -14,7 +14,7 @@ class SettingView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const CustomAppBar(title: 'Settings'),
+          CustomAppBar(title: 'Settings'),
           const Divider(),
           Expanded(
             child: ListView(
@@ -25,7 +25,7 @@ class SettingView extends StatelessWidget {
                     style: AppTextStyles.popblack16,
                   ),
                   trailing: SvgPicture.asset(
-                    Assets.nextimg,
+                    ImageConstants.nextimg,
                     width: 18,
                     height: 18,
                   ),
@@ -37,7 +37,7 @@ class SettingView extends StatelessWidget {
                     style: AppTextStyles.popblack16,
                   ),
                   trailing: SvgPicture.asset(
-                    Assets.nextimg,
+                    ImageConstants.nextimg,
                     width: 18,
                     height: 18,
                   ),
@@ -49,7 +49,7 @@ class SettingView extends StatelessWidget {
                     style: AppTextStyles.popblack16,
                   ),
                   trailing: SvgPicture.asset(
-                    Assets.nextimg,
+                    ImageConstants.nextimg,
                     width: 20,
                     height: 20,
                   ),
@@ -61,7 +61,7 @@ class SettingView extends StatelessWidget {
                     style: AppTextStyles.popblack16,
                   ),
                   trailing: SvgPicture.asset(
-                    Assets.nextimg,
+                    ImageConstants.nextimg,
                     width: 18,
                     height: 18,
                   ),
@@ -76,7 +76,7 @@ class SettingView extends StatelessWidget {
                     ),
                   ),
                   trailing: SvgPicture.asset(
-                    Assets.nextimg,
+                    ImageConstants.nextimg,
                     width: 18,
                     height: 18,
                     colorFilter: const ColorFilter.mode(

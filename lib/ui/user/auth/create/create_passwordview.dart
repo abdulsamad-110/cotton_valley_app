@@ -1,9 +1,9 @@
 import 'package:cotton_valley_app/ui/user/auth/sign_in/signin_controller.dart';
-import 'package:cotton_valley_app/ui/user/auth/changepassword/change_passwordview.dart';
+import 'package:cotton_valley_app/ui/user/auth/change_password/change_passwordview.dart';
 import 'package:cotton_valley_app/ui/user/auth/create/create_passwordview_controller.dart';
 import 'package:cotton_valley_app/ui/user/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class CreatePasswordView extends StatelessWidget {
                   children: [
                     ///// Logo
                     SvgPicture.asset(
-                      Assets.authimg,
+                      ImageConstants.authimg,
                       width: 253.w,
                       height: 203.h,
                       fit: BoxFit.contain,
@@ -71,8 +71,8 @@ class CreatePasswordView extends StatelessWidget {
                                   },
                                   child: SvgPicture.asset(
                                     controller.isPassHidden.value
-                                        ? Assets.eyeclosed
-                                        : Assets.eyeopened,
+                                        ? ImageConstants.eyeclosed
+                                        : ImageConstants.eyeopened,
                                     width: 15
                                         .w, // Even if this is fixed, scale will reduce it
                                     height: 15.h,
@@ -105,8 +105,8 @@ class CreatePasswordView extends StatelessWidget {
                                   },
                                   child: SvgPicture.asset(
                                     controller.isConfrimPassHidden.value
-                                        ? Assets.eyeclosed
-                                        : Assets.eyeopened,
+                                        ? ImageConstants.eyeclosed
+                                        : ImageConstants.eyeopened,
                                     width: 15
                                         .w, // Even if this is fixed, scale will reduce it
                                     height: 15.h,

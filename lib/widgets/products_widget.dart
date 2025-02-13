@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../utils/assets.dart';
+import '../utils/image_constants.dart';
 import '../utils/app_colors.dart';
 import '../utils/text_style.dart';
 import '../widgets/product_custombutton.dart';
-import '../ui/user/product_detail/productdetail_view.dart'; 
+import '../ui/user/product_detail/product_detail_view.dart';
 
 class ProductsWidget extends StatelessWidget {
   final String? title; // Optional title
+  final Function()? onTap; // Optional onTap function
 
-  const ProductsWidget({super.key, this.title});
+  const ProductsWidget({super.key, this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (title != null && title!.isNotEmpty) 
+        if (title != null && title!.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(left: 17.0, bottom: 8.0),
             child: Text(
@@ -31,15 +32,7 @@ class ProductsWidget extends StatelessWidget {
             itemCount: 3,
             itemBuilder: (context, index, realIndex) {
               return GestureDetector(
-                onTap: () {
-                  // Navigate to ProductdetailView when tapped
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductdetailView(),
-                    ),
-                  );
-                },
+                onTap: onTap,
                 child: Container(
                   height: 180.h,
                   decoration: BoxDecoration(
@@ -60,7 +53,7 @@ class ProductsWidget extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 2.0),
                                   child: Image.asset(
-                                    Assets.menimg,
+                                    ImageConstants.menimg,
                                     height: 93.h,
                                     width: 80.w,
                                     fit: BoxFit.cover,
@@ -110,7 +103,6 @@ class ProductsWidget extends StatelessWidget {
               height: 200.h,
               enlargeCenterPage: true,
               enableInfiniteScroll: false,
-              //scrollPhysics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.horizontal,
               autoPlay: false,
               viewportFraction: 0.9,

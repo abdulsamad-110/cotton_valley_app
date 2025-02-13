@@ -1,6 +1,6 @@
-import 'package:cotton_valley_app/ui/user/addvendor/addvendor_controller.dart';
+import 'package:cotton_valley_app/ui/user/add_vendor/add_vendor_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
-import 'package:cotton_valley_app/utils/assets.dart';
+import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
@@ -11,7 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/text_style.dart';
-import 'addstore.controller.dart';
+import 'add_store_controller.dart';
 
 class AddStoreView extends StatelessWidget {
   final AddStoreController controller = Get.put(AddStoreController());
@@ -26,7 +26,7 @@ class AddStoreView extends StatelessWidget {
             cancelIcon: SvgPicture.asset(
               height: 20.h,
               width: 20.w,
-              Assets.cancelicon,
+              ImageConstants.cancelicon,
             ),
             title: 'Add Storer',
           ),
@@ -71,7 +71,7 @@ class AddStoreView extends StatelessWidget {
                     hintTextStyle: AppTextStyles.popRegular10,
                     titleText: "Country",
                     suffixIcon: SvgPicture.asset(
-                        height: 15.h, width: 15.w, Assets.addicon),
+                        height: 15.h, width: 15.w, ImageConstants.addicon),
                   ),
                   SizedBox(
                     height: 8.h,
