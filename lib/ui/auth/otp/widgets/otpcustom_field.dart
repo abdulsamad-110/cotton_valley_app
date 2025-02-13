@@ -30,8 +30,7 @@ class CustomField extends StatelessWidget {
   final bool isNumberKeyboard; // Add a variable to control the keyboard type
 
   const CustomField(
-      {super.key, this.isNumberKeyboard = true}); // Default is number keyboard
-
+      {super.key, this.isNumberKeyboard = true}); 
   @override
   Widget build(BuildContext context) {
     return SizedBox(

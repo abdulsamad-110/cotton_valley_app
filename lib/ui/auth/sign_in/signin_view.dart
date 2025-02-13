@@ -1,6 +1,7 @@
 import 'package:cotton_valley_app/ui/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/auth/create/create_passwordview.dart';
+import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
@@ -9,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../widgets/custom_textfield.dart';
-import '../../../widgets/forgot_passtext.dart';
-import '../../../widgets/mytext_widget.dart';
+import '../../../widgets/forgot_pass_widget.dart';
+import '../../../widgets/auth_header_widget.dart';
 import '../../navigation/navigation_view.dart';
 
 class SigninView extends StatelessWidget {
@@ -30,18 +31,13 @@ class SigninView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ///// Logo
-              SvgPicture.asset(
-                ImageConstants.authimg,
-                width: 253.w,
-                height: 203.h,
-                fit: BoxFit.contain,
-              ),
+              const AuthLogoWidget(),
+              //
               SizedBox(height: 50.h),
-
-              ///// Title
+              ///// Header
               const Align(
                 alignment: Alignment.centerLeft,
-                child: MyTextWidget(
+                child: AuthHeaderWidget(
                   title: 'Sign In',
                   subtitle: 'Enter your credentials to continue.',
                 ),
@@ -54,7 +50,7 @@ class SigninView extends StatelessWidget {
                 titleText: 'Email',
                 controller: controller.emailController,
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
 
               ///// Password Field
               Obx(
@@ -82,10 +78,10 @@ class SigninView extends StatelessWidget {
                   controller: controller.passwordController,
                 ),
               ),
-              SizedBox(height: 4.h),
+              SizedBox(height: 6.h),
 
-              ///// Forgot Password Section
-              ForgotpassText(
+              ///// Forgot Password widget
+              ForgotPasswordWidget(
                 onTap: () => Get.to(() => const FindAccountview()),
               ),
               SizedBox(height: 16.h),

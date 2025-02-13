@@ -164,7 +164,7 @@ class NavigationView extends StatelessWidget {
       bottomNavigationBar: Obx(() => Padding(
             padding: const EdgeInsets.all(20),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(33),
+              borderRadius: BorderRadius.circular(36.r),
               child: BottomNavigationBar(
                 backgroundColor: AppColors.lightgreyColor,
                 type: BottomNavigationBarType.fixed,

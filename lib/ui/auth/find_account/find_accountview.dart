@@ -1,4 +1,5 @@
 import 'package:cotton_valley_app/ui/auth/otp/otp_view.dart';
+import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,9 +9,9 @@ import '../../../utils/image_constants.dart';
 import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
-import '../../../widgets/forgot_passtext.dart';
+import '../../../widgets/forgot_pass_widget.dart';
 import '../../../widgets/mycustom_button.dart';
-import '../../../widgets/mytext_widget.dart';
+import '../../../widgets/auth_header_widget.dart';
 import 'findaccount_controller.dart';
 
 class FindAccountview extends StatelessWidget {
@@ -21,31 +22,27 @@ class FindAccountview extends StatelessWidget {
     final controller = Get.put(FindaccountController());
 
     return Scaffold(
-      appBar:  CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 60.h),
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               /// Logo
-              SvgPicture.asset(
-                ImageConstants.authimg,
-                width: 253.w,
-                height: 203.h,
-                fit: BoxFit.contain,
-              ),
-              SizedBox(height: 30.h),
+              const AuthLogoWidget(),
+              //
+              SizedBox(height: 50.h),
 
-              ///// Title and Subtitle
-              const MyTextWidget(
+              ///// Header
+              const AuthHeaderWidget(
                 title: 'Find Your Account',
                 subtitle:
                     'Enter your email address to receive a verification code.',
               ),
-              SizedBox(height: 12.h),
+              SizedBox(height: 21.h),
 
               ///// Email Field
               CustomTextField(
@@ -53,13 +50,8 @@ class FindAccountview extends StatelessWidget {
                 titleText: 'Email',
                 controller: controller.emailController,
               ),
-              SizedBox(height: 8.h),
 
-              // // Forgot password text
-              // ForgotpassText(
-              //   onTap: () => Get.to(() => const OtpView()),
-              // ),
-              SizedBox(height: 8.h),
+              SizedBox(height: 16.h),
 
               ///// Find Account Button
               MycustomButton(

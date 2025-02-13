@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utils/text_style.dart'; 
+import '../utils/text_style.dart';
 
-class MyTextWidget extends StatelessWidget {
+class AuthHeaderWidget extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  const MyTextWidget({
+  const AuthHeaderWidget({
     Key? key,
     required this.title,
     required this.subtitle,
@@ -20,12 +20,12 @@ class MyTextWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTextStyles.popSemiBold24, 
+          style: AppTextStyles.popSemiBold24,
         ),
         SizedBox(height: 4.h),
         Text(
           subtitle,
-          style: AppTextStyles.popLight16, 
+          style: AppTextStyles.popLight16,
         ),
       ],
     );

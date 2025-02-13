@@ -10,7 +10,8 @@ import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 import '../../../widgets/mycustom_button.dart';
-import '../../../widgets/mytext_widget.dart';
+import '../../../widgets/auth_header_widget.dart';
+import '../widgets/auth_logo_widget.dart';
 
 class ChangePasswordview extends StatelessWidget {
   const ChangePasswordview({super.key});
@@ -22,20 +23,16 @@ class ChangePasswordview extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
         child: Column(
           children: [
             ///// Logo
-            SvgPicture.asset(
-              ImageConstants.authimg,
-              width: 253.w,
-              height: 203.h,
-              fit: BoxFit.contain,
-            ),
+            const AuthLogoWidget(),
+            //
             SizedBox(height: 50.h),
 
             /////
-            const MyTextWidget(
+            const AuthHeaderWidget(
               title: 'Change Password',
               subtitle: 'Create a new password for your account.',
             ),

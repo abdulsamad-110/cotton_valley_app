@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
-  static  TextStyle popSemiBold24 = GoogleFonts.poppins(
+  static TextStyle popSemiBold24 = GoogleFonts.poppins(
     fontSize: 24.sp,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.normal, //fontWeight: FontWeight.w600,
     color: AppColors.blackColor,
   );
 
@@ -28,8 +27,8 @@ class AppTextStyles {
     color: AppColors.blackColor,
   );
   static TextStyle popgrey10 = GoogleFonts.poppins(
-      fontSize: 10.sp, color: AppColors.hinttext,// fontWeight: FontWeight.w500
-      );
+    fontSize: 10.sp, color: AppColors.hinttext, // fontWeight: FontWeight.w500
+  );
 
   static TextStyle popRegular14 = GoogleFonts.poppins(
     fontSize: 14.sp,
@@ -51,7 +50,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.blackColor,
   );
-    static TextStyle popBold17 = GoogleFonts.poppins(
+  static TextStyle popBold17 = GoogleFonts.poppins(
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.blackColor,

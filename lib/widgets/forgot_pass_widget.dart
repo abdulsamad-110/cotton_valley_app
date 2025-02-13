@@ -2,10 +2,10 @@ import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ForgotpassText extends StatelessWidget {
+class ForgotPasswordWidget extends StatelessWidget {
   final VoidCallback onTap;
 
-  const ForgotpassText({
+  const ForgotPasswordWidget({
     super.key,
     required this.onTap,
   });

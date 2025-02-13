@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../../widgets/forgot_passtext.dart';
-import '../../../../widgets/mytext_widget.dart';
+import '../../../widgets/forgot_pass_widget.dart';
+import '../../../widgets/auth_header_widget.dart';
 import '../../../utils/text_style.dart';
 import '../../../widgets/custom_textfield.dart';
 import '../../../widgets/mycustom_button.dart';
@@ -49,7 +49,7 @@ class CreatePasswordView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ///// MyTextWidget
-                        const MyTextWidget(
+                        const AuthHeaderWidget(
                           title: 'Create Password',
                           subtitle:
                               'You’re signing in for the first time. Create your password now.',
@@ -122,7 +122,7 @@ class CreatePasswordView extends StatelessWidget {
 
                         SizedBox(height: 4.h),
                         ///// Forgot password text
-                        ForgotpassText(
+                        ForgotPasswordWidget(
                           onTap: () {
                             print('Forgot password tapped!');
                             Get.to(() => const FindAccountview());
