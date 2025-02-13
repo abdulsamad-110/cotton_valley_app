@@ -65,7 +65,7 @@ class SigninView extends StatelessWidget {
                   suffixIcon: Padding(
                     padding: EdgeInsets.only(right: 12.w),
                     child: Transform.scale(
-                      scale: 0.7,
+                      scale: 0.6,
                       child: InkWell(
                         onTap: controller.togglePassword,
                         child: SvgPicture.asset(
@@ -100,7 +100,8 @@ class SigninView extends StatelessWidget {
                   if (error != null) {
                     controller.showMessage('Error', error, AppColors.redColor);
                   } else {
-                    controller.showMessage('Welcome', '', Color(0xFF002366));
+                    controller.showMessage('Welcome to Cotton Valley',
+                        'Where style meets quality.', AppColors.redColor);
                     Get.offAll(() => NavigationView());
                   }
                 },

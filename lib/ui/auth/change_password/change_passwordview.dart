@@ -20,7 +20,7 @@ class ChangePasswordview extends StatelessWidget {
     ChangepasswordController controller = Get.put(ChangepasswordController());
 
     return Scaffold(
-      appBar:  CustomAppBar(),
+      appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
         child: Column(
@@ -50,7 +50,7 @@ class ChangePasswordview extends StatelessWidget {
                 suffixIcon: Padding(
                   padding: const EdgeInsets.only(right: 12),
                   child: Transform.scale(
-                    scale: 0.7,
+                    scale: 0.6,
                     child: InkWell(
                       onTap: () {
                         controller.toggleNewPassword();
@@ -81,7 +81,7 @@ class ChangePasswordview extends StatelessWidget {
                 suffixIcon: Padding(
                   padding: const EdgeInsets.only(right: 12),
                   child: Transform.scale(
-                    scale: 0.7, // Reduce the size further
+                    scale: 0.6, // Reduce the size further
                     child: InkWell(
                       onTap: () {
                         controller.toggleConfrimNewPassword();
