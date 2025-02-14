@@ -151,7 +151,7 @@ class NavigationView extends StatelessWidget {
     const ProductView(),
     const VendorView(),
     const StoreView(),
-    const SettingView(),
+    SettingView(),
   ];
 
   @override

@@ -1,5 +1,6 @@
 import 'package:cotton_valley_app/ui/auth/otp/otp_view.dart';
 import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
+import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,9 +60,14 @@ class FindAccountview extends StatelessWidget {
                 width: 315.w,
                 title: 'Find Account',
                 onPressed: () {
-                  Get.to(() => OtpView());
+                  final error = controller.fieldValidation();
+                  if (error != null) {
+                    controller.showMessage("Error", error, AppColors.redColor);
+                    return;
+                  }
+                  controller.clearTextFields();
+                  Get.to(() => const OtpView());
                   print('Find Account button pressed!');
-                  // onPressed: () => Get.offAll(() => NavigationView()),
                 },
               ),
             ],

@@ -7,7 +7,7 @@ import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/mycustom_button.dart';
 import '../../../widgets/auth_header_widget.dart';
 import '../widgets/auth_logo_widget.dart';
-import 'widgets/otpcustom_field.dart';
+import 'widgets/otp_input_row.dart';
 
 class OtpView extends StatelessWidget {
   const OtpView({super.key});
@@ -34,8 +34,8 @@ class OtpView extends StatelessWidget {
             ),
             SizedBox(height: 20.h),
 
-            ///// OTP Field
-            const OtpCustomField(),
+            ///// OTP
+            OtpInputRow(),
             SizedBox(height: 20.h),
 
             ///// Verify Button

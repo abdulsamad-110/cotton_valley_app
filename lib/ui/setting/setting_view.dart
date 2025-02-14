@@ -1,14 +1,17 @@
+import 'package:cotton_valley_app/ui/account_management/account_management_view.dart';
+import 'package:cotton_valley_app/ui/setting/setting_controller.dart';
 import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../utils/text_style.dart';
 import '../../utils/app_colors.dart';
 
 class SettingView extends StatelessWidget {
-  const SettingView({super.key});
-
+  SettingView({super.key});
+  SettingController controller = Get.put(SettingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,9 @@ class SettingView extends StatelessWidget {
                     width: 18,
                     height: 18,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => AccountManagementView());
+                  },
                 ),
                 ListTile(
                   title: Text(

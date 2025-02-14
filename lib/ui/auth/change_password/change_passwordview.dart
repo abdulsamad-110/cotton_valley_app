@@ -1,5 +1,6 @@
-import 'package:cotton_valley_app/ui/auth/change_password/changepassword_controller.dart';
+import 'package:cotton_valley_app/ui/auth/change_password/change_pass_controller.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
+import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,7 +19,8 @@ class ChangePasswordview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChangepasswordController controller = Get.put(ChangepasswordController());
+    final ChangepasswordController controller =
+        Get.put(ChangepasswordController());
 
     return Scaffold(
       appBar: CustomAppBar(),
@@ -107,6 +109,11 @@ class ChangePasswordview extends StatelessWidget {
               width: 315.w,
               title: 'Change Password',
               onPressed: () {
+                final error = controller.fieldValidation();
+                if (error != null) {
+                  controller.showMessage('Error', error, AppColors.redColor);
+                  return;
+                }
                 Get.to(() => const SigninView());
                 print('Change Password button pressed!');
               },

@@ -3,6 +3,7 @@ import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/custom_button.dart';
+import 'package:cotton_valley_app/widgets/custom_dropdown.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
@@ -40,8 +41,6 @@ class AddStoreView extends StatelessWidget {
                 children: [
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.homeController,
                     hintText: "John",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -52,8 +51,6 @@ class AddStoreView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.codeController,
                     hintText: "121651",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -63,35 +60,34 @@ class AddStoreView extends StatelessWidget {
                     height: 8.h,
                   ),
                   //
-                  CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                  CustomDropdown(
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'Country',
+                    hintText: 'United Kingdom',
                     controller: controller.countryController,
-                    hintText: "United Kingdom",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "Country",
-                    suffixIcon: SvgPicture.asset(
-                        height: 15.h, width: 15.w, ImageConstants.addicon),
+                    showBorder: false,
+                    onTap: () {},
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
                   //
-                  CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
+                  CustomDropdown(
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'City',
+                    hintText: 'London',
                     controller: controller.cityController,
-                    hintText: "London",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "City",
+                    showBorder: false,
+                    onTap: () {},
                   ),
+
                   SizedBox(
                     height: 8.h,
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.phoneController,
                     hintText: "+1 515 513XXXX",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -102,8 +98,6 @@ class AddStoreView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.emailController,
                     hintText: "example@gmail.com",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -114,8 +108,6 @@ class AddStoreView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    height: 33.h,
-                    width: 330.w,
                     controller: controller.wechatController,
                     hintText: "wechat.com/u/example",
                     hintTextStyle: AppTextStyles.popRegular10,
@@ -126,8 +118,6 @@ class AddStoreView extends StatelessWidget {
                   ),
                   //
                   CustomTextField(
-                    // height: 33.h,
-                    // width: 330.w,
                     controller: controller.webController,
                     hintText: "www.example.com",
                     // contentPadding: EdgeInsets.symmetric(

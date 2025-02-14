@@ -43,18 +43,18 @@ class VendorView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomDropdown(
-                    title: "Country",
+                    hintText: "Country",
                     onTap: () {
-                      Get.to(() => AddVendorView());
+                      print("Country Dropdown clicked!");
                     },
                   ),
                   SizedBox(
                     width: 5.w,
                   ),
                   CustomDropdown(
-                    title: "City",
+                    hintText: "City",
                     onTap: () {
-                      Get.to(() => AddVendorView());
+                      print("City Dropdown clicked!");
                     },
                   ),
                 ],
@@ -78,7 +78,11 @@ class VendorView extends StatelessWidget {
         Positioned(
           bottom: 14.h,
           right: 20.w,
-          child: const CircularButton(),
+          child: CircularButton(
+            onTap: () {
+              Get.to(() => AddVendorView());
+            },
+          ),
         ),
       ]),
     );

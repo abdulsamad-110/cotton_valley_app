@@ -16,15 +16,7 @@ class SigninController extends GetxController {
   clearTextFields() {
     emailController.clear();
     passwordController.clear();
-    isPassHidden.value = true;
   }
-
-  // ///// Clear Fields and Reset Toggle
-  // void resetFields() {
-  //   emailController.clear();
-  //   passwordController.clear();
-  //   isPassHidden.value = true;
-  // }
 
   ///// Validation for email and password
   fieldValidation() {
@@ -48,9 +40,9 @@ class SigninController extends GetxController {
     );
   }
 
-  @override
-  void onInit() {
-    clearTextFields();
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   clearTextFields();
+  //   super.onInit();
+  // }
 }

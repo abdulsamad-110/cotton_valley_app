@@ -46,18 +46,18 @@ class StoreView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomDropdown(
-                      title: "Country",
+                      hintText: "Country",
                       onTap: () {
-                        Get.to(() => AddStoreView());
+                        print("Country Dropdown clicked!");
                       },
                     ),
                     SizedBox(
                       width: 5.w,
                     ),
                     CustomDropdown(
-                      title: "City",
+                      hintText: "City",
                       onTap: () {
-                        Get.to(() => AddStoreView());
+                        print("City Dropdown clicked!");
                       },
                     ),
                   ],
@@ -81,7 +81,11 @@ class StoreView extends StatelessWidget {
           Positioned(
             bottom: 14.h,
             right: 20.w,
-            child: const CircularButton(),
+            child: CircularButton(
+              onTap: () {
+                Get.to(() => AddStoreView());
+              },
+            ),
           ),
         ],
       ),

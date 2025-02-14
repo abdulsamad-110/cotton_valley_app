@@ -11,6 +11,8 @@ class AddStoreController extends GetxController{
   final emailController = TextEditingController();
   final wechatController = TextEditingController();
   final webController = TextEditingController();
+
+  //final dropdownController = TextEditingController();
   //final countryController = TextEditingController();
 
  

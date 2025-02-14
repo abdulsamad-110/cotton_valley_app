@@ -6,18 +6,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../utils/image_constants.dart';
 
 class CircularButton extends StatelessWidget {
-  const CircularButton({super.key});
+  final VoidCallback? onTap; 
+
+  const CircularButton({super.key, this.onTap}); 
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print('Circular Button Pressed');
-      },
+      onTap: onTap, 
       child: Container(
         height: 48.h,
         width: 48.w,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: AppColors.redColor,
           shape: BoxShape.circle,
         ),
@@ -27,8 +27,8 @@ class CircularButton extends StatelessWidget {
             width: 32.w,
             height: 32.h,
             fit: BoxFit.contain,
-            colorFilter: ColorFilter.mode(
-                AppColors.whiteColor, BlendMode.srcIn), // White icon color
+            colorFilter: const ColorFilter.mode(
+                AppColors.whiteColor, BlendMode.srcIn), 
           ),
         ),
       ),

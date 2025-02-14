@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../utils/text_style.dart';
+import '../../widgets/custom_dropdown.dart';
 
 class AddVendorView extends StatelessWidget {
   final AddVendorController controller = Get.put(AddVendorController());
@@ -58,23 +59,25 @@ class AddVendorView extends StatelessWidget {
                     height: 8.h,
                   ),
                   //
-                  CustomTextField(
+                  CustomDropdown(
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'Country',
+                    hintText: 'United Kingdom',
                     controller: controller.countryController,
-                    hintText: "United Kingdom",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "Country",
-                    suffixIcon: SvgPicture.asset(
-                        height: 15.h, width: 15.w, ImageConstants.addicon),
+                    showBorder: false,
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
                   //
-                  CustomTextField(
+                  CustomDropdown(
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'City',
+                    hintText: 'London',
                     controller: controller.cityController,
-                    hintText: "London",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "City",
+                    showBorder: false,
                   ),
                   SizedBox(
                     height: 8.h,

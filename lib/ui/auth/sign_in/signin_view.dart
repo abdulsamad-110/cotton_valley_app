@@ -82,8 +82,12 @@ class SigninView extends StatelessWidget {
 
               ///// Forgot Password widget
               ForgotPasswordWidget(
-                onTap: () => Get.to(() => const FindAccountview()),
+                onTap: () {
+                  controller.clearTextFields();
+                  Get.to(() => const FindAccountview());
+                },
               ),
+
               SizedBox(height: 16.h),
 
               ///// Sign In Button

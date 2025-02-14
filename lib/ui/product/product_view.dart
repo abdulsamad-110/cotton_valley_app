@@ -65,7 +65,6 @@ class ProductView extends StatelessWidget {
                               onTap: () {
                                 controller.toggleVendor();
                                 controller.isStoreSelected.value = true;
-                                Get.to(() => AddProductView());
                               },
                             ),
                             SizedBox(width: 4.w),
@@ -118,7 +117,11 @@ class ProductView extends StatelessWidget {
           Positioned(
             bottom: 14.h,
             right: 20.w,
-            child: const CircularButton(),
+            child: CircularButton(
+              onTap: () {
+                Get.to(() => AddProductView());
+              },
+            ),
           ),
         ],
       ),
