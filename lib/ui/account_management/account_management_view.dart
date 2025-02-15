@@ -37,14 +37,15 @@ class AccountManagementView extends StatelessWidget {
                           height: 200.h,
                           width: 315.w,
                           decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(12.r),
+                            color: Colors.blueGrey,
+                            borderRadius: BorderRadius.circular(15.r),
                           ),
                         ),
                         Positioned(
                           right: 20.w,
                           bottom: 20.h,
                           child: SvgPicture.asset(
+                            color: Colors.white,
                             ImageConstants.filtericon,
                             height: 30.h,
                             width: 30.w,
