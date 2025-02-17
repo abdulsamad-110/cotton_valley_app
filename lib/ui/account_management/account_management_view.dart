@@ -23,7 +23,10 @@ class AccountManagementView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomAppBar(title: 'Account Management'),
+          CustomAppBar(
+            title: 'Account Management',
+            titleStyle: AppTextStyles.popblack16,
+          ),
           const Divider(),
           Expanded(
             child: SingleChildScrollView(
@@ -37,18 +40,30 @@ class AccountManagementView extends StatelessWidget {
                           height: 200.h,
                           width: 315.w,
                           decoration: BoxDecoration(
-                            color: Colors.blueGrey,
                             borderRadius: BorderRadius.circular(15.r),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.r),
+                            child: Image.asset(
+                              ImageConstants.menimg,
+                              width: 315.w,
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                         Positioned(
-                          right: 20.w,
-                          bottom: 20.h,
-                          child: SvgPicture.asset(
-                            color: Colors.white,
-                            ImageConstants.filtericon,
-                            height: 30.h,
-                            width: 30.w,
+                          right: 15.w,
+                          bottom: 15.h,
+                          child: GestureDetector(
+                            onTap: () {
+                              print("filtericon clicked ======>");
+                            },
+                            child: SvgPicture.asset(
+                              color: Colors.white,
+                              ImageConstants.filtericon,
+                              height: 30.h,
+                              width: 30.w,
+                            ),
                           ),
                         ),
                       ],
@@ -79,7 +94,7 @@ class AccountManagementView extends StatelessWidget {
                     /////
                     AccountPasswordFields(controller: controller),
                     //
-                    SizedBox(height: 16.h),
+                    SizedBox(height: 20.h),
                     //
                     MycustomButton(
                       height: 39.h,

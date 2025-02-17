@@ -3,6 +3,7 @@ import 'package:cotton_valley_app/ui/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/auth/create/create_passwordview.dart';
 import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
+import 'package:cotton_valley_app/utils/common_functions.dart';
 import 'package:cotton_valley_app/utils/image_constants.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
@@ -96,11 +97,12 @@ class SigninView extends StatelessWidget {
                 width: 315.w,
                 title: 'Sign In',
                 onPressed: () {
-                  final error = controller.fieldValidation();
+                  String? error = controller.fieldValidation();
                   if (error != null) {
-                    controller.showMessage('Error', error, AppColors.redColor);
+                    CommonFunctions.showMessage(
+                        'Error', error, AppColors.redColor);
                   } else {
-                    controller.showMessage('Welcome to Cotton Valley',
+                    CommonFunctions.showMessage('Welcome to Cotton Valley',
                         'Where style meets quality.', AppColors.redColor);
                     Get.offAll(() => NavigationView());
                   }

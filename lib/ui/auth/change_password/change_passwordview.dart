@@ -1,6 +1,7 @@
 import 'package:cotton_valley_app/ui/auth/change_password/change_pass_controller.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
+import 'package:cotton_valley_app/utils/common_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -111,7 +112,7 @@ class ChangePasswordview extends StatelessWidget {
               onPressed: () {
                 final error = controller.fieldValidation();
                 if (error != null) {
-                  controller.showMessage('Error', error, AppColors.redColor);
+                  CommonFunctions.showMessage('Error', error, AppColors.redColor);
                   return;
                 }
                 Get.to(() => const SigninView());

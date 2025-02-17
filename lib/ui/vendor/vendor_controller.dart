@@ -1,7 +1,14 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class VendorController extends GetxController {
-  var selectedValue = "Select".obs;
+  TextEditingController countryController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
 
-  List<String> items = ["Select", "Option 1", "Option 2", "Option 3"];
+  RxString selectedCountry = "".obs;
+
+  void setCountry(String country) {
+    selectedCountry.value;
+    //countryController.text;
+  }
 }

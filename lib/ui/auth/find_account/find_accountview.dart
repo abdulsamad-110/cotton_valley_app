@@ -1,6 +1,7 @@
 import 'package:cotton_valley_app/ui/auth/otp/otp_view.dart';
 import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
+import 'package:cotton_valley_app/utils/common_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -62,7 +63,7 @@ class FindAccountview extends StatelessWidget {
                 onPressed: () {
                   final error = controller.fieldValidation();
                   if (error != null) {
-                    controller.showMessage("Error", error, AppColors.redColor);
+                    CommonFunctions.showMessage("Error", error, AppColors.redColor);
                     return;
                   }
                   controller.clearTextFields();

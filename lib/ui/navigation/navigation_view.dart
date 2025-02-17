@@ -147,10 +147,10 @@ class NavigationView extends StatelessWidget {
   final NavigationController controller = Get.put(NavigationController());
 
   final List<Widget> pages = [
-    const HomeView(),
-    const ProductView(),
-    const VendorView(),
-    const StoreView(),
+    HomeView(),
+    ProductView(),
+    VendorView(),
+    StoreView(),
     SettingView(),
   ];
 

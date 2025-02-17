@@ -35,6 +35,7 @@ class VendorDetailView extends StatelessWidget {
               ///// Custom AppBar
               CustomAppBar(
                 title: 'Vendor Name',
+                titleStyle: AppTextStyles.popblack16,
                 searchIcon: SvgPicture.asset(
                     height: 22.h, width: 22.w, ImageConstants.searchicon),
                 // onSearchPressed: () {},

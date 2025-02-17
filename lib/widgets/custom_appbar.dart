@@ -43,7 +43,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.whiteColor,
             surfaceTintColor: Colors.transparent,
             elevation: 0,
             titleSpacing: 10.w,
@@ -56,7 +56,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: cancelIcon ??
-                          const Icon(Icons.close, color: Colors.black),
+                          const Icon(Icons.close, color: AppColors.blackColor),
                     ),
                   )
                 : backIcon != null
@@ -81,7 +81,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       border: InputBorder.none,
                       // hintStyle: TextStyle(color: Colors.grey),
                     ),
-                    style: const TextStyle(color: Colors.black),
+                    style: const TextStyle(color: AppColors.blackColor),
                   )
                 : title != null
                     ? Text(
@@ -94,7 +94,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 GestureDetector(
                   onTap: () => isSearching.value = true,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: EdgeInsets.only(right: 10.r),
                     child: searchIcon!,
                   ),
                 ),
@@ -102,13 +102,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 GestureDetector(
                   onTap: onFilterPressed ?? () => print("Filter icon tapped"),
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: EdgeInsets.only(right: 10.r),
                     child: filterIcon!,
                   ),
                 ),
               if (optionsicon != null)
                 Padding(
-                  padding: const EdgeInsets.only(right: 5.0),
+                  padding: EdgeInsets.only(right: 5.r),
                   child: PopupMenuButton<String>(
                     color: AppColors.whiteColor,
                     onSelected: (value) {

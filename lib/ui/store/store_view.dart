@@ -4,6 +4,7 @@ import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/sort_bottomsheet.dart';
 import 'package:cotton_valley_app/widgets/stores_widget.dart';
 import 'package:cotton_valley_app/widgets/vendors_widget.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -40,7 +41,7 @@ class StoreView extends StatelessWidget {
               const Divider(),
               /////
               Padding(
-                padding: const EdgeInsets.only(top: 0, left: 20),
+                padding: EdgeInsets.only(top: 0, left: 20.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +49,20 @@ class StoreView extends StatelessWidget {
                     CustomDropdown(
                       hintText: "Country",
                       onTap: () {
+                        showCountryPicker(
+                          context: context,
+                          showPhoneCode: false,
+                          countryListTheme: CountryListThemeData(
+                            flagSize: 18.sp,
+                            textStyle: TextStyle(fontSize: 14.sp),
+                            bottomSheetHeight: 500.h,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(12.r),
+                              topRight: Radius.circular(12.r),
+                            ),
+                          ),
+                          onSelect: (Country value) {},
+                        );
                         print("Country Dropdown clicked!");
                       },
                     ),

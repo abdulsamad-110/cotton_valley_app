@@ -29,16 +29,16 @@ class SigninController extends GetxController {
     return error;
   }
 
-///// Validation massage
-  void showMessage(String title, String message, Color backgroundColor) {
-    Get.snackbar(
-      title,
-      message,
-      snackPosition: SnackPosition.TOP,
-      backgroundColor: backgroundColor,
-      colorText: AppColors.whiteColor,
-    );
-  }
+// ///// Validation massage
+//   void showMessage(String title, String message, Color backgroundColor) {
+//     Get.snackbar(
+//       title,
+//       message,
+//       snackPosition: SnackPosition.TOP,
+//       backgroundColor: backgroundColor,
+//       colorText: AppColors.whiteColor,
+//     );
+//   }
 
   // @override
   // void onInit() {

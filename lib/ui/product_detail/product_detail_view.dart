@@ -29,6 +29,7 @@ class ProductdetailViewState extends State<ProductdetailView> {
         children: [
           CustomAppBar(
             title: 'Product Name',
+            titleStyle: AppTextStyles.popblack16,
             optionsicon: SvgPicture.asset(
                 height: 22.h, width: 22.w, ImageConstants.optionsicon),
             // onOptionPressed: () {

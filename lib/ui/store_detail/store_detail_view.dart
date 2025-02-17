@@ -36,6 +36,7 @@ class StoreDetailView extends StatelessWidget {
               ///// Custom AppBar
               CustomAppBar(
                 title: 'Store Name',
+                titleStyle: AppTextStyles.popblack16,
                 searchIcon: SvgPicture.asset(
                   height: 22.h,
                   width: 22.w,

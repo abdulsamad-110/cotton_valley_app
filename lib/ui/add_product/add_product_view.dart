@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../utils/text_style.dart';
+import '../../widgets/custom_dropdown.dart';
 import '../../widgets/upload_container.dart';
 import 'add_product_controller.dart';
 
@@ -30,6 +31,7 @@ class AddProductView extends StatelessWidget {
               ImageConstants.cancelicon,
             ),
             title: 'Add Product',
+            titleStyle: AppTextStyles.popblack16,
           ),
 
           const Divider(),
@@ -39,18 +41,17 @@ class AddProductView extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  /// Vendor/Store Field
-                  CustomTextField(
+                  /// Vendor/Store
+                  CustomDropdown(
                     controller: controller.vdrstoreController,
-                    hintText: "Adidas",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "Vendor/Store",
-                    suffixIcon: SvgPicture.asset(
-                      height: 15.h,
-                      width: 15.w,
-                      ImageConstants.addicon,
-                    ),
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'Vendor/Store',
+                    hintText: 'Adidas',
+                    showBorder: false,
+                    onTap: () {},
                   ),
+                  //
                   SizedBox(
                     height: 8.h,
                   ),
@@ -90,32 +91,28 @@ class AddProductView extends StatelessWidget {
                   ),
 
                   /// Category Field
-                  CustomTextField(
+                  CustomDropdown(
                     controller: controller.categoryController,
-                    hintText: "Select",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "Category",
-                    suffixIcon: SvgPicture.asset(
-                      height: 15.h,
-                      width: 15.w,
-                      ImageConstants.addicon,
-                    ),
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'Category',
+                    hintText: 'Select',
+                    showBorder: false,
+                    onTap: () {},
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
 
                   /// Sub-Category Field
-                  CustomTextField(
+                  CustomDropdown(
                     controller: controller.subcategoryController,
-                    hintText: "Select",
-                    hintTextStyle: AppTextStyles.popRegular10,
-                    titleText: "Sub-Category",
-                    suffixIcon: SvgPicture.asset(
-                      height: 15.h,
-                      width: 15.w,
-                      ImageConstants.addicon,
-                    ),
+                    height: 39.h,
+                    width: 315.w,
+                    titleText: 'Sub-Category',
+                    hintText: 'Select',
+                    showBorder: false,
+                    onTap: () {},
                   ),
                   SizedBox(
                     height: 8.h,

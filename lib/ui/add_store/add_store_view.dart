@@ -6,6 +6,7 @@ import 'package:cotton_valley_app/widgets/custom_button.dart';
 import 'package:cotton_valley_app/widgets/custom_dropdown.dart';
 import 'package:cotton_valley_app/widgets/custom_textfield.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,6 +31,7 @@ class AddStoreView extends StatelessWidget {
               ImageConstants.cancelicon,
             ),
             title: 'Add Storer',
+            titleStyle: AppTextStyles.popblack16,
           ),
           /////
           const Divider(),
@@ -67,7 +69,22 @@ class AddStoreView extends StatelessWidget {
                     hintText: 'United Kingdom',
                     controller: controller.countryController,
                     showBorder: false,
-                    onTap: () {},
+                    onTap: () {
+                      showCountryPicker(
+                        context: context,
+                        showPhoneCode: false,
+                        countryListTheme: CountryListThemeData(
+                          flagSize: 18.sp,
+                          textStyle: TextStyle(fontSize: 14.sp),
+                          bottomSheetHeight: 500.h,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12.r),
+                            topRight: Radius.circular(12.r),
+                          ),
+                        ),
+                        onSelect: (Country value) {},
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 8.h,

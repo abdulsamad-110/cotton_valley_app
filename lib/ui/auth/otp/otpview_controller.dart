@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -11,24 +12,22 @@ class OtpviewController extends GetxController {
   TextEditingController otpcontroller5 = TextEditingController();
   TextEditingController otpcontroller6 = TextEditingController();
 
-  ///// Validate OTP
+/////
   validateOtp() {
     String? error;
-    //
+    if (otpcontroller1.text.isEmpty ||
+        otpcontroller2.text.isEmpty ||
+        otpcontroller3.text.isEmpty ||
+        otpcontroller4.text.isEmpty ||
+        otpcontroller5.text.isEmpty ||
+        otpcontroller6.text.isEmpty) {
+      error = "Please enter the complete OTP.";
+    }
     return error;
   }
 
-  ///// validation message
-  void showMessage(String title, String message, Color backgroundColor) {
-    Get.snackbar(
-      title,
-      message,
-      snackPosition: SnackPosition.TOP,
-      backgroundColor: backgroundColor,
-      colorText: AppColors.whiteColor,
-    );
-  }
-   ///// Clear fields
+
+  ///// Clear fields
   clearTextFields() {
     otpcontroller1.clear();
     otpcontroller2.clear();

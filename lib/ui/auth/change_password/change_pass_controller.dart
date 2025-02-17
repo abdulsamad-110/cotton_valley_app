@@ -18,7 +18,7 @@ class ChangepasswordController extends GetxController {
     isConfrimNewPassHidden.value = !isConfrimNewPassHidden.value;
   }
 
-   ///// Validation
+  ///// Validation
   fieldValidation() {
     String? error;
     if (newpasswordController.text.isEmpty) {
@@ -30,18 +30,6 @@ class ChangepasswordController extends GetxController {
     }
     return error;
   }
-
-///// Validation massage
-  void showMessage(String title, String message, Color backgroundColor) {
-    Get.snackbar(
-      title,
-      message,
-      snackPosition: SnackPosition.TOP,
-      backgroundColor: backgroundColor,
-      colorText: AppColors.whiteColor,
-    );
-  }
-
 
   @override
   void onInit() {

@@ -42,6 +42,7 @@ dependencies:
   motion_tab_bar:
   carousel_slider:
   buttons_tabbar:
+  country_picker:
 dev_dependencies:
   flutter_test:
     sdk: flutter
