@@ -39,6 +39,8 @@ dependencies:
   flutter_screenutil:
   get:
   flutter_svg:
+  http:
+  shared_preferences:
   motion_tab_bar:
   carousel_slider:
   buttons_tabbar:

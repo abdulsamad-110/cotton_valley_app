@@ -100,10 +100,17 @@ class SigninView extends StatelessWidget {
                   String? error = controller.fieldValidation();
                   if (error != null) {
                     CommonFunctions.showMessage(
-                        'Error', error, AppColors.redColor);
+                        title: "Error",
+                        message: error,
+                        color: AppColors.redColor);
                   } else {
-                    CommonFunctions.showMessage('Welcome to Cotton Valley',
-                        'Where style meets quality.', AppColors.redColor);
+                    CommonFunctions.showMessage(
+                        title: "Welcome to Cotton Valley",
+                        message: "Where style meets quality.",
+                        color: AppColors.redColor);
+                    Future.delayed(
+                      const Duration(seconds: 2),
+                    );
                     Get.offAll(() => NavigationView());
                   }
                 },

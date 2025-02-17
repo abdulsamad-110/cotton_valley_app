@@ -112,7 +112,11 @@ class ChangePasswordview extends StatelessWidget {
               onPressed: () {
                 final error = controller.fieldValidation();
                 if (error != null) {
-                  CommonFunctions.showMessage('Error', error, AppColors.redColor);
+                  CommonFunctions.showMessage(
+                      title: "Error",
+                      message: error,
+                      color: AppColors.redColor);
+                  //CommonFunctions.showMessage('Error', error, AppColors.redColor);
                   return;
                 }
                 Get.to(() => const SigninView());

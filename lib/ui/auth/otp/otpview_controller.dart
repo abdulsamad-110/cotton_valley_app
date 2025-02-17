@@ -26,7 +26,6 @@ class OtpviewController extends GetxController {
     return error;
   }
 
-
   ///// Clear fields
   clearTextFields() {
     otpcontroller1.clear();

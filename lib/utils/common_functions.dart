@@ -4,13 +4,15 @@ import 'package:get/get.dart';
 
 class CommonFunctions {
   ///// Show SnackBar Message
-  static showMessage(String title, String message, Color color) {
-    return Get.snackbar(
-      title,
-      message,
-      backgroundColor: color,
-      colorText: AppColors.whiteColor,
-      snackPosition: SnackPosition.TOP,
-    );
-  }
+ static showMessage({required String title, required String message, required Color color}) {
+  return Get.snackbar(
+    title,
+    message,
+    backgroundColor: color,
+    colorText: AppColors.whiteColor,
+    snackPosition: SnackPosition.TOP,
+    duration: const Duration(seconds: 3),
+  );
+}
+
 }

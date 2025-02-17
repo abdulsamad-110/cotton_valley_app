@@ -63,7 +63,10 @@ class FindAccountview extends StatelessWidget {
                 onPressed: () {
                   final error = controller.fieldValidation();
                   if (error != null) {
-                    CommonFunctions.showMessage("Error", error, AppColors.redColor);
+                    CommonFunctions.showMessage(
+                        title: "Error",
+                        message: "Email is required.",
+                        color: AppColors.redColor);
                     return;
                   }
                   controller.clearTextFields();

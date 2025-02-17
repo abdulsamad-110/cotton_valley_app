@@ -47,11 +47,21 @@ class OtpView extends StatelessWidget {
                 title: 'Verify',
                 onPressed: () {
                   String? error = controller.validateOtp();
+
                   if (error != null) {
-                    CommonFunctions.showMessage('Error', error, AppColors.redColor);
-                   // controller.showMessage("Error", '', AppColors.redColor);
+                    CommonFunctions.showMessage(
+                      title: "Error",
+                      message: error,
+                      color: AppColors.redColor,
+                    );
                   } else {
-                    Get.offAll(() => ChangePasswordview());
+                    CommonFunctions.showMessage(
+                      title: "OTP Verified",
+                      message: "Your OTP has been successfully verified.",
+                      color: Colors.green,
+                    );
+
+                    Get.offAll(() => const ChangePasswordview());
                   }
                 },
               ),
