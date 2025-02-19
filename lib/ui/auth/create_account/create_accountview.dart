@@ -117,7 +117,7 @@ class CreateAccountview extends StatelessWidget {
                         message: "",
                         color: AppColors.redColor);
 
-                    Get.to(() => const SelectyourPlanview());
+                      Get.to(() => const SelectyourPlanview());
                   }
                 },
               ),

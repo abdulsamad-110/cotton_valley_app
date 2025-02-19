@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_plancontroller.dart';
+import 'package:cotton_valley_app/ui/auth/select_your_plan/widgets/plan_widget.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
@@ -22,79 +24,40 @@ class SelectyourPlanview extends StatelessWidget {
         title: 'Select Your Plan',
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50.w),
+        padding: EdgeInsets.only(left: 50.w, right: 50.w, bottom: 50.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            //SizedBox(height: 0.h),
+
+            ///// Heading Text
             Text(
-              "Your investment will be fully return",
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(height: 30.h),
-
-            // Carousel Slider
-            CarouselSlider.builder(
-              itemCount: 2,
-              itemBuilder: (context, index, realIndex) {
-                return Container(
-                  height: 300.h,
-                  decoration: BoxDecoration(
-                    color: AppColors.lightgreyColor,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0.r),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Business'),
-                        SizedBox(height: 20.h),
-                        Text('Business'),
-                        SizedBox(height: 20.h),
-                        Text('Business'),
-                        SizedBox(height: 20.h),
-                        Text('Business'),
-                        SizedBox(height: 20.h),
-                        MycustomButton(
-                          height: 39.h,
-                          title: "Choose",
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-              options: CarouselOptions(
-                height: 300.h,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                scrollDirection: Axis.horizontal,
-                autoPlay: false,
-                viewportFraction: 0.9,
-                onPageChanged: (index, reason) {
-                  controller.currentIndex.value = index; 
-                },
-              ),
+              "Your investment will be fully returned",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
 
-            SizedBox(height: 30.h),
+            SizedBox(height: 20.h),
 
-            // Dot Indicator
+            ///// Widget
+            ChoosePlanWidget(controller: controller),
+
+            SizedBox(height: 20.h),
+
+            ///// Dot Indicator
             Obx(
               () => AnimatedSmoothIndicator(
                 activeIndex: controller.currentIndex.value,
                 count: 2,
                 effect: WormEffect(
-                  dotHeight: 12.h,
+                  dotHeight: 8.h,
                   dotWidth: 30.w,
                   activeDotColor: AppColors.redColor,
                   dotColor: AppColors.lightgreyColor,
                 ),
               ),
             ),
+            // SizedBox(height: 40.h),
           ],
         ),
       ),
