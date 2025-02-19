@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cotton_valley_app/ui/auth/booking_complete/booking_completeview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../../../utils/app_colors.dart';
 import '../../../../widgets/mycustom_button.dart';
@@ -38,7 +40,7 @@ class ChoosePlanWidget extends StatelessWidget {
 
                 return Container(
                   decoration: BoxDecoration(
-                    color: AppColors.whiteColor,
+                    color: AppColors.lightgreyColor,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Padding(
@@ -48,7 +50,7 @@ class ChoosePlanWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          plan['title'], // Plan Title
+                          plan['title'],
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
@@ -57,7 +59,7 @@ class ChoosePlanWidget extends StatelessWidget {
                         SizedBox(height: 20.h),
 
                         Text(
-                          plan['subtitle'], // Subtitle
+                          plan['subtitle'],
                           style: TextStyle(fontSize: 15.sp, color: Colors.grey),
                         ),
                         SizedBox(height: 16.h),
@@ -72,11 +74,11 @@ class ChoosePlanWidget extends StatelessWidget {
                         Text(plan['text4'], style: TextStyle(fontSize: 13.sp)),
                         SizedBox(height: 10.h),
 
-                        if (plan.containsKey('text5')) // Check if text5 exists
+                        if (plan.containsKey('text5'))
                           Text(plan['text5'],
                               style: TextStyle(fontSize: 13.sp)),
 
-                        if (plan.containsKey('text7')) // Check if text7 exists
+                        if (plan.containsKey('text7'))
                           Text(plan['text7'],
                               style: TextStyle(fontSize: 13.sp)),
 
@@ -98,7 +100,7 @@ class ChoosePlanWidget extends StatelessWidget {
 
                         SizedBox(height: 18.h),
 
-                        ///// Price 
+                        ///// Price
                         Text(
                           plan.containsKey('text7')
                               ? plan['text7']
@@ -109,12 +111,14 @@ class ChoosePlanWidget extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(height: 40.h), 
+                        SizedBox(height: 40.h),
 
                         MycustomButton(
                           height: 39.h,
                           title: "Choose",
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() =>  BookingCompleteView());
+                          },
                         ),
                       ],
                     ),

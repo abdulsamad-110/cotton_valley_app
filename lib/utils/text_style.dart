@@ -10,6 +10,11 @@ class AppTextStyles {
     fontWeight: FontWeight.normal, //fontWeight: FontWeight.w600,
     color: AppColors.blackColor,
   );
+  static TextStyle popRegular22 = GoogleFonts.poppins(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.normal, //fontWeight: FontWeight.w600,
+    color: AppColors.blackColor,
+  );
 
   static TextStyle popLight16 = GoogleFonts.poppins(
     fontSize: 16.sp,
