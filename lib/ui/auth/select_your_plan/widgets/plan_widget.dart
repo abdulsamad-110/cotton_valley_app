@@ -32,75 +32,57 @@ class ChoosePlanWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
             child: CarouselSlider.builder(
-              itemCount: 2,
+              itemCount: controller.yourplan.length,
               itemBuilder: (context, index, realIndex) {
+                var plan = controller.yourplan[index]; // Plan data
+
                 return Container(
-                  //height: 400.h,
                   decoration: BoxDecoration(
                     color: AppColors.whiteColor,
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Business',
+                          plan['title'], // Plan Title
                           style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Text(
-                          'What You’ll Get',
-                          style: TextStyle(fontSize: 15.sp, color: Colors.grey
-                              //fontWeight: FontWeight.w500
-                              ),
-                        ),
-                        SizedBox(height: 10.h),
-                        Text(
-                          'Up to 3 Domains Management',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            // fontWeight: FontWeight.w500
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 20.h),
+
                         Text(
-                          'Up to 3 Hosting Management',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            // fontWeight: FontWeight.w500
-                          ),
+                          plan['subtitle'], // Subtitle
+                          style: TextStyle(fontSize: 15.sp, color: Colors.grey),
                         ),
+                        SizedBox(height: 16.h),
+
+                        // Plan Features
+                        Text(plan['text1'], style: TextStyle(fontSize: 13.sp)),
                         SizedBox(height: 10.h),
-                        Text(
-                          '3 Users',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            //fontWeight: FontWeight.w500
-                          ),
-                        ),
+                        Text(plan['text2'], style: TextStyle(fontSize: 13.sp)),
                         SizedBox(height: 10.h),
-                        Text(
-                          'Monthly Backups',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            // fontWeight: FontWeight.w500
-                          ),
-                        ),
+                        Text(plan['text3'], style: TextStyle(fontSize: 13.sp)),
+                        SizedBox(height: 10.h),
+                        Text(plan['text4'], style: TextStyle(fontSize: 13.sp)),
                         SizedBox(height: 10.h),
 
-                        /// Dashed Divider
-                        // const Divider(),
-                        // DottedLine(
-                        //   dashLength: 6,
-                        //   lineThickness: 2,
-                        //   dashColor: Colors.black,
-                        // ),
+                        if (plan.containsKey('text5')) // Check if text5 exists
+                          Text(plan['text5'],
+                              style: TextStyle(fontSize: 13.sp)),
+
+                        if (plan.containsKey('text7')) // Check if text7 exists
+                          Text(plan['text7'],
+                              style: TextStyle(fontSize: 13.sp)),
+
+                        SizedBox(height: 18.h),
+
+                        ///// Dashed Divider
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(
@@ -114,17 +96,21 @@ class ChoosePlanWidget extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 18.h),
 
+                        ///// Price 
                         Text(
-                          '\$0/day',
+                          plan.containsKey('text7')
+                              ? plan['text7']
+                              : plan['text5'],
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
 
-                        SizedBox(height: 10.h),
+                        SizedBox(height: 40.h), 
+
                         MycustomButton(
                           height: 39.h,
                           title: "Choose",
@@ -136,7 +122,7 @@ class ChoosePlanWidget extends StatelessWidget {
                 );
               },
               options: CarouselOptions(
-                height: 355.h,
+                height: 460.h,
                 enlargeCenterPage: true,
                 enableInfiniteScroll: false,
                 scrollDirection: Axis.horizontal,

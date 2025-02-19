@@ -50,8 +50,8 @@ class SelectyourPlanview extends StatelessWidget {
                 activeIndex: controller.currentIndex.value,
                 count: 2,
                 effect: WormEffect(
-                  dotHeight: 8.h,
-                  dotWidth: 30.w,
+                  dotHeight: 9.h,
+                  dotWidth: 40.w,
                   activeDotColor: AppColors.redColor,
                   dotColor: AppColors.lightgreyColor,
                 ),
