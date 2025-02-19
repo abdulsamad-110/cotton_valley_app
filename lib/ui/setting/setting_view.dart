@@ -5,6 +5,7 @@ import 'package:cotton_valley_app/widgets/custom_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../bottom_sheets/logout_bottomsheet.dart';
 import '../../widgets/custom_appbar.dart';
 import '../../utils/text_style.dart';
 import '../../utils/app_colors.dart';
@@ -90,7 +91,10 @@ class SettingView extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    LogoutBottomSheet(context);
+                    Get.bottomSheet(
+                        LogoutBottomSheet(context, controller: controller));
+                    // LogoutBottomSheet;
+                    //LogoutBottomSheet(context);
                   },
                 ),
               ],

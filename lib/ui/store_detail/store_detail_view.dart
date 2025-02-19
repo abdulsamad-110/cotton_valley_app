@@ -49,7 +49,7 @@ class StoreDetailView extends StatelessWidget {
                   ImageConstants.filtericon,
                 ),
                 onFilterPressed: () {
-                  SortBottomSheet(context);
+                  SortBottomSheet(context, title: 'Sort', firstOption: 'Store Detail view', secondOption: 'Store Detail');
                 },
                 optionsicon: SvgPicture.asset(
                   height: 22.h,

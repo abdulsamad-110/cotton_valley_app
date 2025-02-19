@@ -4,7 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/app_colors.dart';
 
-void SortBottomSheet(BuildContext context) {
+void SortBottomSheet(
+  BuildContext context, {
+  required String title,
+  required String firstOption,
+  required String secondOption,
+  Widget? icon,
+}) {
   showModalBottomSheet(
     context: context,
     builder: (context) {
@@ -17,8 +23,8 @@ void SortBottomSheet(BuildContext context) {
           decoration: BoxDecoration(
             color: AppColors.whiteColor,
             borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20), // Set the top-left border radius
-              topRight: Radius.circular(20), // Set the top-right border radius
+              topLeft: Radius.circular(20), 
+              topRight: Radius.circular(20), 
             ),
           ),
           child: Padding(
@@ -27,21 +33,41 @@ void SortBottomSheet(BuildContext context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Title
+                // ✅ Title
                 Text(
-                  'SORT',
+                  title,
                   style: AppTextStyles.popRegular14,
                 ),
                 const SizedBox(height: 8),
-                // Text items
-                Text(
-                  'Alphabetically',
-                  style: AppTextStyles.popRegular10,
+
+               
+                Row(
+                  children: [
+                    SizedBox(
+                        width: icon != null ? 24 : 0), 
+                    if (icon != null) icon, 
+                    if (icon != null)
+                      SizedBox(width: 8), 
+                    Text(
+                      firstOption,
+                      style: AppTextStyles.popRegular10,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 8.h),
-                Text(
-                  'No. of Products',
-                  style: AppTextStyles.popRegular10,
+
+                
+                Row(
+                  children: [
+                    SizedBox(
+                        width: icon != null
+                            ? 24
+                            : 0), 
+                    Text(
+                      secondOption,
+                      style: AppTextStyles.popRegular10,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 8.h),
               ],

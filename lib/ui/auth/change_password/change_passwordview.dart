@@ -30,7 +30,10 @@ class ChangePasswordview extends StatelessWidget {
         child: Column(
           children: [
             ///// Logo
-            const AuthLogoWidget(),
+            AuthLogoWidget(
+              height: 180.h,
+              width: 200.w,
+            ),
             //
             SizedBox(height: 50.h),
 

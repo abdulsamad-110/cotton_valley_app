@@ -1,10 +1,39 @@
+import 'package:cotton_valley_app/services/auth_services/auth_services.dart';
+import 'package:cotton_valley_app/ui/home/home_view.dart';
+import 'package:cotton_valley_app/ui/navigation/navigation_view.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
+import 'package:cotton_valley_app/utils/common_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SigninController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  ///// login function
+  login() async {
+    final error = fieldValidation();
+    if (error != null) {
+      Future.delayed(const Duration(microseconds: 100), () {
+        CommonFunctions.showMessage(
+            title: 'Error', message: error, color: AppColors.redColor);
+      });
+      return;
+    }
+    final data = await AuthServices.logInRequest(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+    if (data != null) {
+      await Get.offAll( NavigationView());
+      Future.delayed(const Duration(microseconds: 100), () {
+        CommonFunctions.showMessage(
+            title: 'Success',
+            message: 'Login successful',
+            color: AppColors.redColor);
+      });
+    }
+  }
 
   RxBool isPassHidden = true.obs;
   /////
@@ -26,23 +55,14 @@ class SigninController extends GetxController {
     } else if (passwordController.text.isEmpty) {
       error = 'Password is required.';
     }
+
     return error;
   }
 
-// ///// Validation massage
-//   void showMessage(String title, String message, Color backgroundColor) {
-//     Get.snackbar(
-//       title,
-//       message,
-//       snackPosition: SnackPosition.TOP,
-//       backgroundColor: backgroundColor,
-//       colorText: AppColors.whiteColor,
-//     );
-//   }
-
-  // @override
-  // void onInit() {
-  //   clearTextFields();
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    //clearTextFields();
+    //isPassHidden.value = true;
+    super.onInit();
+  }
 }

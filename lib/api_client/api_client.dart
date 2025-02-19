@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-
 // import '../shared_prefrences/local_storage.dart';
 // import '../utils/api_constants.dart';
 import '../services/storage_services/local_storage_services.dart';
@@ -39,13 +38,16 @@ class ApiClient {
     headers['Content-Type'] = 'application/json';
 
     if (isTokenNeeded) {
-      print('${LocalStorage.getString(LocalStorageKeys.accessTokenKey)} =======> access');
-      print('${LocalStorage.getString(LocalStorageKeys.guestTokenKey)} =======> guest');
-      if(LocalStorage.getString(LocalStorageKeys.accessTokenKey)==null){
-        final token =LocalStorage.getString(LocalStorageKeys.guestTokenKey);
+      print(
+          '${LocalStorage.getString(LocalStorageKeys.accessTokenKey)} =======> access');
+      print(
+          '${LocalStorage.getString(LocalStorageKeys.guestTokenKey)} =======> guest');
+      if (LocalStorage.getString(LocalStorageKeys.accessTokenKey) == null) {
+        final token = LocalStorage.getString(LocalStorageKeys.guestTokenKey);
         headers['Authorization'] = 'Token $token';
-      }else if(LocalStorage.getString(LocalStorageKeys.accessTokenKey)!=null){
-        final token =LocalStorage.getString(LocalStorageKeys.accessTokenKey);
+      } else if (LocalStorage.getString(LocalStorageKeys.accessTokenKey) !=
+          null) {
+        final token = LocalStorage.getString(LocalStorageKeys.accessTokenKey);
         headers['Authorization'] = 'Bearer $token';
       }
     }
@@ -108,7 +110,6 @@ class ApiClient {
 
       // Check the status code for success
       if (res.statusCode >= 200 && res.statusCode < 300) {
-        // Return decodedBody if it's not null, otherwise return empty map/object
         return decodedBody ?? {};
       } else {
         print('${res.statusCode} ===========> statsu codee');
@@ -119,18 +120,12 @@ class ApiClient {
           ScaffoldMessenger.of(Get.context!).showSnackBar(
               CommonFunctions.showMessage(
                   title: 'You need to Login again to continue.',
-                  color: AppColors.redColor, message: ''));
+                  color: AppColors.redColor,
+                  message: ''));
           return;
         } else if (decodedBody != null && decodedBody is Map) {
-          if (decodedBody.containsKey('error')) {
-            errorDialog(decodedBody['error']['message']);
-          } else if (decodedBody.containsKey('detail')) {
-            errorDialog(decodedBody['detail']);
-          } else {
-            errorDialog(decodedBody.toString());
-          }
+          errorDialog(decodedBody["detail"].toString());
         } else if (decodedBody is List) {
-          errorDialog(decodedBody[0]);
         } else {
           errorDialog('An error occurred. Status code: ${res.statusCode}');
         }
@@ -143,12 +138,12 @@ class ApiClient {
   }
 
   static Future<dynamic> loader() {
-    return Get.dialog(AlertDialog(
+    return Get.dialog(const AlertDialog(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         content: Center(
             child: CircularProgressIndicator(
-          color: AppColors.blackColor,
+          color: AppColors.redColor,
         ))));
   }
 

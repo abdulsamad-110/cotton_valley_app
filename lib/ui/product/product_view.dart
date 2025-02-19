@@ -41,7 +41,15 @@ class ProductView extends StatelessWidget {
                 filterIcon: SvgPicture.asset(
                     height: 22.h, width: 22.w, ImageConstants.filtericon),
                 onFilterPressed: () {
-                  SortBottomSheet(context);
+                  SortBottomSheet(context,
+                      title: 'Sort',
+                      firstOption: 'Product',
+                      secondOption: 'Product',
+                      icon: SvgPicture.asset(
+                        ImageConstants.nextimg,
+                        height: 20.h,
+                        width: 20.w,
+                      ));
                 },
               ),
               const Divider(),

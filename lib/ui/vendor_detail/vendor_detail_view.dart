@@ -42,7 +42,10 @@ class VendorDetailView extends StatelessWidget {
                 filterIcon: SvgPicture.asset(
                     height: 22.h, width: 22.w, ImageConstants.filtericon),
                 onFilterPressed: () {
-                  SortBottomSheet(context);
+                  SortBottomSheet(context,
+                      title: 'Sort',
+                      firstOption: 'Vendor detail view',
+                      secondOption: 'Vendor detail view');
                 },
                 optionsicon: SvgPicture.asset(
                   height: 22.h,

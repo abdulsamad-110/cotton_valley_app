@@ -35,7 +35,7 @@ class StoreView extends StatelessWidget {
                 filterIcon: SvgPicture.asset(
                     height: 22.h, width: 22.w, ImageConstants.filtericon),
                 onFilterPressed: () {
-                  SortBottomSheet(context);
+                  SortBottomSheet(context, title: 'Sort', firstOption: 'Store', secondOption: 'Store');
                 },
               ),
               const Divider(),

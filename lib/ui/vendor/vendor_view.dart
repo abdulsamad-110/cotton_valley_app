@@ -34,7 +34,7 @@ class VendorView extends StatelessWidget {
               filterIcon: SvgPicture.asset(
                   height: 22.h, width: 22.w, ImageConstants.filtericon),
               onFilterPressed: () {
-                SortBottomSheet(context);
+                SortBottomSheet(context, title: 'Sort', firstOption: 'Vendor View', secondOption: 'Verdor View');
               },
             ),
             const Divider(),

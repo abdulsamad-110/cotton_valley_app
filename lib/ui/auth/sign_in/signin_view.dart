@@ -1,3 +1,4 @@
+import 'package:cotton_valley_app/ui/auth/create_account/create_accountview.dart';
 import 'package:cotton_valley_app/ui/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/auth/create/create_passwordview.dart';
@@ -5,6 +6,7 @@ import 'package:cotton_valley_app/ui/auth/widgets/auth_logo_widget.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/common_functions.dart';
 import 'package:cotton_valley_app/utils/image_constants.dart';
+import 'package:cotton_valley_app/utils/text_style.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +34,10 @@ class SigninView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ///// Logo
-              const AuthLogoWidget(),
+              AuthLogoWidget(
+                height: 180.h,
+                width: 200.w,
+              ),
               //
               SizedBox(height: 50.h),
               ///// Header
@@ -96,25 +101,45 @@ class SigninView extends StatelessWidget {
                 height: 39.h,
                 width: 315.w,
                 title: 'Sign In',
-                onPressed: () {
-                  String? error = controller.fieldValidation();
-                  if (error != null) {
-                    CommonFunctions.showMessage(
-                        title: "Error",
-                        message: error,
-                        color: AppColors.redColor);
-                  } else {
-                    CommonFunctions.showMessage(
-                        title: "Welcome to Cotton Valley",
-                        message: "Where style meets quality.",
-                        color: AppColors.redColor);
-                    Future.delayed(
-                      const Duration(seconds: 2),
-                    );
-                    Get.offAll(() => NavigationView());
-                  }
+                onPressed: () async {
+                  await controller.login();
                 },
               ),
+              SizedBox(height: 15.h),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 0.5.h,
+                      color: AppColors.blackColor,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: Text("OR", style: AppTextStyles.popRegular14),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 0.5.h,
+                      color: AppColors.blackColor,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              MycustomButton(
+                  height: 39.h,
+                  width: 315.w,
+                  backgroundColor: AppColors.whiteColor,
+                  hasBorder: true,
+                  borderColor: AppColors.blackColor,
+                  title: "Create Account",
+                  titleTextStyle: AppTextStyles.popRegular14,
+                  onPressed: () {
+                    Get.to(() => CreateAccountview());
+                  }),
             ],
           ),
         ),
