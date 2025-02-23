@@ -1,5 +1,6 @@
 import 'package:cotton_valley_app/ui/auth/create_account/create_account_controller.dart';
 import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_planview.dart';
+import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -107,17 +108,19 @@ class CreateAccountview extends StatelessWidget {
                 onPressed: () {
                   String? error = controller.fieldValidation();
                   if (error != null) {
-                    CommonFunctions.showMessage(
-                        title: "Error",
-                        message: error,
-                        color: AppColors.redColor);
-                  } else {
-                    CommonFunctions.showMessage(
-                        title: "Success",
-                        message: "",
-                        color: AppColors.redColor);
-
-                      Get.to(() => const SelectyourPlanview());
+                    //   CommonFunctions.showMessage(
+                    //       title: "Error",
+                    //       // message: error,
+                    //       color: AppColors.redColor,
+                    //       msg: "");
+                    // } else {
+                    // CommonFunctions.showMessage(
+                    //     title: "Success",
+                    //     //message: "",
+                    //     msg: "Sign-up successful!",
+                    //     color: AppColors.redColor);
+                    controller.signupRequest();
+                    Get.offAll(() => const SigninView());
                   }
                 },
               ),

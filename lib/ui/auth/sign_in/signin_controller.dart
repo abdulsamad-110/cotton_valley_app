@@ -16,7 +16,10 @@ class SigninController extends GetxController {
     if (error != null) {
       Future.delayed(const Duration(microseconds: 100), () {
         CommonFunctions.showMessage(
-            title: 'Error', message: error, color: AppColors.redColor);
+          title: 'Error',
+          msg: error,
+          color: AppColors.redColor,
+        );
       });
       return;
     }
@@ -25,12 +28,14 @@ class SigninController extends GetxController {
       password: passwordController.text,
     );
     if (data != null) {
-      await Get.offAll( NavigationView());
+      await Get.offAll(NavigationView());
       Future.delayed(const Duration(microseconds: 100), () {
         CommonFunctions.showMessage(
-            title: 'Success',
-            message: 'Login successful',
-            color: AppColors.redColor);
+          title: 'Success',
+          msg: "Login successful",
+          // message: 'Login successful',
+          color: AppColors.redColor,
+        );
       });
     }
   }
@@ -50,7 +55,9 @@ class SigninController extends GetxController {
   ///// Validation for email and password
   fieldValidation() {
     String? error;
-    if (emailController.text.isEmpty) {
+    if (emailController.text.isEmpty && passwordController.text.isEmpty) {
+      error = 'All fields are required.';
+    } else if (emailController.text.isEmpty) {
       error = 'Email is required.';
     } else if (passwordController.text.isEmpty) {
       error = 'Password is required.';

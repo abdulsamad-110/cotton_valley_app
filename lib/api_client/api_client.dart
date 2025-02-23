@@ -121,7 +121,8 @@ class ApiClient {
               CommonFunctions.showMessage(
                   title: 'You need to Login again to continue.',
                   color: AppColors.redColor,
-                  message: ''));
+                  //message: '',
+                   msg: ''));
           return;
         } else if (decodedBody != null && decodedBody is Map) {
           errorDialog(decodedBody["detail"].toString());

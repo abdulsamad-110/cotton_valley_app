@@ -101,7 +101,7 @@ class ChangePasswordview extends StatelessWidget {
                     ),
                   ),
                 ),
-                controller: controller.confrimnewpassController,
+                controller: controller.confirmnewpassController,
               ),
             ),
 
@@ -116,13 +116,15 @@ class ChangePasswordview extends StatelessWidget {
                 final error = controller.fieldValidation();
                 if (error != null) {
                   CommonFunctions.showMessage(
-                      title: "Error",
-                      message: error,
-                      color: AppColors.redColor);
+                    title: "Error",
+                    //message: error,
+                    color: AppColors.redColor, msg: error,
+                  );
                   //CommonFunctions.showMessage('Error', error, AppColors.redColor);
                   return;
                 }
                 Get.to(() => const SigninView());
+                //controller.changepass();
                 print('Change Password button pressed!');
               },
             ),

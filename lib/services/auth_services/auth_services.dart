@@ -46,88 +46,90 @@ class AuthServices {
     return null;
   }
 
-  // ///// Logout Api
-  // static Future<bool?> logOutRequest() async {
-  //   final response = await _apiClient.callApi(
-  //       endpoint: ApiConstants.logOutEndpoint,
-  //       method: ApiRequestMethods.post,
-  //       body: {
-  //         'refresh': LocalStorage.getString(LocalStorageKeys.refreshTokenKey)
-  //       },
-  //       isLoaderNeeded: true);
-  //   if (response != null) {
-  //     LocalStorage.remove(LocalStorageKeys.accessTokenKey);
-  //     LocalStorage.remove(LocalStorageKeys.refreshTokenKey);
-  //     return true;
-  //   }
-  //   return null;
-  // }
+  ///// Logout Api
+  static Future<bool?> logOutRequest() async {
+    final response = await _apiClient.callApi(
+        endpoint: ApiConstants.logOutEndpoint,
+        method: ApiRequestMethods.post,
+        body: {
+          'refresh': LocalStorage.getString(LocalStorageKeys.refreshTokenKey)
+        },
+        isLoaderNeeded: true);
+    if (response != null) {
+      LocalStorage.remove(LocalStorageKeys.accessTokenKey);
+      LocalStorage.remove(LocalStorageKeys.refreshTokenKey);
+      return true;
+    }
+    return null;
+  }
 
-  // ///// Sign Up Post Api
-  // static Future signupRequest({
-  //   required String name,
-  //   required String email,
-  //   required String password,
-  // }) async {
-  //   final response = await _apiClient.callApi(
-  //       endpoint: ApiConstants.signUpEndpoint,
-  //       isLoaderNeeded: true,
-  //       isTokenNeeded: false,
-  //       method: ApiRequestMethods.post,
-  //       body: {
-  //         'name': name,
-  //         'email': email,
-  //         'password': password,
-  //       });
-  //   if (response != null) {
-  //     return response;
-  //   }
-  //   return null;
-  // }
+  ///// Sign Up Post Api
+  static Future signupRequest({
+    required String name,
+    required String companyName,
+    required String email,
+    required String password,
+    required String confirmPassword,
+  }) async {
+    final response = await _apiClient.callApi(
+        endpoint: ApiConstants.signUpEndpoint,
+        isLoaderNeeded: true,
+        isTokenNeeded: false,
+        method: ApiRequestMethods.post,
+        body: {
+          'name': name,
+          'fullName': companyName,
+          'email': email,
+          'password': password,
+          'password2': confirmPassword,
+        });
+    if (response != null) {
+      return response;
+    }
+    return null;
+  }
 
-  // ///// Forget password Post Api
-  // static Future? forgetPass({required String email}) async {
-  //   final response = await _apiClient.callApi(
-  //       endpoint: ApiConstants.forgetPassEndpoint,
-  //       isLoaderNeeded: true,
-  //       isTokenNeeded: false,
-  //       method: ApiRequestMethods.post,
-  //       body: {'email': email});
-  //   if (response != null) {
-  //     // LocalStorage.setString(
-  //     //     LocalStorageKeys.accessTokenKey, response['status']);
-  //     return response;
-  //   }
-  //   return null;
-  // }
+  ///// Forget password Post Api
+  static Future? forgetPass({required String email}) async {
+    final response = await _apiClient.callApi(
+        endpoint: ApiConstants.forgetPassEndpoint,
+        isLoaderNeeded: true,
+        isTokenNeeded: false,
+        method: ApiRequestMethods.post,
+        body: {'email': email});
+    if (response != null) {
+      return response;
+    }
+    return null;
+  }
 
-  // ///// Change password Post Api
-  // static Future changePass({required String password}) async {
-  //   final response = await _apiClient.callApi(
-  //       endpoint: ApiConstants.changePassEndpoint,
-  //       isLoaderNeeded: true,
-  //       isTokenNeeded: false,
-  //       method: ApiRequestMethods.post,
-  //       body: {'password': password});
-  //   if (response != null) {
-  //     return response;
-  //   }
-  //   return null;
-  // }
+  ///// OTP verifiy Post Api
+  static Future? otpVerify({required String email, required int otp}) async {
+    final response = await _apiClient.callApi(
+        endpoint: ApiConstants.otpverifyEndpoint,
+        isLoaderNeeded: true,
+        isTokenNeeded: false,
+        method: ApiRequestMethods.post,
+        body: {"email": email, "otp": otp});
+    if (response != null) {
+      print('here 1');
 
-  // ///// OTP verifiy Post Api
-  // static Future? otpVerify({required String email, required int otp}) async {
-  //   final response = await _apiClient.callApi(
-  //       endpoint: ApiConstants.otpverifyEndpoint,
-  //       isLoaderNeeded: true,
-  //       isTokenNeeded: false,
-  //       method: ApiRequestMethods.post,
-  //       body: {"email": email, "otp": otp});
-  //   if (response != null) {
-  //     print('here 1');
+      return response;
+    }
+    return null;
+  }
 
-  //     return response;
-  //   }
-  //   return null;
-  // }
+  ///// Change password Post Api
+  static Future changePass({required String password}) async {
+    final response = await _apiClient.callApi(
+        endpoint: ApiConstants.changePassEndpoint,
+        isLoaderNeeded: true,
+        isTokenNeeded: false,
+        method: ApiRequestMethods.post,
+        body: {'password': password});
+    if (response != null) {
+      return response;
+    }
+    return null;
+  }
 }

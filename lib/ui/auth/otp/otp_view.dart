@@ -16,12 +16,12 @@ class OtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OtpviewController controller = Get.put(OtpviewController());
-    Get.put(OtpviewController());
+    OtpviewController controller =Get.isRegistered<OtpviewController>() ? Get.find<OtpviewController>() :  Get.put(OtpviewController());
+    
     return Scaffold(
       appBar: CustomAppBar(),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 60.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -40,7 +40,7 @@ class OtpView extends StatelessWidget {
               SizedBox(height: 20.h),
 
               ///// OTP Input Row (Now Below Header)
-              OtpInputRow(),
+              OtpInputRow(controller: controller),
               SizedBox(height: 20.h),
 
               ///// Verify Button
@@ -49,23 +49,26 @@ class OtpView extends StatelessWidget {
                 width: 315.w,
                 title: 'Verify',
                 onPressed: () {
-                  String? error = controller.validateOtp();
+                  controller.otpVerify();
+                  // controller.
+                  // String? error = controller.validateOtp();
 
-                  if (error != null) {
-                    CommonFunctions.showMessage(
-                      title: "Error",
-                      message: error,
-                      color: AppColors.redColor,
-                    );
-                  } else {
-                    CommonFunctions.showMessage(
-                      title: "OTP Verified",
-                      message: "Your OTP has been successfully verified.",
-                      color: Colors.green,
-                    );
+                  // if (error != null) {
+                  //   CommonFunctions.showMessage(
+                  //     title: "Error",
+                  //     //message: error,
+                  //     color: AppColors.redColor, msg: error,
+                  //   );
+                  // } else {
+                  //   CommonFunctions.showMessage(
+                  //     title: "OTP Verified",
+                  //     // message: "Your OTP has been successfully verified.",
+                  //     color: Colors.green,
+                  //     msg: 'Your OTP has been successfully verified.',
+                  //   );
 
-                    Get.offAll(() => const ChangePasswordview());
-                  }
+                  //   Get.offAll(() => const ChangePasswordview());
+                  // }
                 },
               ),
             ],

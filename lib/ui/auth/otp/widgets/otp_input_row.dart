@@ -7,12 +7,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class OtpInputRow extends StatelessWidget {
-   OtpInputRow({super.key});
-  final controller = Get.find<OtpviewController>();
+  final OtpviewController controller;
+
+  const OtpInputRow(
+      {super.key, required this.controller}); // Controller pass ho raha hai
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         OtpInputBox(textController: controller.otpcontroller1),
@@ -30,14 +32,15 @@ class OtpInputBox extends StatelessWidget {
   final bool isNumberKeyboard;
   final TextEditingController? textController;
 
-  const OtpInputBox({super.key, this.isNumberKeyboard = true, this.textController});
+  const OtpInputBox(
+      {super.key, this.isNumberKeyboard = true, this.textController});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50.h,
       width: 46.w,
-      child: TextFormField(
+      child: TextField(
         controller: textController,
         onChanged: (value) {
           if (value.length == 1) {
@@ -46,7 +49,8 @@ class OtpInputBox extends StatelessWidget {
         },
         textAlign: TextAlign.center,
         style: AppTextStyles.popRegular10,
-        keyboardType: isNumberKeyboard ? TextInputType.number : TextInputType.text,
+        keyboardType:
+            isNumberKeyboard ? TextInputType.number : TextInputType.text,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,

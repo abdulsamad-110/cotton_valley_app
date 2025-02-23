@@ -28,7 +28,7 @@ class FindAccountview extends StatelessWidget {
       body: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 70.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,17 +64,18 @@ class FindAccountview extends StatelessWidget {
                 width: 315.w,
                 title: 'Find Account',
                 onPressed: () {
-                  final error = controller.fieldValidation();
-                  if (error != null) {
-                    CommonFunctions.showMessage(
-                        title: "Error",
-                        message: "Email is required.",
-                        color: AppColors.redColor);
-                    return;
-                  }
-                  controller.clearTextFields();
-                  Get.to(() => const OtpView());
-                  print('Find Account button pressed!');
+                  controller.forgetPass();
+                  // final error = controller.fieldValidation();
+                  // if (error != null) {
+                  //   CommonFunctions.showMessage(
+                  //       title: "Error",
+                  //      // message: "Email is required.",
+                  //       color: AppColors.redColor, msg: 'Email is required.');
+                  //   return;
+                  // }
+                  // controller.clearTextFields();
+                  // Get.to(() => const OtpView());
+                  // print('Find Account button pressed!');
                 },
               ),
             ],
