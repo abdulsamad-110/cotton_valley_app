@@ -46,7 +46,7 @@ class OtpView extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
 
-              ///// OTP Input Row 
+              ///// OTP Input Row
               OtpInputRow(controller: controller),
               //
               SizedBox(height: 20.h),
@@ -57,9 +57,8 @@ class OtpView extends StatelessWidget {
                 width: 315.w,
                 title: 'Verify',
                 onPressed: () {
-                  
-                    controller.otpVerify(email: email, isSignup: isSignup);
-                
+                  controller.otpVerify(email: email, isSignup: isSignup);
+                  controller.clearTextFields();
                 },
               ),
             ],

@@ -23,6 +23,13 @@ class OtpviewController extends GetxController {
   TextEditingController otpcontroller5 = TextEditingController();
   TextEditingController otpcontroller6 = TextEditingController();
 
+  FocusNode focus1 = FocusNode();
+  FocusNode focus2 = FocusNode();
+  FocusNode focus3 = FocusNode();
+  FocusNode focus4 = FocusNode();
+  FocusNode focus5 = FocusNode();
+  FocusNode focus6 = FocusNode();
+
   ///// OTP verify
   otpVerify({required String email, required bool isSignup}) async {
     final error = fieldValidation();
