@@ -33,7 +33,6 @@ class SigninController extends GetxController {
         CommonFunctions.showMessage(
           title: 'Success',
           msg: "Login successful",
-          // message: 'Login successful',
           color: AppColors.redColor,
         );
       });

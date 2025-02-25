@@ -16,7 +16,9 @@ import '../../../widgets/auth_header_widget.dart';
 import '../widgets/auth_logo_widget.dart';
 
 class ChangePasswordview extends StatelessWidget {
-  const ChangePasswordview({super.key});
+  final String access;
+
+  const ChangePasswordview({super.key, required this.access});
 
   @override
   Widget build(BuildContext context) {
@@ -113,19 +115,9 @@ class ChangePasswordview extends StatelessWidget {
               width: 315.w,
               title: 'Change Password',
               onPressed: () {
-                final error = controller.fieldValidation();
-                if (error != null) {
-                  CommonFunctions.showMessage(
-                    title: "Error",
-                    //message: error,
-                    color: AppColors.redColor, msg: error,
-                  );
-                  //CommonFunctions.showMessage('Error', error, AppColors.redColor);
-                  return;
-                }
-                Get.to(() => const SigninView());
-                //controller.changepass();
-                print('Change Password button pressed!');
+                controller.changePass(access);
+                
+                 print('Change Password button pressed!');
               },
             ),
           ],

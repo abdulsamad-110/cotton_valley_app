@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:cotton_valley_app/ui/account_management/account_management_view.dart';
+import 'package:cotton_valley_app/ui/auth/booking_complete/booking_completeview.dart';
 import 'package:cotton_valley_app/ui/auth/change_password/change_passwordview.dart';
+import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_planview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -19,19 +24,27 @@ class OtpviewController extends GetxController {
   TextEditingController otpcontroller6 = TextEditingController();
 
   ///// OTP verify
-  otpVerify() async {
+  otpVerify({required String email, required bool isSignup}) async {
     final error = fieldValidation();
     if (error != null) {
       ScaffoldMessenger.of(Get.context!).showSnackBar(
-          CommonFunctions.customSnackBar(
-              title: error, color: AppColors.redColor));
+          CommonFunctions.showMessage(
+              title: 'Error', msg: error, color: AppColors.redColor));
       return;
     }
 
-    final data = await AuthServices.otpVerify(
-        email: emailController.text, otp: int.parse(otp.text));
+    final data =
+        await AuthServices.otpVerify(email: email, otp: int.parse(otp.text));
     if (data != null) {
-      Get.to(const ChangePasswordview());
+      if (isSignup == false) {
+        print('isSignup1=====> $isSignup');
+        Get.to(ChangePasswordview(
+          access: data['token']['access'],
+        ));
+      } else {
+        print('isSignup2=====> $isSignup');
+        Get.offAll(SelectyourPlanview());
+      }
     }
   }
 
@@ -51,15 +64,6 @@ class OtpviewController extends GetxController {
     } else if (int.tryParse(otp.text) == null) {
       error = "Please enter valid OTP";
       print('heelo 2');
-    }
-    return error;
-  }
-
-/////
-  validateOtp() {
-    String? error;
-    if (otp.text.isEmpty) {
-      error = "Please enter the complete OTP.";
     }
     return error;
   }

@@ -11,21 +11,22 @@ class ChangepasswordController extends GetxController {
   final confirmnewpassController = TextEditingController();
 
   ///// change password
-  // changePass() async {
-  //   final error = fieldValidation();
-  //   if (error != null) {
-  //     ScaffoldMessenger.of(Get.context!).showSnackBar(
-  //         CommonFunctions.customSnackBar(
-  //             title: error, color: AppColors.redColor));
-  //     return;
-  //   }
-  //   final data = await AuthServices.changePass(
-  //     newpassword: newpasswordController.text,
-  //      confirmpassword: confirmnewpassController.text);
-  //   if (data != null) {
-  //     Get.to(const SigninView());
-  //   }
-  // }
+  changePass(String access) async {
+    final error = fieldValidation();
+    if (error != null) {
+      ScaffoldMessenger.of(Get.context!).showSnackBar(
+          CommonFunctions.showMessage(
+              title: 'Error', msg: error, color: AppColors.redColor));
+      return;
+    }
+    final data = await AuthServices.changePass(
+        password: newpasswordController.text,
+        password2: confirmnewpassController.text,
+        access: access);
+    if (data != null) {
+      Get.offAll(const SigninView());
+    }
+  }
 
   fieldValidation() {
     String? error;
@@ -52,19 +53,6 @@ class ChangepasswordController extends GetxController {
   toggleConfrimNewPassword() {
     isConfrimNewPassHidden.value = !isConfrimNewPassHidden.value;
   }
-
-  // ///// Validation
-  // fieldValidation() {
-  //   String? error;
-  //   if (newpasswordController.text.isEmpty) {
-  //     error = 'New password is required.';
-  //   } else if (confrimnewpassController.text.isEmpty) {
-  //     error = 'Confirm new password is required.';
-  //   } else if (newpasswordController.text != confrimnewpassController.text) {
-  //     error = 'Passwords do not match.';
-  //   }
-  //   return error;
-  // }
 
   @override
   void onInit() {

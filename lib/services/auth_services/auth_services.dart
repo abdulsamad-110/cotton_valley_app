@@ -104,7 +104,11 @@ class AuthServices {
   }
 
   ///// OTP verifiy Post Api
-  static Future? otpVerify({required String email, required int otp}) async {
+  static Future? otpVerify(
+      {required String email,
+      required int otp,
+
+      bool fromForgetPassword = true}) async {
     final response = await _apiClient.callApi(
         endpoint: ApiConstants.otpverifyEndpoint,
         isLoaderNeeded: true,
@@ -113,19 +117,29 @@ class AuthServices {
         body: {"email": email, "otp": otp});
     if (response != null) {
       print('here 1');
-
+      if (!fromForgetPassword) {
+        LocalStorage.remove(LocalStorageKeys.guestTokenKey);
+        LocalStorage.setString(
+            LocalStorageKeys.accessTokenKey, response['token']['access']);
+        LocalStorage.setString(
+            LocalStorageKeys.refreshTokenKey, response['token']['refresh']);
+      }
       return response;
     }
     return null;
   }
 
   ///// Change password Post Api
-  static Future changePass({required String password}) async {
+  static Future changePass(
+      {required String password,
+      required String access,
+      required String password2}) async {
     final response = await _apiClient.callApi(
         endpoint: ApiConstants.changePassEndpoint,
         isLoaderNeeded: true,
-        isTokenNeeded: false,
         method: ApiRequestMethods.post,
+        isTokenNeeded: false,
+        headers: {"Authorization": "Bearer $access"},
         body: {'password': password});
     if (response != null) {
       return response;

@@ -1,4 +1,5 @@
 import 'package:cotton_valley_app/services/auth_services/auth_services.dart';
+import 'package:cotton_valley_app/ui/auth/otp/otp_view.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
 import 'package:cotton_valley_app/utils/common_functions.dart';
@@ -16,8 +17,8 @@ class CreateAccountController extends GetxController {
     final error = fieldValidation();
     if (error != null) {
       ScaffoldMessenger.of(Get.context!).showSnackBar(
-          CommonFunctions.customSnackBar(
-              title: error, color: AppColors.redColor));
+          CommonFunctions.showMessage(
+              title: 'Error', msg: error, color: AppColors.redColor));
       return;
     }
     final data = await AuthServices.signupRequest(
@@ -26,10 +27,17 @@ class CreateAccountController extends GetxController {
         email: emailController.text,
         password: createPassController.text,
         confirmPassword: createPassController.text);
+    print("Signup API Response: $data");
     if (data != null) {
-      Get.off(const SigninView());
+      Get.to(OtpView(
+        email: emailController.text,
+        isSignup: true,
+      ));
+    } else {
+      CommonFunctions.showMessage(
+          title: "Warning", color: Colors.red, msg: 'Invalid Credential');
     }
-    return null;
+    //return null;
   }
 
   fieldValidation() {
@@ -64,21 +72,6 @@ class CreateAccountController extends GetxController {
     emailController.clear();
     createPassController.clear();
   }
-
-  // ///// Validation
-  // fieldValidation() {
-  //   String? error;
-  //   if (fullNameController.text.isEmpty) {
-  //     error = 'Full Name is required.';
-  //   } else if (companyNameController.text.isEmpty) {
-  //     error = 'Company Name is required.';
-  //   } else if (emailController.text.isEmpty) {
-  //     error = 'Email is required.';
-  //   } else if (createPassController.text.isEmpty) {
-  //     error = 'Password is required.';
-  //   }
-  //   return error;
-  // }
 
   @override
   void onInit() {

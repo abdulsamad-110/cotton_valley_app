@@ -106,23 +106,9 @@ class CreateAccountview extends StatelessWidget {
                 width: 315.w,
                 title: 'Sign Up',
                 onPressed: () {
-                  String? error = controller.fieldValidation();
-                  if (error != null) {
-                    //   CommonFunctions.showMessage(
-                    //       title: "Error",
-                    //       // message: error,
-                    //       color: AppColors.redColor,
-                    //       msg: "");
-                    // } else {
-                    // CommonFunctions.showMessage(
-                    //     title: "Success",
-                    //     //message: "",
-                    //     msg: "Sign-up successful!",
-                    //     color: AppColors.redColor);
-                    controller.signupRequest();
-                    Get.offAll(() => const SigninView());
-                  }
-                },
+                  controller.signupRequest();
+               
+                 },
               ),
               SizedBox(
                 height: 10.h,

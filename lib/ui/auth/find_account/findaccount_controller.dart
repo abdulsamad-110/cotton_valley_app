@@ -14,14 +14,17 @@ class FindaccountController extends GetxController {
     final error = fieldValidation();
     if (error != null) {
       ScaffoldMessenger.of(Get.context!).showSnackBar(
-          CommonFunctions.customSnackBar(
-              title: error, color: AppColors.redColor));
+          CommonFunctions.showMessage(
+              title: "Error", msg: error, color: AppColors.redColor));
       return;
     }
     final data = await AuthServices.forgetPass(email: emailController.text);
     if (data != null) {
       print('forgetPass=====>');
-      Get.to(const OtpView());
+      Get.to(OtpView(
+        email: emailController.text,
+        isSignup: false,
+      ));
     }
     return null;
   }
@@ -31,8 +34,6 @@ class FindaccountController extends GetxController {
     String? error;
     if (emailController.text.isEmpty) {
       error = 'Email is required.';
-      // } else if (passwordController.text.isEmpty) {
-      //   error = 'Password is required.';
     }
     return error;
   }

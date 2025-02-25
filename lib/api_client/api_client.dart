@@ -117,15 +117,16 @@ class ApiClient {
         if (res.statusCode == 401 && endpoint != ApiConstants.logInEndpoint) {
           LocalStorage.remove(LocalStorageKeys.accessTokenKey);
           Get.offAll(const SigninView());
-          ScaffoldMessenger.of(Get.context!).showSnackBar(
-              CommonFunctions.showMessage(
+          ScaffoldMessenger.of(Get.context!)
+              .showSnackBar(CommonFunctions.showMessage(
                   title: 'You need to Login again to continue.',
                   color: AppColors.redColor,
                   //message: '',
-                   msg: ''));
+                  msg: ''));
           return;
         } else if (decodedBody != null && decodedBody is Map) {
-          errorDialog(decodedBody["detail"].toString());
+          // errorDialog(decodedBody["detail"].toString());
+          // errorDialog(decodedBody["email"][0].toString());
         } else if (decodedBody is List) {
         } else {
           errorDialog('An error occurred. Status code: ${res.statusCode}');

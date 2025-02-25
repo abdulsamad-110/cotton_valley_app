@@ -45,6 +45,7 @@ dependencies:
   carousel_slider:
   buttons_tabbar:
   country_picker:
+  flutter_flushbar:
   smooth_page_indicator:
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cotton_valley_app/ui/auth/change_password/change_passwordview.dart';
 import 'package:cotton_valley_app/ui/auth/otp/otpview_controller.dart';
 import 'package:cotton_valley_app/utils/app_colors.dart';
@@ -12,12 +14,17 @@ import '../widgets/auth_logo_widget.dart';
 import 'widgets/otp_input_row.dart';
 
 class OtpView extends StatelessWidget {
-  const OtpView({super.key});
+  final String email;
+  final bool isSignup;
+
+  const OtpView({super.key, required this.email, required this.isSignup});
 
   @override
   Widget build(BuildContext context) {
-    OtpviewController controller =Get.isRegistered<OtpviewController>() ? Get.find<OtpviewController>() :  Get.put(OtpviewController());
-    
+    OtpviewController controller = Get.isRegistered<OtpviewController>()
+        ? Get.find<OtpviewController>()
+        : Get.put(OtpviewController());
+
     return Scaffold(
       appBar: CustomAppBar(),
       body: Padding(
@@ -39,8 +46,9 @@ class OtpView extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
 
-              ///// OTP Input Row (Now Below Header)
+              ///// OTP Input Row 
               OtpInputRow(controller: controller),
+              //
               SizedBox(height: 20.h),
 
               ///// Verify Button
@@ -49,26 +57,9 @@ class OtpView extends StatelessWidget {
                 width: 315.w,
                 title: 'Verify',
                 onPressed: () {
-                  controller.otpVerify();
-                  // controller.
-                  // String? error = controller.validateOtp();
-
-                  // if (error != null) {
-                  //   CommonFunctions.showMessage(
-                  //     title: "Error",
-                  //     //message: error,
-                  //     color: AppColors.redColor, msg: error,
-                  //   );
-                  // } else {
-                  //   CommonFunctions.showMessage(
-                  //     title: "OTP Verified",
-                  //     // message: "Your OTP has been successfully verified.",
-                  //     color: Colors.green,
-                  //     msg: 'Your OTP has been successfully verified.',
-                  //   );
-
-                  //   Get.offAll(() => const ChangePasswordview());
-                  // }
+                  
+                    controller.otpVerify(email: email, isSignup: isSignup);
+                
                 },
               ),
             ],
