@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cotton_valley_app/ui/account_management/account_management_view.dart';
-import 'package:cotton_valley_app/ui/auth/booking_complete/booking_completeview.dart';
+import 'package:cotton_valley_app/ui/booking_complete/booking_completeview.dart';
 import 'package:cotton_valley_app/ui/auth/change_password/change_passwordview.dart';
-import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_planview.dart';
+import 'package:cotton_valley_app/ui/select_your_plan/selectyour_planview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';

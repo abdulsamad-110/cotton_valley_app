@@ -5,7 +5,7 @@ import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../bottom_sheets/sort_bottomsheet.dart';
+import '../../bottom_sheets/sort_bottomsheet.dart';
 
 class BookingCompleteView extends StatelessWidget {
   @override

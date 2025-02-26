@@ -1,5 +1,5 @@
-import 'package:cotton_valley_app/ui/auth/create_account/create_account_controller.dart';
-import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_planview.dart';
+import 'package:cotton_valley_app/ui/auth/sign_up/create_account_controller.dart';
+import 'package:cotton_valley_app/ui/select_your_plan/selectyour_planview.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

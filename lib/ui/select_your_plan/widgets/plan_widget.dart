@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/ui/auth/booking_complete/booking_completeview.dart';
+import 'package:cotton_valley_app/ui/booking_complete/booking_completeview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../utils/app_colors.dart';
-import '../../../../widgets/mycustom_button.dart';
+import '../../../utils/app_colors.dart';
+import '../../../widgets/mycustom_button.dart';
 import '../selectyour_plancontroller.dart';
 
 class ChoosePlanWidget extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cotton_valley_app/ui/auth/select_your_plan/selectyour_plancontroller.dart';
-import 'package:cotton_valley_app/ui/auth/select_your_plan/widgets/plan_widget.dart';
+import 'package:cotton_valley_app/ui/select_your_plan/selectyour_plancontroller.dart';
+import 'package:cotton_valley_app/ui/select_your_plan/widgets/plan_widget.dart';
 import 'package:cotton_valley_app/widgets/custom_appbar.dart';
 import 'package:cotton_valley_app/widgets/mycustom_button.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 
 class SelectyourPlanview extends StatelessWidget {
   const SelectyourPlanview({super.key});
@@ -20,6 +20,7 @@ class SelectyourPlanview extends StatelessWidget {
         Get.put(SelectyourPlancontroller());
 
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       appBar: CustomAppBar(
         title: 'Select Your Plan',
       ),
@@ -28,22 +29,18 @@ class SelectyourPlanview extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            //SizedBox(height: 0.h),
-
             ///// Heading Text
             Text(
               "Your investment will be fully returned",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
             ),
-
+            //
             SizedBox(height: 20.h),
-
             ///// Widget
             ChoosePlanWidget(controller: controller),
-
+            //
             SizedBox(height: 20.h),
-
             ///// Dot Indicator
             Obx(
               () => AnimatedSmoothIndicator(
@@ -57,7 +54,6 @@ class SelectyourPlanview extends StatelessWidget {
                 ),
               ),
             ),
-            // SizedBox(height: 40.h),
           ],
         ),
       ),

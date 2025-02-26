@@ -1,4 +1,4 @@
-import 'package:cotton_valley_app/ui/auth/create_account/create_accountview.dart';
+import 'package:cotton_valley_app/ui/auth/sign_up/create_accountview.dart';
 import 'package:cotton_valley_app/ui/auth/find_account/find_accountview.dart';
 import 'package:cotton_valley_app/ui/auth/sign_in/signin_controller.dart';
 import 'package:cotton_valley_app/ui/auth/create/create_passwordview.dart';
